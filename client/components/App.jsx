@@ -10,8 +10,8 @@ function App (props) {
 
   return (
     <>
-      <div className='app'>
-        <h1 className='text-red-500'>Fullstack Boilerplate - with Fruits!</h1>
+      <div className='app '>
+        <h1 className='text-red-500'>Parks!</h1>
         <ul>
           {props.fruits.map(fruit => (
             <li key={fruit}>{fruit}</li>

@@ -13,7 +13,6 @@ function App (props) {
   }, [])
   const { isAuthenticated } = useAuth0()
 
-
   return (
     <>
       <div className='app '>

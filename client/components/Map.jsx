@@ -3,7 +3,7 @@ import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 // hard coded data to be used for position
-// const lat = [-36.877796186450325] 
+// const lat = [-36.877796186450325]
 // const lon = [174.78603054886526]
 
 export default function Map ({ addresses, coordinates }) {

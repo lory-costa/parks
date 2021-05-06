@@ -41,7 +41,7 @@ exports.seed = (knex) => {
           name: 'Auckland Domain',
           address: '20 Park Road, Grafton',
           lat: -36.85852261988833,
-          lon: 174.77567458m879017,
+          lon: 174.77567458879017,
           council_url: 'https://www.aucklandcouncil.govt.nz/parks-recreation/Pages/park-details.aspx?Location=126#about',
           description: 'Auckland Domain is our oldest park and one of the largest. Developed on 75 hectares around the cone of an extinct volcano. The tuff rings created by volcanic activity can be seen in the land contours and forms a natural amphitheatre.',
           image: './parkImages/aucklandDomain.jpg',

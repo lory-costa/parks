@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
       redirectUri={window.location.origin}
     >
       <Provider store={store}>
-    <Router>
-        <App />
-    </Router>
+        <Router>
+          <App />
+        </Router>
       </Provider>
     </Auth0Provider>,
 

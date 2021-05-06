@@ -4,8 +4,8 @@ exports.seed = (knex) => {
       return knex('parks').insert([
         {
           id: 1,
-          park_name: 'Dove-Myer Robinson Park',
-          park_address: '85-87 Gladstone Road, Parnell',
+          name: 'Dove-Myer Robinson Park',
+          address: '85-87 Gladstone Road, Parnell',
           lat: -36.85227602744005,
           lon: 174.78638750071374,
           council_url: 'https://www.aucklandcouncil.govt.nz/parks-recreation/Pages/park-details.aspx?Location=150',
@@ -21,8 +21,8 @@ exports.seed = (knex) => {
         },
         {
           id: 2,
-          park_name: 'Mt Hobson Path',
-          park_address: '229 Remuera Road, Remuera',
+          name: 'Mt Hobson Path',
+          address: '229 Remuera Road, Remuera',
           lat: -36.878829301557715,
           lon: 174.78919514280219,
           council_url: 'https://www.aucklandcouncil.govt.nz/parks-recreation/get-outdoors/aklpaths/Pages/path-detail.aspx?ItemId=394',
@@ -38,10 +38,10 @@ exports.seed = (knex) => {
         },
         {
           id: 3,
-          park_name: 'Auckland Domain',
-          park_address: '20 Park Road, Grafton',
+          name: 'Auckland Domain',
+          address: '20 Park Road, Grafton',
           lat: -36.85852261988833,
-          lon: 174.77567458879017,
+          lon: 174.77567458m879017,
           council_url: 'https://www.aucklandcouncil.govt.nz/parks-recreation/Pages/park-details.aspx?Location=126#about',
           description: 'Auckland Domain is our oldest park and one of the largest. Developed on 75 hectares around the cone of an extinct volcano. The tuff rings created by volcanic activity can be seen in the land contours and forms a natural amphitheatre.',
           image: './parkImages/aucklandDomain.jpg',
@@ -55,8 +55,8 @@ exports.seed = (knex) => {
         },
         {
           id: 4,
-          park_name: 'Harbutt Reserve',
-          park_address: '39 Harbutt Avenue, Mount Albert',
+          name: 'Harbutt Reserve',
+          address: '39 Harbutt Avenue, Mount Albert',
           lat: -36.887903380506295,
           lon: 174.70710812112182,
           council_url: 'https://www.aucklandcouncil.govt.nz/parks-recreation/Pages/park-details.aspx?Location=1472#about',
@@ -72,8 +72,8 @@ exports.seed = (knex) => {
         },
         {
           id: 5,
-          park_name: 'Onehunga Bay Reserve',
-          park_address: '71-91 Beachcroft Avenue, Onehunga',
+          name: 'Onehunga Bay Reserve',
+          address: '71-91 Beachcroft Avenue, Onehunga',
           lat: -36.92138378827514,
           lon: 174.7742681311679,
           council_url: 'https://www.aucklandcouncil.govt.nz/parks-recreation/Pages/park-details.aspx?Location=143',

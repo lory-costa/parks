@@ -1,25 +1,18 @@
 import React, { useEffect } from 'react'
+import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { fetchFruits } from '../actions'
 import Homepage from './Homepage'
+import Main from './Main'
 
 function App (props) {
-  useEffect(() => {
-    props.dispatch(fetchFruits())
-  }, [])
+  useEffect(() => {}, [])
 
   return (
     <>
-    <Homepage />
-      {/* <div className='app '>
-        <h1 className='text-red-500'>Parks!</h1>
-        <ul>
-          {props.fruits.map(fruit => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
-      </div> */}
+    <Route exact path='/' component={Homepage} />
+    <Route path='/main' component={Main} />
+    {/* <Route path='/park-details' component={ParkDetails} /> */}
     </>
   )
 }

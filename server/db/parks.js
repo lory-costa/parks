@@ -17,8 +17,8 @@ function getParkById (id, db = connection) {
     .select(
       'parks.description as description',
       'parks.id as id',
-      'park_name as name',
-      'park_address as address',
+      'name',
+      'address',
       'lat',
       'lon',
       'council_url as url',

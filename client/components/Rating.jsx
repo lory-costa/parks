@@ -6,12 +6,12 @@ function RatingChanged (newRating) {
   
   return(
     <div>
-    <ReactStars
-      count={5}
-      onChange={RatingChanged}
-      size={24}
-      activeColor="#ffd700"
-    />
+        <ReactStars
+        count={5}
+        onChange={RatingChanged}
+        size={24}
+        activeColor="#ffd700"
+        />
     </div> 
   )
 }

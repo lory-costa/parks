@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 
 import Homepage from './Homepage'
 import Main from './Main'
+import ParkDetails from './ParkDetails'
 
 function App (props) {
   useEffect(() => { }, [])
@@ -14,7 +15,7 @@ function App (props) {
     <>
       <Route exact path='/' component={Homepage} />
       <Route path='/main' component={Main} />
-      {/* <Route path='/park-details' component={ParkDetails} /> */}
+      <Route path='/park-details/:id' component={ParkDetails} />
     </>
   )
 }

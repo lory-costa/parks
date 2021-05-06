@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import Map from './Map'
+import Footer from './Footer'
 
 function Main () {
   return (
@@ -10,6 +11,12 @@ function Main () {
         <p className='text-xl'>Select a park for details</p>
       </div>
       <Map />
+      <div className='flex justify-center'>
+        <button className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 border border-green-700 rounded mt-10" >
+          Suggest a Park
+        </button>
+      </div>
+      <Footer />
     </div>
   )
 }

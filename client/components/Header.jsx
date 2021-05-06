@@ -6,10 +6,12 @@ import Nav from './Nav'
 
 function Header () {
   return (
-    <>
-      <Link to="/">PARKS</Link>
+    <div className='flex justify-between mt-8 mx-14' >
+      <div className='text-2xl py-2 px-4' >
+        <Link to="/">PARKS</Link>
+      </div>
       <Nav />
-    </>
+    </div>
   )
 }
 

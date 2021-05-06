@@ -1,12 +1,5 @@
-// const { generateHash } = require('../../auth')
-
 exports.seed = function (knex) {
   return knex('users').del()
-    // .then(() => Promise.all([
-    //   generateHash('admin'),
-    //   generateHash('member')
-    // ]))
-    // goes in .then => [adminHash, memberHash]
     .then(() =>
       knex('users').insert([
         { id: 1, first_name: 'Admin', last_name: 'The Great', username: 'admin', password: 'adminHash', is_admin: true, email: 'admin@emailz.co' },

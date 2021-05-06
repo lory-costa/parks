@@ -1,7 +1,7 @@
 exports.seed = function (knex) {
-  return knex('parkComments').del()
+  return knex('parkComment').del()
     .then(() =>
-      knex('parkComments').insert([
+      knex('parkComment').insert([
         { id: 1, user_id: '1', park_id: '1', comment: 'Nice Park!' },
         { id: 2, user_id: '2', park_id: '2', comment: 'Awesome!' },
         { id: 3, user_id: '2', park_id: '3', comment: 'Crappy place.' },

@@ -5,7 +5,7 @@ exports.up = function (knex) {
     table.string('last_name')
     table.string('username')
     table.string('password')
-    table.string('is_admin')
+    table.boolean('is_admin')
     table.string('email')
   })
 }

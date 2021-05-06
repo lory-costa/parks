@@ -12,7 +12,7 @@ export default function Nav () {
       <div>
         <button className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 border border-green-700 rounded'>
           <Link to="/">Home</Link>
-        </button>       
+        </button>
       </div>
     </div>
   )

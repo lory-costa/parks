@@ -28,18 +28,6 @@ router.get('/:id', (req, res) => {
     .then(foundPark => {
       // Create a deep copy of the park
       const park = JSON.parse(JSON.stringify(foundPark))
-      // if (!user.isAdmin) {
-      //   park.events.forEach(event => {
-      //     event.totalVolunteers = event.volunteers.length
-      //     event.isVolunteer = event.volunteers.some((v) => v.username === user.username)
-      //     delete event.volunteers
-      //   })
-      // } else {
-      //   park.events.forEach(event => {
-      //     event.totalVolunteers = event.volunteers.length
-      //     event.isVolunteer = event.volunteers.some((v) => v.username === user.username)
-      //   })
-      // }
       return res.json(park)
     })
     .catch((err) => {

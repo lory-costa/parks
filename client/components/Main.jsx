@@ -22,18 +22,18 @@ function Main () {
   return (
     <div className='flex flex-col'>
       <Header />
-      <div className='mt-20 mb-8 flex justify-center' >
-        <p className='text-xl'>Select a park for details</p>
+      <div className='absolute inset-x-0.5 top-16 flex justify-center' >
+        <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
       </div>
       <Map
         coordinates={parkCoordinates}
         addresses={addresses}
       />
-      <div className='flex justify-center'>
-        <button className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 border border-green-700 rounded mt-10" >
+      {/* <div className='flex justify-center'>
+        <button className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mt-4" >
           Suggest a Park
         </button>
-      </div>
+      </div> */}
       <Footer />
     </div>
   )

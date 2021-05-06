@@ -9,8 +9,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 // const addresses = '12 Morgan Street'
 export default function Map ({ addresses, coordinates }) {
   return (
-    <div className= 'w-96 ml-auto mr-auto mt-auto'>
-      <MapContainer className='h-96'
+    <MapContainer className="mt-5" style={{width: "100vw", height: "calc(100vh - 172px)"}}
         center={[-36.8666700, 174.7666700]}
         zoom={11}
         scrollWheelZoom={true}>
@@ -25,6 +24,5 @@ export default function Map ({ addresses, coordinates }) {
         </Marker>
 
       </MapContainer>
-    </div>
   )
 }

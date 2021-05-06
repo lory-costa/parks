@@ -39,6 +39,10 @@ Please refer to the documenation: https://tailwindcss.com/docs
 
 ## User interface (proposal)
 
+![Homepage](docs/home.png)
+![MapPage](docs/mapPage.png)
+![ParkDetails](docs/parkDetails.png)
+
 ## API routes (proposal)
 
 

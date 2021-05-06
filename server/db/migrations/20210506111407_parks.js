@@ -1,8 +1,8 @@
 exports.up = function (knex) {
   return knex.schema.createTable('parks', table => {
     table.increments('id')
-    table.string('park_name')
-    table.string('park_address')
+    table.string('name')
+    table.string('address')
     table.decimal('lat')
     table.decimal('lon')
     table.string('council_url')

@@ -44,8 +44,7 @@
     "knex": "^0.21.12",
     "leaflet": "^1.7.1",
     "pg": "^8.5.1",
-    "react-leaflet": "^3.1.0",
-    "superagent": "^6.1.0"
+    "react-leaflet": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.3",
@@ -70,6 +69,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sqlite3": "^5.0.0",
+    "superagent": "^6.1.0",
     "supertest": "6.0.1",
     "tailwindcss": "^2.1.2",
     "webpack": "5.9.0",

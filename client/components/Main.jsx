@@ -3,16 +3,18 @@ import Header from './Header'
 import Map from './Map'
 import Footer from './Footer'
 
-import { fetchParkLocations } from './MainHelper'
+import { getParkLocations } from './MainHelper'
 
 function Main () {
+  const [parkIds, setParkIds] = useState([])
   const [parkCoordinates, setParkCoordinates] = useState([])
   const [addresses, setAddresses] = useState([])
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
-    fetchParkLocations()
-      .then(({ parkCoords, addrs }) => {
+    getParkLocations()
+      .then(({ parkIds, parkCoords, addrs }) => {
+        setParkIds(parkIds)
         setParkCoordinates(parkCoords)
         setAddresses(addrs)
         return null
@@ -26,6 +28,7 @@ function Main () {
         <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
       </div>
       <Map
+        ids={parkIds}
         coordinates={parkCoordinates}
         addresses={addresses}
       />

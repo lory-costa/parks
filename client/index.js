@@ -9,7 +9,6 @@ import App from './components/App'
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
-
     <Auth0Provider
       domain="dev-zipxfr0g.us.auth0.com"
       clientId="3aihuOf7l5QiXbtKjZ2hPOjUjFIyaqCB"

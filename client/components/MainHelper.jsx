@@ -4,7 +4,8 @@ import { getParks } from '../apis/parks'
 export function fetchParkLocations () {
   return getParks()
     .then((res) => {
-      const { parks } = res.body
+      console.log(res)
+      const parks = res
       const parkCoords = parks.map(({ lat, lon }) => {
         return { lat, lon }
       })

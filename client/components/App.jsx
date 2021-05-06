@@ -3,9 +3,13 @@ import { connect } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import { fetchFruits } from '../actions'
+
 import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 import Profile from './Profile'
+
+import Homepage from './Homepage'
+
 
 function App (props) {
   useEffect(() => {
@@ -15,7 +19,8 @@ function App (props) {
 
   return (
     <>
-      <div className='app '>
+    <Homepage />
+      {/* <div className='app '>
         <h1 className='text-red-500'>Parks!</h1>
 
         {!isAuthenticated ? <LoginButton /> : < LogoutButton />}
@@ -25,7 +30,7 @@ function App (props) {
             <li key={fruit}>{fruit}</li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </>
   )
 }

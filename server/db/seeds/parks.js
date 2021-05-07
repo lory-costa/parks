@@ -85,7 +85,7 @@ exports.seed = (knex) => {
           sports_field: true,
           tramp: false,
           dog_walking: true,
-          approved: true
+          approved: false
         }
       ])
     })

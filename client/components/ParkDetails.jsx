@@ -40,11 +40,11 @@ function ParkDetails () {
         <div>
           <img src={image} alt="park image" width="500" height="600"/>
         </div>
-
-        <Comments />
-
-        <Footer />
       </div>
+
+      <Comments />
+
+      <Footer />
     </div>
   )
 }

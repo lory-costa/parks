@@ -35,7 +35,7 @@ function ParkDetails () {
       
       <Rating />
       
-      <Facilities playground={playground} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} />
+      <Facilities playground={playground} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
      
       <div> 
         <img src={image} alt="park image" width="500" height="600"/> 

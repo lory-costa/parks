@@ -28,7 +28,7 @@ function updateRating (updatedEvent, db = connection) {
       id: parkId,
       rating
     })
-    .then(() =>  getRatingById(id, db))
+    .then(() => getRatingById(id, db))
 }
 
 module.exports = {

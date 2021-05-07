@@ -8,8 +8,8 @@ module.exports = {
 
 function getToVisitByUserId (id, db = connection) {
   return db('toVisit')
-  .select('id', 'park_id as parkId', 'user_id as userId')
-  .where('user_id', id)
+    .select('id', 'park_id as parkId', 'user_id as userId')
+    .where('user_id', id)
 }
 
 function addParkToVisit (submission, db = connection) {

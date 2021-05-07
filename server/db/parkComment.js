@@ -40,6 +40,4 @@ function updateComment (updatedComment, db = connection) {
     })
 }
 
-// can be used for parks visited or wanting to visit:
-// attended: result.find(evt => evt.userId === volunteer.userId).attended ? result.find(evt => evt.userId === volunteer.userId).attended : false
 

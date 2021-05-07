@@ -8,14 +8,10 @@ const router = express.Router()
 module.exports = router
 
 router.post('/', (req, res) => {
-  const { parkComment, parkId } = req.body
-  const comment = { parkComment, id }
-  let createdComment = null
-  db.addComment(comment)
-    .then((comment) => {
-      createdComment = comment
-      return sendCommentNotifications(comment)
-    })
+  const { comment, parkId, userId } = req.body
+  const newComment = { comment, parkId, userId }
+  const createdComment = null
+  db.addComment(newComment)
     .then(() => {
       res.status(201).json(createdComment)
       return null
@@ -30,9 +26,9 @@ router.post('/', (req, res) => {
     })
 })
 
-router.patch('/:id', (req, res) => {
-  const { comment, parkId } = req.body
-  const updatedComment = { comment, id }
+router.patch('/', (req, res) => {
+  const { comment, parkId, id } = req.body
+  const updatedComment = { comment, parkId, id }
   db.updateComment(updatedComment)
     .then((comment) => {
       res.status(200).json(comment)
@@ -43,6 +39,23 @@ router.patch('/:id', (req, res) => {
       res.status(500).json({
         error: {
           title: 'Unable to update comment'
+        }
+      })
+    })
+})
+
+router.delete('/', (req, res) => {
+  const { id } = req.body
+  db.deleteComment({ id })
+    .then(() => {
+      res.sendStatus(200)
+      return null
+    })
+    .catch((err) => {
+      log(err.message)
+      res.status(500).json({
+        error: {
+          title: 'Unable to remove comment'
         }
       })
     })

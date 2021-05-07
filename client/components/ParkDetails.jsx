@@ -39,6 +39,7 @@ function ParkDetails () {
         </div
         <div> 
           <img src={image} alt="park image" width="500" height="600"/> 
+
         </div>
       </div>
       

@@ -1,3 +1,4 @@
+
 const connection = require('./connection')
 
 function getRatingByParkId (parkId, db = connection) {
@@ -28,7 +29,7 @@ function updateRating (updatedEvent, db = connection) {
       id: parkId,
       rating
     })
-    .then(() =>  getRatingById(id, db))
+    .then(() => getRatingById(id, db))
 }
 
 module.exports = {

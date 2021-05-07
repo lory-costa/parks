@@ -22,7 +22,7 @@ function ParkDetails () {
       })
   }, [])
 
- // console.log(park)
+  // console.log(park)
   const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
   console.log(sportsField)
   return (

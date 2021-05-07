@@ -7,7 +7,6 @@ const toVisitRoutes = require('./routes/toVisit')
 const ratingRoutes = require('./routes/rating')
 const favParksRoutes = require('./routes/favParks')
 
-
 const server = express()
 
 server.use(express.json())

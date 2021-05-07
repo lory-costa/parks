@@ -1,7 +1,6 @@
 import React from 'react'
 
 function Facilities (props) {
-
   const playground = props.playground
   const toilets = props.toilets
   const picnic = props.picnicSite

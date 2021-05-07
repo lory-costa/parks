@@ -1,0 +1,13 @@
+<svg id="Standard_icons" data-name="Standard icons" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d1d1b;
+      }
+    </style>
+  </defs>
+  <title>Icon_Picnic area</title>
+  <g id="Picnic_area_picnic_table" data-name="Picnic area; picnic table">
+    <path class="cls-1" d="M7,10H57v6H46l3.78,13H64v6H52l6.92,19H52L45,35H19L12,54H5l7-19H0V29H14.22L18,16H7Zm32,6H25L21,29H43Z"/>
+  </g>
+</svg>

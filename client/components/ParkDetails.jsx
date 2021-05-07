@@ -22,12 +22,12 @@ function ParkDetails () {
       })
   }, [])
 
+ // console.log(park)
   const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
-
+  console.log(sportsField)
   return (
     <div className='flex flex-col'>
       <Header />
-
       <div className='flex justify-between mt-10 mx-14'>
         <div className='flex justify-between w-80' >
           <div >

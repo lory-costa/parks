@@ -8,7 +8,7 @@ function Header () {
   return (
     <div className='flex justify-between mt-8 mx-14 items-center' >
       <div className='text-4xl' >
-        <Link to="/">PARKS</Link>
+        <Link to="/main">PARKS</Link>
       </div>
       <Nav />
     </div>

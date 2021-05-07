@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import Header from './Header'
-import Map from './Map'
-import Footer from './Footer'
+import Header from '../components/Header'
+import Map from '../components/Map'
+import Footer from '../components/Footer'
 
 import { getParkLocations } from './MainHelper'
 

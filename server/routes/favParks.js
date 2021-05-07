@@ -10,7 +10,7 @@ module.exports = router
 router.post('/', (req, res) => {
   const { parkId, userId } = req.body
   const favParks = { parkId, userId }
-  let updatedFavStatus = null
+  const updatedFavStatus = null
   db.addFavPark(favParks)
     .then(() => {
       res.status(201).json(updatedFavStatus)

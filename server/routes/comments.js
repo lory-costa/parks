@@ -27,8 +27,8 @@ router.post('/', (req, res) => {
 })
 
 router.patch('/:id', (req, res) => {
-  const { comment, parkId } = req.body
-  const updatedComment = { comment, id }
+  const { comment, parkId, userId } = req.body
+  const updatedComment = { comment, parkId, userId }
   db.updateComment(updatedComment)
     .then((comment) => {
       res.status(200).json(comment)
@@ -39,6 +39,23 @@ router.patch('/:id', (req, res) => {
       res.status(500).json({
         error: {
           title: 'Unable to update comment'
+        }
+      })
+    })
+})
+
+router.delete('/', (req, res) => {
+  const { id } = req.body
+  db.deleteComment({ id })
+    .then(() => {
+      res.sendStatus(200)
+      return null
+    })
+    .catch((err) => {
+      log(err.message)
+      res.status(500).json({
+        error: {
+          title: 'Unable to remove comment'
         }
       })
     })

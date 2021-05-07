@@ -41,3 +41,27 @@ router.get('/:id', (req, res) => {
       })
     })
 })
+
+router.patch('/', (req, res) => {
+    const { rating, parkId, id } = req.body
+    const updatedRating = { rating, parkId, id }
+    db.updateRating(updatedRating)
+      .then((rating) => {
+        res.status(200).json(rating)
+        return null
+      })
+      .catch((err) => {
+        log(err.message)
+        res.status(500).json({
+          error: {
+            title: 'Unable to update rating'
+          }
+        })
+      })
+  })
+
+//   router.delete('/', (req, res) => {
+//     const { id } = req.body
+//     db.deleteRating({ id })
+
+//   })

@@ -1,22 +1,27 @@
 import React from 'react'
+import ReactStars from 'react-rating-stars-component'
 
-function Comments () {
+function Comments (props) {
+  const comments = props.comments
   return (
-    <div className='mt-8 mx-14 bg-green-100' >
-      <h3 className='text-xl'>Comments</h3>
-      <br/>
-      <h4 className='text-lg' >Title</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt rem placeat nulla doloribus quas. Odit sit, hic fugit similique id saepe eveniet modi. Sit, ratione iure consectetur ipsam sapiente ullam.</p>
-      <br/>
-      <h4 className='text-lg' >Title</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt rem placeat nulla doloribus quas. Odit sit, hic fugit similique id saepe eveniet modi. Sit, ratione iure consectetur ipsam sapiente ullam.</p>
-      <br/>
-      <h4 className='text-lg' >Title</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt rem placeat nulla doloribus quas. Odit sit, hic fugit similique id saepe eveniet modi. Sit, ratione iure consectetur ipsam sapiente ullam.</p>
-      <br/>
-      <h4 className='text-lg' >Title</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt rem placeat nulla doloribus quas. Odit sit, hic fugit similique id saepe eveniet modi. Sit, ratione iure consectetur ipsam sapiente ullam.</p>
-      <br/>
+    <div className='mt-8 mx-14'>
+      <h3 className='text-xl mb-4 text-green-700'>Comments</h3>
+      <ul>
+        {comments.map(comment => (
+          <div>
+            <div className='flex flex-col lg:flex-row' >
+              <h4 className='text-lg mr-4'>{comment.userId}</h4>
+              <ReactStars
+                edit={false}
+                size={20}
+                value={4}
+                activeColor="#ffd700"
+              />
+            </div>
+            <p className='mb-3' >{comment.comment}</p>
+          </div>
+        ))}
+      </ul>
     </div>
   )
 }

@@ -22,8 +22,8 @@ function deleteComment (submission, db = connection) {
 
 function getCommentsByParkId (parkId, db = connection) {
   return db('parkComment')
-  .select('id', 'park_id as parkId', 'user_id as userId', 'comment')
-  .where('park_id', parkId)
+    .select('id', 'park_id as parkId', 'user_id as userId', 'comment')
+    .where('park_id', parkId)
 }
 
 // function updateComment (updatedEvent, db = connection) {

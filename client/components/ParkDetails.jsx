@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 // import { useSelector } from 'react-redux'
 
 import Header from './Header'
+import Rating from './Rating'
+import Facilities from './Facilities'
+import Comments from './Comments'
 import Footer from './Footer'
 
 import { getPark } from './ParkDetailsHelper'
@@ -24,35 +27,23 @@ function ParkDetails () {
   return (
     <div className='flex flex-col'>
       <Header />
-      <div>
-        <h1> {name}</h1>
-        <p>Address: {address}</p>
-      </div>
-      <div>
-        Ratings
-      </div>
-      <div>
-        <h3>Facilities</h3>
-        <ul>
-          <li>{playground}</li>
-          <li>{toilets}</li>
-          <li>{picnicSite}</li>
-          <li>{sportsField}</li>
-          <li>{tramp}</li>
-          <li>{dogWalking}</li>
-        </ul>
-        <p>More information: {url}</p>
-      </div>
-      <div> <img src={image} alt="park image" width="500" height="600"/> </div>
-      <div>
-        <div>
-
-        </div>
-        <div>
-
-          <h3>Comments</h3>
+      
+      <div className='flex justify-between mt-10 mx-14'>
+        <div className='flex justify-between w-80' >
+          <div >
+            <h1 className='text-2xl'>{name}</h1>
+            <p>{address}</p>
+            <Facilities playground={playground} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
+          </div>
+          <Rating />
+        </div
+        <div> 
+          <img src={image} alt="park image" width="500" height="600"/> 
         </div>
       </div>
+      
+      <Comments />
+      
       <Footer />
     </div>
   )

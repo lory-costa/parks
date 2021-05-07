@@ -1,16 +1,28 @@
 const connection = require('./connection')
+// const { getParkById } = require('./parks');
 
-function getRatingByUserId (db = connection) {
-    return db ('rating').select()
+function getRatingByParkId (parkId, db = connection) {
+  return db('rating')
+    .where('park_id', parkId)
+    .select(
+      'id',
+      'user_id as userId',
+      'park_id as parkId',
+      'rating'
+    )
 }
 
+function addRating (newRating, db = connection) {
+  const { parkId, userId, rating } = newRating
+  return db('rating')
+    .insert({
+      park_id: parkId,
+      user_id: userId,
+      rating
+    })
+}
 
 module.exports = {
-  getRating
+  getRatingByParkId,
+  addRating
 }
-
-const total = 0;
-    for(const i = 0; i < rating.length; i++) {
-    total += grades[i];
-}
-var avg = total / grades.length;

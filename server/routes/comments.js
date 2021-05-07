@@ -10,7 +10,7 @@ module.exports = router
 router.post('/', (req, res) => {
   const { comment, parkId, userId } = req.body
   const newComment = { comment, parkId, userId }
-  let createdComment = null
+  const createdComment = null
   db.addComment(newComment)
     .then(() => {
       res.status(201).json(createdComment)

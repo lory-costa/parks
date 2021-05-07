@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-// import { useSelector } from 'react-redux'
 
 import Header from './Header'
 import Rating from './Rating'
@@ -8,11 +7,13 @@ import Facilities from './Facilities'
 import Comments from './Comments'
 import Footer from './Footer'
 
-import { getPark } from './ParkDetailsHelper'
+import { getPark, getComments } from './ParkDetailsHelper'
 
 function ParkDetails () {
   const { id } = useParams()
   const [park, setPark] = useState([])
+  const [comments, setComments] = useState([])
+  const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
 
   useEffect(() => {
     getPark(id)
@@ -20,29 +21,34 @@ function ParkDetails () {
         setPark(park)
         return null
       })
+
+    getComments(id)
+      .then((comments) => {
+        setComments(comments)
+        return null
+      })
   }, [])
 
- // console.log(park)
-  const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
-  console.log(sportsField)
   return (
     <div className='flex flex-col'>
       <Header />
-      <div className='flex justify-between mt-10 mx-14'>
-        <div className='flex justify-between w-80' >
-          <div >
-            <h1 className='text-2xl'>{name}</h1>
+      
+      <div style={{minHeight: 'calc(100vh - 172px)'}}>
+        <div className='flex flex-col flex-col-reverse lg:flex-row justify-between mt-10 mx-14'>
+          <div className='w-full lg:w-1/2' >
+            <div className='flex flex-col lg:flex-row'>
+              <h1 className='text-2xl mr-4 text-green-700'>{name}</h1>
+              <Rating />
+            </div>
             <p>{address}</p>
             <Facilities playground={playground} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
           </div>
-          <Rating />
+          <div className='mb-4 lg:mb-0 lg:w-1/2'>
+            <img src={image} alt="park image" width="100%" height="600"/>
+          </div>
         </div>
-        <div>
-          <img src={image} alt="park image" width="500" height="600"/>
-        </div>
+        <Comments comments={comments} />
       </div>
-
-      <Comments />
 
       <Footer />
     </div>

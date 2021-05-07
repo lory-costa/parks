@@ -2,7 +2,7 @@ import ReactStars from "react-rating-stars-component";
 import React from "react";
 
 function RatingChanged (newRating) {
-  console.log(newRating);
+  //console.log(newRating);
   
   return(
     <div>

@@ -20,9 +20,9 @@ function addComment (newComment, db = connection) {
 }
 
 function deleteComment (submission, db = connection) {
-  const { userId, commentId } = submission
+  const { id } = submission
   return db('parkComment')
-    .where({ user_id: userId, comment_id: commentId })
+    .where({ id: id })
     .delete()
 }
 
@@ -32,15 +32,16 @@ function getCommentsByParkId (id, db = connection) {
   .where('park_id', id)
 }
 
-// function updateComment (updatedEvent, db = connection) {
-//   const { id, comment } = updatedComment
+// function updateComment (updatedComment, db = connection) {
+//   const { comment, parkId, userId } = updatedComment
 //   return db('parkComment').where('id', id)
 //     .update({
-//       id: parkId,
+//       park_id: parkId,
+//       user_id: userId,
 //       comment
 //     })
-//     .then(() => getCommentById(id, db))
 // }
+
 // can be used for parks visited or wanting to visit:
 // attended: result.find(evt => evt.userId === volunteer.userId).attended ? result.find(evt => evt.userId === volunteer.userId).attended : false
-// }
+

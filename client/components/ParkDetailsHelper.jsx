@@ -7,7 +7,6 @@ export function getPark (id, consume = requestor) {
   // const { id } = useParams()
   return consume(`/park/${id}`)
     .then((res) => {
-      // console.log(res.body)
       const park = res.body
       return {
         name: park.name,

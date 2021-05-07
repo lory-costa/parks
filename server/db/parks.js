@@ -37,7 +37,6 @@ function getParkById (id, db = connection) {
       // 'rating.rating'
     )
     .then((result) => {
-      console.log(result)
       const park = result[0]
       return {
         id: park.id,

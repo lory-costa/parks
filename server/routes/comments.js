@@ -65,17 +65,6 @@ router.get('/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getCommentsByParkId(id)
     .then((comment) => {
-      // const { id, parkId, parkName, parkAddress, parkComment } = comment
-      // const commentResponse = { id, parkId, parkName, parkAddress }
-
-      // if (req.user) {
-      //   if (req.user.isAdmin) {
-      //     commentResponse.members = members
-      //   } else {
-      //     commentResponse.isMember = members.some((v) => v.userId === req.user.id)
-      //   }
-      // }
-
       res.json(comment)
       return null
     })

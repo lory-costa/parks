@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 
 import Homepage from './pages/Homepage'
 import Main from './pages/Main'
+import Admin from './pages/Admin'
 import ParkDetails from './pages/ParkDetails'
 
 function App (props) {
@@ -15,6 +16,7 @@ function App (props) {
     <>
       <Route exact path='/' component={Homepage} />
       <Route path='/main' component={Main} />
+      <Route path='/admin' component={Admin} />
       <Route path='/park-details/:id' component={ParkDetails} />
     </>
   )

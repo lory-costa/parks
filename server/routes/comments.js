@@ -26,9 +26,9 @@ router.post('/', (req, res) => {
     })
 })
 
-router.patch('/:id', (req, res) => {
-  const { comment, parkId, userId } = req.body
-  const updatedComment = { comment, parkId, userId }
+router.patch('/', (req, res) => {
+  const { comment, parkId, id } = req.body
+  const updatedComment = { comment, parkId, id }
   db.updateComment(updatedComment)
     .then((comment) => {
       res.status(200).json(comment)

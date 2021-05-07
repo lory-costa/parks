@@ -2,65 +2,44 @@ const connection = require('./connection')
 
 module.exports = {
   addComment,
-  deleteComment
-  // getCommentById,
-  // updateComment
+  deleteComment,
+  getCommentsByParkId,
+  updateComment
 
 }
 
-function addComment (comment, db = connection) {
+function addComment (newComment, db = connection) {
+  const { parkId, userId, comment } = newComment
   return db('parkComment')
-    .insert(comment)
+    .insert({
+      park_id: parkId,
+      user_id: userId,
+      comment
+    })
 }
 
 function deleteComment (submission, db = connection) {
-  const { userId, commentId } = submission
+  const { id } = submission
   return db('parkComment')
-    .where({ user_id: userId, comment_id: commentId })
+    .where({ id: id })
     .delete()
 }
 
-// function getCommentById (id, db = connection) {
-//   return db('parkComment')
-//     .where('parkComment.id', id)
-//     .leftJoin('users', 'parkComment.user_id', 'users.id')
-//     .leftJoin('parks', 'parkComment.park_id', 'parks.id')
-//     .select(
-//       'name',
-//       'user_id',
-//       'park_id',
-//       'parkComment.id as id',
-//       'parkComment.park_id as parkId',
-//       'parkComment.comment',
-//       'user_id as userId',
-//       'username',
-//       'first_name',
-//       'last_name'
-//     )
-//     .then(result => {
-//       const comment = result[0]
-//       return {
-//         id: comment.id,
-//         parkId: comment.parkId,
-//         comments: !park.parkCommentId ? [] : result.map((comment) => {
-//           return {
-//             id: comment.commentId,
-//             comment: comment.comment
-//           }
-//         })
-//       }
-//     })
-// }
+function getCommentsByParkId (id, db = connection) {
+  return db('parkComment')
+    .select('id', 'park_id as parkId', 'user_id as userId', 'comment')
+    .where('park_id', id)
+}
 
-// function updateComment (updatedEvent, db = connection) {
-//   const { id, comment } = updatedComment
-//   return db('parkComment').where('id', id)
-//     .update({
-//       id: parkId,
-//       comment
-//     })
-//     .then(() => getCommentById(id, db))
-// }
+function updateComment (updatedComment, db = connection) {
+  const { comment, parkId, id } = updatedComment
+  return db('parkComment')
+    .where('id', id)
+    .update({
+      comment
+    })
+}
 
 // can be used for parks visited or wanting to visit:
 // attended: result.find(evt => evt.userId === volunteer.userId).attended ? result.find(evt => evt.userId === volunteer.userId).attended : false
+

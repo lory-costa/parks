@@ -13,7 +13,7 @@ function getParkById (id, db = connection) {
   return db('parks')
     .where('parks.id', id)
     .leftJoin('parkComment', 'parks.id', 'parkComment.park_id')
-    .leftJoin('rating', 'parks.id', 'rating.park_id')
+    // .leftJoin('rating', 'parks.id', 'rating.park_id')
     .select(
       'parks.description as description',
       'parks.id as id',
@@ -31,9 +31,12 @@ function getParkById (id, db = connection) {
       'approved',
       'parkComment.id as parkCommentId',
       'parkComment.comment',
-      'rating.rating'
+      'parkComment.user_id'
+      // 'rating.park_id as ratingId',
+      // 'rating.rating'
     )
     .then((result) => {
+      console.log(result)
       const park = result[0]
       return {
         id: park.id,
@@ -52,12 +55,19 @@ function getParkById (id, db = connection) {
         approved: park.approved,
         comments: !park.parkCommentId ? [] : result.map((comment) => {
           return {
-            id: comment.commentId,
-            // member: comment.
+            id: comment.parkCommentId,
+            user: comment.user_id,
             comment: comment.comment
           }
-        }),
-        rating: 5
+        })
+        // ,
+        // rating: !park.ratingId ? [] : result.map((rate) =>
+        // {
+        //   return {
+        //     id: rate.id,
+        //     rate: rate.rating
+        //   }
+        // })
       }
     })
 }

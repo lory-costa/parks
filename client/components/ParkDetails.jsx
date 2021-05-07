@@ -22,27 +22,28 @@ function ParkDetails () {
       })
   }, [])
 
+ // console.log(park)
   const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
-
+  console.log(sportsField)
   return (
     <div className='flex flex-col'>
       <Header />
-      
+
       <div className='park-details' >
         <h1>{name}</h1>
         <p>Address: {address}</p>
       </div>
-      
+
       <Rating />
-      
-      <Facilities playground={playground} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} />
-     
-      <div> 
-        <img src={image} alt="park image" width="500" height="600"/> 
+
+      <Facilities playground={playground} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
+
+      <div>
+        <img src={image} alt="park image" width="500" height="600" />
       </div>
-      
+
       <Comments />
-      
+
       <Footer />
     </div>
   )

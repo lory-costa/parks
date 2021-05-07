@@ -26,6 +26,7 @@ function getParkById (id, db = connection) {
       'playground',
       'picnic_site',
       'sports_field',
+      'toilets',
       'tramp',
       'dog_walking',
       'approved',
@@ -50,6 +51,7 @@ function getParkById (id, db = connection) {
         playGround: park.playground,
         picnicSite: park.picnic_site,
         sportsField: park.sports_field,
+        toilets: park.toilets,
         tramp: park.tramp,
         dogWalking: park.dog_walking,
         approved: park.approved,
@@ -61,7 +63,7 @@ function getParkById (id, db = connection) {
           }
         })
         // ,
-        // rating: !park.ratingId ? [] : result.map((rate) => 
+        // rating: !park.ratingId ? [] : result.map((rate) =>
         // {
         //   return {
         //     id: rate.id,

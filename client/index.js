@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <Auth0Provider
       domain="dev-zipxfr0g.us.auth0.com"
       clientId="3aihuOf7l5QiXbtKjZ2hPOjUjFIyaqCB"
-      redirectUri={window.location.origin}
+      redirectUri='http://localhost:3000/Main'
     >
       <Provider store={store}>
         <Router>

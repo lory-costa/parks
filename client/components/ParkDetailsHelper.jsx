@@ -1,28 +1,29 @@
-import { setParks } from '../actions/parks'
-import { getParks } from '../apis/parks'
+// import { setParks } from '../actions/parks'
+// import { useParams } from 'react-router-dom'
+import requestor from '../consume'
+// import { dispatch } from '../store'
 
-export function fetchParks () {
-  return dispatch => {
-    return getParks()
-      .then((res) => {
-        const park = res.body
-        dispatch(setParks({
-          name: park.park_name,
-          address: park.park_address,
-          url: park.council_url,
-          image: park.image,
-          playground: park.playground,
-          toilets: park.toilets,
-          picnic_site: park.picnic_site,
-          sports_field: park.sports_field,
-          tramp: park.tramp,
-          dog_walking: park.dog_walking,
-          approved: park.approved
-        }))
-        return null
-      })
-      .catch((error) => {
-        console.log(error.message)
-      })
-  }
+export function getPark (id, consume = requestor) {
+  // const { id } = useParams()
+  return consume(`/park/${id}`)
+    .then((res) => {
+      console.log(res)
+      const park = res.body
+      return {
+        name: park.name,
+        address: park.address,
+        url: park.council_url,
+        image: park.image,
+        playground: park.playground,
+        toilets: park.toilets,
+        picnicSite: park.picnic_site,
+        sportsField: park.sports_field,
+        tramp: park.tramp,
+        dogWalking: park.dog_walking,
+        approved: park.approved
+      }
+    })
+    .catch((error) => {
+      console.log(error.message)
+    })
 }

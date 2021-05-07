@@ -1,5 +1,4 @@
 const connection = require('./connection')
-// const { getParkById } = require('./parks');
 
 function getRatingByParkId (parkId, db = connection) {
   return db('rating')
@@ -22,7 +21,18 @@ function addRating (newRating, db = connection) {
     })
 }
 
+function updateRating (updatedEvent, db = connection) {
+  const { parkId, rating } = updatedRating
+  return db('rating').where('parkId', parkId)
+    .update({
+      id: parkId,
+      rating
+    })
+    .then(() => getRatingById(id, db))
+}
+
 module.exports = {
   getRatingByParkId,
-  addRating
+  addRating,
+  updateRating
 }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Header from './Header'
-import Map from './Map'
-import Footer from './Footer'
+
+import Header from '../components/Header'
+import Map from '../components/Map'
+import Footer from '../components/Footer'
 
 import { getParkLocations } from './MainHelper'
 
@@ -24,7 +25,7 @@ function Main () {
   return (
     <div className='flex flex-col'>
       <Header />
-      <div className='absolute inset-x-0.5 top-16 flex justify-center' >
+      <div className='absolute inset-x-0.5 top-14 flex justify-center' >
         <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
       </div>
       <Map
@@ -32,11 +33,6 @@ function Main () {
         coordinates={parkCoordinates}
         addresses={addresses}
       />
-      {/* <div className='flex justify-center'>
-        <button className="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mt-4" >
-          Suggest a Park
-        </button>
-      </div> */}
       <Footer />
     </div>
   )

@@ -8,14 +8,10 @@ const router = express.Router()
 module.exports = router
 
 router.post('/', (req, res) => {
-  const { parkComment, parkId } = req.body
-  const comment = { parkComment, id }
+  const { comment, parkId, userId } = req.body
+  const newComment = { comment, parkId, userId }
   let createdComment = null
-  db.addComment(comment)
-    .then((comment) => {
-      createdComment = comment
-      return sendCommentNotifications(comment)
-    })
+  db.addComment(newComment)
     .then(() => {
       res.status(201).json(createdComment)
       return null

@@ -7,19 +7,18 @@ export function getPark (id, consume = requestor) {
   // const { id } = useParams()
   return consume(`/park/${id}`)
     .then((res) => {
-      //console.log(res)
       const park = res.body
       return {
         name: park.name,
         address: park.address,
-        url: park.council_url,
+        url: park.url,
         image: park.image,
-        playground: park.playground,
+        playground: park.playGround,
         toilets: park.toilets,
-        picnicSite: park.picnic_site,
-        sportsField: park.sports_field,
+        picnicSite: park.picnicSite,
+        sportsField: park.sportsField,
         tramp: park.tramp,
-        dogWalking: park.dog_walking,
+        dogWalking: park.dogWalking,
         approved: park.approved
       }
     })

@@ -26,6 +26,7 @@ function getParkById (id, db = connection) {
       'playground',
       'picnic_site',
       'sports_field',
+      'toilets',
       'tramp',
       'dog_walking',
       'approved',
@@ -36,7 +37,6 @@ function getParkById (id, db = connection) {
       // 'rating.rating'
     )
     .then((result) => {
-      console.log(result)
       const park = result[0]
       return {
         id: park.id,
@@ -50,6 +50,7 @@ function getParkById (id, db = connection) {
         playGround: park.playground,
         picnicSite: park.picnic_site,
         sportsField: park.sports_field,
+        toilets: park.toilets,
         tramp: park.tramp,
         dogWalking: park.dog_walking,
         approved: park.approved,

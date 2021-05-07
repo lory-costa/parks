@@ -2,7 +2,7 @@ import ReactStars from 'react-rating-stars-component'
 import React from 'react'
 
 function RatingChanged (newRating) {
-  return(
+  return (
     <div>
       <ReactStars
         count={5}

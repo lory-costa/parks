@@ -39,5 +39,3 @@ function updateComment (updatedComment, db = connection) {
       comment
     })
 }
-
-

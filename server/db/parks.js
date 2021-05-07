@@ -61,7 +61,7 @@ function getParkById (id, db = connection) {
           }
         })
         // ,
-        // rating: !park.ratingId ? [] : result.map((rate) => 
+        // rating: !park.ratingId ? [] : result.map((rate) =>
         // {
         //   return {
         //     id: rate.id,

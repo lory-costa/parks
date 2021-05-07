@@ -33,7 +33,8 @@ function getCommentsByParkId (id, db = connection) {
 
 function updateComment (updatedComment, db = connection) {
   const { comment, parkId, id } = updatedComment
-  return db('parkComment').where('id', id)
+  return db('parkComment')
+    .where('id', id)
     .update({
       comment
     })

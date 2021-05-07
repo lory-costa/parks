@@ -49,7 +49,6 @@ function ParkDetails () {
 
         </div>
         <div>
-          
 
           <h3>Comments</h3>
         </div>

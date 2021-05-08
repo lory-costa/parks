@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
       domain="dev-zipxfr0g.us.auth0.com"
       clientId="3aihuOf7l5QiXbtKjZ2hPOjUjFIyaqCB"
       redirectUri='http://localhost:3000/Main'
+      useRefreshTokens={true}
+      // audience={}
     >
       <Provider store={store}>
         <Router>

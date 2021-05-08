@@ -2,14 +2,14 @@ import React from 'react'
 import ReactStars from 'react-rating-stars-component'
 
 export default function CommentItem ({ userComment }) {
-  const { userId, comment } = userComment
-  return <div className='border-b mb-4' >
+  const { userId, comment, rating } = userComment
+  return <div>
     <div className='flex flex-col lg:flex-row' >
       <h4 className='text-lg mr-4'>{userId}</h4>
       <ReactStars
         edit={false}
         size={14}
-        value={4}
+        value={rating}
         color='#BBB'
         activeColor='#ffd700'
       />

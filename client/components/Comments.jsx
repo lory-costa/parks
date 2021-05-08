@@ -1,15 +1,20 @@
-import React, { useState } from 'react'
-//import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { addComment, fetchComments } from '../actions/comments'
+
 import CommentItem from './CommentItem'
 import Rating from './Rating'
 
-//import { addComment } from '../actions/comments'
-import { postComments } from '../pages/ParkDetailsHelper'
-
 function Comments (props) {
-  const comments = props.comments
+  const comments = useSelector(globalState => globalState.comments)
+  const parkId = props.parkId
   const [ newComment, setNewComment ] = useState('')
- //const dispatch = useDispatch()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchComments(parkId))
+  }, [])
 
   const handleChange = (e) => {
     setNewComment(e.target.value)
@@ -17,7 +22,7 @@ function Comments (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postComments(newComment);
+    dispatch(addComment(newComment, parkId, 1)); // TODO: Pass a real userId
     setNewComment('')
   }
 

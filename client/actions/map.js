@@ -1,6 +1,8 @@
 import { getPark } from '../apis/map'
 
 export const SET_MAP = 'SET_MAP'
+export const FILTER_MAP = 'FILTER_MAP'
+export const REMOVE_FILTER = 'REMOVE_FILTER'
 
 export function setMap (map) {
   return {
@@ -19,12 +21,16 @@ export function fetchMap () {
   }
 }
 
-// export function addComment (comment, parkId, userName, rating) {
-//   return (dispatch) => {
-//     return postComment(comment, parkId, userName, rating)
-//       .then(() => {
-//         dispatch(fetchComments(parkId))
-//         return null
-//       })
-//   }
-// }
+export function filterMap (filter) {
+  return {
+    type: FILTER_MAP,
+    filter
+  }
+}
+
+export function removeFilter (filter) {
+  return {
+    type: REMOVE_FILTER,
+    filter
+  }
+}

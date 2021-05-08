@@ -6,13 +6,14 @@ import { addComment, fetchComments } from '../actions/comments'
 import CommentItem from './CommentItem'
 import Rating from './Rating'
 
-function Comments () {
+function Comments (props) {
   const comments = useSelector(globalState => globalState.comments)
+  const parkId = props.parkId
   const [ newComment, setNewComment ] = useState('')
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchComments(1))
+    dispatch(fetchComments(parkId))
   }, [])
 
   const handleChange = (e) => {
@@ -21,7 +22,7 @@ function Comments () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addComment(newComment, 1, 1)); // TODO: Pass the right params
+    dispatch(addComment(newComment, parkId, 1)); // TODO: Pass a real userId
     setNewComment('')
   }
 

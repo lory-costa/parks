@@ -13,7 +13,6 @@ import { getPark, getComments } from './ParkDetailsHelper'
 function ParkDetails () {
   const { id } = useParams()
   const [park, setPark] = useState([])
-  const [comments, setComments] = useState([])
   const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
 
   useEffect(() => {
@@ -21,15 +20,6 @@ function ParkDetails () {
     getPark(id)
       .then((park) => {
         setPark(park)
-        return null
-      })
-  }, [])
-
-  useEffect(() => {
-    // eslint-disable-next-line promise/catch-or-return
-    getComments(id)
-      .then((comments) => {
-        setComments(comments)
         return null
       })
   }, [])
@@ -52,7 +42,7 @@ function ParkDetails () {
             <img src={image} alt="park image" width="100%" height="600" />
           </div>
         </div>
-        <Comments comments={comments} />
+        <Comments parkId={id} />
       </div>
       <AddPark />
 

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { toggleParkApprovedStatus } from './AdminHelper'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -19,6 +21,18 @@ function Admin () {
       })
   }, [])
 
+  const { id } = useParams()
+
+  function clickHandler () {
+    return toggleParkApprovedStatus(id, isApproved)
+      .then((wasSuccessful) => {
+        if (wasSuccessful) {
+          setApprovedParks(!isApproved)
+        }
+        return null
+      })
+  }
+
   return (
     <div className='flex flex-col'>
       <Header />
@@ -28,13 +42,13 @@ function Admin () {
       <div>
         <h3>Approved Parks</h3>
         <ul>
-          {approvedParks.map(park => <li>{park.name}------<button>toggle</button></li>)}
+          {approvedParks.map(park => <li>{park.name}------<button onClick={clickHandler}>Toggle Approved</button></li>)}
         </ul>
 
         <h3>Pending Parks</h3>
         <ul>
 
-          {pendingParks.map(park => <li>{park.name}------<button>toggle</button></li>)}
+          {pendingParks.map(park => <li>{park.name}------<button onClick={clickHandler}>Toggle Approved</button></li>)}
         </ul>
       </div>
       <Footer />

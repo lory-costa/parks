@@ -1,4 +1,3 @@
-
 const connection = require('./connection')
 
 function getRatingByParkId (parkId, db = connection) {

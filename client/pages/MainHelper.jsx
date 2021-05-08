@@ -4,7 +4,6 @@ export function getParkLocations (consume = requestor) {
   return consume('/park')
     .then((res) => {
       const parks = res.body.parks.filter(park => park.approved === 1)
-      console.log(parks)
       const parkIds = parks.map(({ id }) => {
         return id
       })

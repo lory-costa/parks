@@ -8,8 +8,8 @@ module.exports = {
 
 function getFavByUserId (id, db = connection) {
   return db('favParks')
-  .select('id', 'park_id as parkId', 'user_id as userId')
-  .where('user_id', id)
+    .select('id', 'park_id as parkId', 'user_id as userId')
+    .where('user_id', id)
 }
 
 function addFavPark (submission, db = connection) {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-export default function Map ({ ids, addresses, coordinates }) {
+export default function Map ({ ids, addresses, coordinates, names, images }) {
   return (
     <MapContainer className="mt-5" style={{ width: '100vw', height: 'calc(100vh - 172px)' }}
       center={[-36.8826700, 174.7666700]}
@@ -15,7 +15,10 @@ export default function Map ({ ids, addresses, coordinates }) {
           position={[location.lat, location.lon]}
         >
           <Popup>
-            <Link to={`/park-details/${ids[i]}`}>{addresses[i]}</Link>
+            <div><Link to={`/park-details/${ids[i]}`}>{names[i]}</Link></div>
+            <div>{addresses[i]}</div>
+            <img src={images[i]}></img>
+            {/* <Link to={`/park-details/${ids[i]}`}>{parkName[i]}</Link> */}
           </Popup>
         </Marker>
       })}

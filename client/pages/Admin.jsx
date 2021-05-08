@@ -7,16 +7,13 @@ import ParkListingItem from '../components/ParkListingItem'
 import { getParkLocations } from './AdminHelper'
 
 function Admin () {
-  const [approvedParks, setApprovedParks] = useState([])
-  const [pendingParks, setPendingParks] = useState([])
+  const [parks, setParks] = useState([])
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
     getParkLocations()
-      .then(({ approvedParks, pendingParks }) => {
-        setApprovedParks(approvedParks)
-        console.log(approvedParks)
-        setPendingParks(pendingParks)
+      .then(({ parks }) => {
+        setParks(parks)
         return null
       })
   }, [])
@@ -28,14 +25,9 @@ function Admin () {
         <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
       </div>
       <div>
-        <h3>Approved Parks</h3>
+        <h3>Parks</h3>
         <ul>
-          {approvedParks.map(park => <ParkListingItem key={park.id} parkListing={park} />)}
-        </ul>
-
-        <h3>Pending Parks</h3>
-        <ul>
-          {pendingParks.map(park => <ParkListingItem key={park.id} parkListing={park} />)}
+          {parks.map(park => <ParkListingItem key={park.id} parkListing={park} />)}
         </ul>
       </div>
       <Footer />

@@ -3,18 +3,14 @@ import { toggleParkApprovedStatus } from './ParkListingItemHelper'
 
 export default function ParkListingItem ({ parkListing }) {
   const { name, id, approved } = parkListing
-
   const [isApprovedStatus, setIsApproved] = useState(approved)
 
-  function clickHandler () {
-    return toggleParkApprovedStatus(id, true)
-      .then((wasSuccessful) => {
-        if (wasSuccessful) {
-          setIsApproved(isApprovedStatus)
-        }
-        return null
-      })
+  function handleInputChange (event) {
+    const { target } = event
+    setIsApproved(target.checked)
+
+    return toggleParkApprovedStatus(id, !isApprovedStatus)
   }
 
-  return <li>{name}------<button onClick={clickHandler}>Toggle Approved</button></li>
+  return <li>{name}------<input type="checkbox" checked={isApprovedStatus} onChange={(event) => handleInputChange(event)} /></li>
 }

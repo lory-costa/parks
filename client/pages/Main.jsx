@@ -11,9 +11,12 @@ function Main () {
   const [parkIds, setParkIds] = useState([])
   const [parkCoordinates, setParkCoordinates] = useState([])
   const [addresses, setAddresses] = useState([])
+
+  const [filterItem, setFilter] = useState('')
+
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
-    getParkLocations()
+    getParkLocations(filterItem)
       .then(({ parkIds, parkCoords, addrs }) => {
         setParkIds(parkIds)
         setParkCoordinates(parkCoords)
@@ -22,6 +25,11 @@ function Main () {
       })
   }, [])
 
+  function handleChange (e) {
+    const { value } = e.target
+    console.log(value)
+    setFilter(value)
+  }
 
   // const { isLoading, user } = useAuth0()
 
@@ -35,6 +43,14 @@ function Main () {
       <div className='absolute inset-x-0.5 top-14 flex justify-center' >
         <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
       </div>
+      <select onChange={(e) => handleChange(e)}>
+        <option value='playground'>playground</option>
+        <option value='toilets'>toilets</option>
+        <option value='picnic_site'>picnic site</option>
+        <option value='sports_field'> sports field</option>
+        <option value='tramp'> tramp</option>
+        <option value='dog_walking'> dog walking</option>
+      </select>
       <Map
         ids={parkIds}
         coordinates={parkCoordinates}

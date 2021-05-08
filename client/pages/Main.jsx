@@ -9,7 +9,10 @@ import Footer from '../components/Footer'
 
 import { getParkLocations, signInUser } from './MainHelper'
 
+
+
 function Main () {
+
   const [parkIds, setParkIds] = useState([])
   const [parkCoordinates, setParkCoordinates] = useState([])
   const [addresses, setAddresses] = useState([])

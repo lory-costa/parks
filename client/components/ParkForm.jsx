@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 export default function ParkForm (props) {
+  console.log(props)
   const [form, setForm] = useState(props.formData || {
     name: '',
     address: '',
@@ -9,13 +10,13 @@ export default function ParkForm (props) {
     council_url: '',
     description: '',
     image: '',
-    playground: false,
-    toilets: false,
-    picnic_site: false,
-    sports_field: false,
-    tramp: false,
-    dog_walking: false,
-    approved: false
+    playground: 0,
+    toilets: 0,
+    picnicSite: 0,
+    sportsField: 0,
+    tramp: 0,
+    dogWalking: 0,
+    approved: 0
   })
 
   function handleChange (e) {
@@ -24,12 +25,28 @@ export default function ParkForm (props) {
       ...form,
       [name]: value
     })
+    console.log('Handle Change:', form)
   }
 
   function handleSubmit (e) {
     e.preventDefault()
-    props.submitEvent(form)
+    props.submitPark(form)
   }
+
+  function handleInputChange (event) {
+    const target = event.target
+    const name = target.name
+
+    setForm({
+      ...form,
+      [name]: target.checked
+    })
+  }
+  console.log(form)
+  // const btn = document.querySelector('#btn')
+  // btn.addEventListener('click', (event) => {
+  //   console.log(('color'))
+  // })
 
   const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = form
   return (
@@ -103,9 +120,10 @@ export default function ParkForm (props) {
               id='playground'
               name='playground'
               className='input is-normal'
-              type='playground'
-              value={playground}
-              onChange={handleChange}
+              type='checkbox'
+              checked={!!playground}
+              // value={!!playground}
+              onChange={handleInputChange}
             />
           </div>
           <div className="field">
@@ -118,8 +136,8 @@ export default function ParkForm (props) {
               name='toilets'
               className='input is-normal'
               type='checkbox'
-              value={toilets}
-              onChange={handleChange}
+              checked={!!toilets}
+              onChange={handleInputChange}
             />
           </div>
           <div className="field">
@@ -132,8 +150,8 @@ export default function ParkForm (props) {
               name='picnicSite'
               className='input is-normal'
               type='checkbox'
-              value={picnicSite}
-              onChange={handleChange}
+              checked={!!picnicSite}
+              onChange={handleInputChange}
             />
           </div>
           <div className="field">
@@ -146,8 +164,8 @@ export default function ParkForm (props) {
               name='sportsField'
               className='input is-normal'
               type='checkbox'
-              value={sportsField}
-              onChange={handleChange}
+              checked={!!sportsField}
+              onChange={handleInputChange}
             />
           </div>
           <div className="field">
@@ -160,8 +178,8 @@ export default function ParkForm (props) {
               name='tramp'
               className='input is-normal'
               type='checkbox'
-              value={tramp}
-              onChange={handleChange}
+              checked={!!tramp}
+              onChange={handleInputChange}
             />
           </div>
           <div className="field">
@@ -174,8 +192,8 @@ export default function ParkForm (props) {
               name='dogWalking'
               className='input is-normal'
               type='checkbox'
-              value={dogWalking}
-              onChange={handleChange}
+              checked={!!dogWalking}
+              onChange={handleInputChange}
             />
           </div>
           <div className="field">
@@ -188,8 +206,8 @@ export default function ParkForm (props) {
               name='approved'
               className='input is-normal'
               type='checkbox'
-              value={approved}
-              onChange={handleChange}
+              checked={!!approved}
+              onChange={handleInputChange}
             />
           </div>
           {/* <div className="field">
@@ -213,7 +231,7 @@ export default function ParkForm (props) {
         </form>
       </div>
       <div className='column is-half'>
-        <h2 className='title is-5 mb-4'>Event Preview</h2>
+        <h2 className='title is-5 mb-4'>Park Preview</h2>
         <div className='box'>
           {name
             ? <h2>{name}</h2>
@@ -233,7 +251,7 @@ export default function ParkForm (props) {
           }
           {playground
             ? <p>{playground}</p>
-            : <p>Playground here?</p>
+            : <>Playground here?</>
           }
           {toilets
             ? <p>{toilets}</p>

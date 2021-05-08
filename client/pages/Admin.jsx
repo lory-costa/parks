@@ -30,13 +30,12 @@ function Admin () {
       <div>
         <h3>Approved Parks</h3>
         <ul>
-          {approvedParks.map(park => <ParkListingItem key = {park.id} parkListing={park}/>)}
+          {approvedParks.map(park => <ParkListingItem key={park.id} parkListing={park} />)}
         </ul>
 
         <h3>Pending Parks</h3>
         <ul>
-
-          {/* {pendingParks.map(park => <li>{park.name}------<button onClick={clickHandler}>Toggle Approved</button></li>)} */}
+          {pendingParks.map(park => <ParkListingItem key={park.id} parkListing={park} />)}
         </ul>
       </div>
       <Footer />

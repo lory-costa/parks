@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { toggleParkApprovedStatus } from './ParkListingItemHelper'
 
 export default function ParkListingItem ({ parkListing }) {
-  const { name, id, isApproved } = parkListing
+  const { name, id, approved } = parkListing
 
-  const [isApprovedStatus, setIsApproved] = useState(isApproved)
+  const [isApprovedStatus, setIsApproved] = useState(approved)
 
   function clickHandler () {
-    return toggleParkApprovedStatus(id, isApprovedStatus)
+    return toggleParkApprovedStatus(id, true)
       .then((wasSuccessful) => {
         if (wasSuccessful) {
-          setIsApproved(!isApprovedStatus)
+          setIsApproved(isApprovedStatus)
         }
         return null
       })

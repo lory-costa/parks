@@ -2,7 +2,8 @@ const connection = require('./connection')
 
 module.exports = {
   getParks,
-  getParkById
+  getParkById,
+  updatePark
 }
 
 function getParks (db = connection) {
@@ -49,4 +50,15 @@ function getParkById (id, db = connection) {
         approved: park.approved
       }
     })
+}
+
+function updatePark (updatedPark, db = connection) {
+  const { id, name, address, lat, lon, council_url, description, image,
+    playground, toilets, picnic_site, sports_field, tramp, dog_walking, approved } = updatedPark
+  return db('parks')
+    .where('id', id)
+    .update({
+      approved: approved
+    })
+    .then(() => getParkById(id, db))
 }

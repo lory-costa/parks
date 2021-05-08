@@ -39,3 +39,21 @@ router.get('/:id', (req, res) => {
       })
     })
 })
+
+router.patch('/:id', (req, res) => {
+  const { id, approved } = req.body
+  const updatedPark = { id, approved }
+  db.updatePark(updatedPark)
+    .then((park) => {
+      res.status(200).json(park)
+      return null
+    })
+    .catch((err) => {
+      console.log(err.message)
+      res.status(500).json({
+        error: {
+          title: 'Unable to update event'
+        }
+      })
+    })
+})

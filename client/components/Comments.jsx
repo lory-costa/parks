@@ -1,25 +1,29 @@
-import React, { useState } from 'react'
-//import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { addComment, fetchComments } from '../actions/comments'
+
 import CommentItem from './CommentItem'
 import Rating from './Rating'
 
-//import { addComment } from '../actions/comments'
-import { postComments } from '../pages/ParkDetailsHelper'
-
-function Comments (props) {
-  const comments = props.comments
+function Comments () {
+  const comments = useSelector(globalState => globalState.comments)
   const [ newComment, setNewComment ] = useState('')
- //const dispatch = useDispatch()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchComments(1))
+  }, [])
 
   const handleChange = (e) => {
     setNewComment(e.target.value)
   }
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   postComments(newComment);
-  //   setNewComment('')
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addComment(newComment, 1, 1)); // TODO: Pass the right params
+    setNewComment('')
+  }
 
   return (
     <div className='mt-8 mx-14'>

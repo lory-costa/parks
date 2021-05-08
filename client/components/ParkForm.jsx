@@ -7,7 +7,7 @@ export default function ParkForm (props) {
     address: '',
     lat: 0,
     lon: 0,
-    council_url: '',
+    url: '',
     description: '',
     image: '',
     playground: 0,
@@ -52,190 +52,233 @@ export default function ParkForm (props) {
   return (
     <>
       <div>
-        <h2>Add a Park</h2>
-        <form>
-          <div className="field">
-            <label
-              htmlFor='name'
-              className='label'>Park Name</label>
-            <input
-              id='name'
-              name='name'
-              className='input is-normal'
-              type='text'
-              placeholder='park name'
-              value={name}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='address'
-              className='label'
-            >Address</label>
-            <input
-              id='address'
-              name='address'
-              className='input is-normal'
-              type='text'
-              value={address}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='url'
-              className='label'
-            >Website (url)</label>
-            <input
-              id='url'
-              name='url'
-              className='input is-normal'
-              type='url'
-              value={url}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='image'
-              className='label'
-            >Image</label>
-            <textarea
-              id='image'
-              name='image'
-              className='input is-normal'
-              type='image'
-              placeholder='park image'
-              value={image}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='playground'
-              className='label'
-            >Playground</label>
-            <input
-              id='playground'
-              name='playground'
-              className='input is-normal'
-              type='checkbox'
-              checked={!!playground}
-              // value={!!playground}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='toilets'
-              className='label'
-            >Toilets</label>
-            <input
-              id='toilets'
-              name='toilets'
-              className='input is-normal'
-              type='checkbox'
-              checked={!!toilets}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='picnicSite'
-              className='label'
-            >Picnic Site</label>
-            <input
-              id='picnicSite'
-              name='picnicSite'
-              className='input is-normal'
-              type='checkbox'
-              checked={!!picnicSite}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='sportsField'
-              className='label'
-            >Sports Field</label>
-            <input
-              id='sportsField'
-              name='sportsField'
-              className='input is-normal'
-              type='checkbox'
-              checked={!!sportsField}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='tramp'
-              className='label'
-            >Tramp</label>
-            <input
-              id='tramp'
-              name='tramp'
-              className='input is-normal'
-              type='checkbox'
-              checked={!!tramp}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='dogWalking'
-              className='label'
-            >Dog Walking Allowed</label>
-            <input
-              id='dogWalking'
-              name='dogWalking'
-              className='input is-normal'
-              type='checkbox'
-              checked={!!dogWalking}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="field">
-            <label
-              htmlFor='approved'
-              className='label'
-            >Park Approved</label>
-            <input
-              id='approved'
-              name='approved'
-              className='input is-normal'
-              type='checkbox'
-              checked={!!approved}
-              onChange={handleInputChange}
-            />
-          </div>
-          {/* <div className="field">
-            <label
-              htmlFor='url'
-              className='label'
-            >Website (url)</label>
-            <input
-              id='url'
-              name='url'
-              className='input is-normal'
-              type='url'
-              value={url}
-              onChange={handleChange}
-            />
-          </div> */}
-          <button
-            className='button mt-4'
-            onClick={handleSubmit}
-          >{props.action}</button>
-        </form>
+        <div>
+          <div className='block text-black font-bold mb-1 md:mb-0 pr-4'>Add a Park</div>
+          <form className='w-full max-w-sm'>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='name'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'>Park Name
+                </label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='name'
+                  name='name'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  type='text'
+                  placeholder='Park Awesome'
+                  value={name}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='address'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'>Address
+                </label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='address'
+                  name='address'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  placeholder= '12 Morgan Street'
+                  type='text'
+                  value={address}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='url'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Website (url)</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='url'
+                  name='url'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  placeholder="https://example.com"
+                  pattern="https://.*" size="30"
+                  type='url'
+                  value={url}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='image'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Image</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='image'
+                  name='image'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  placeholder= 'jpg,png,svg'
+                  type='text'
+                  value={image}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-stretch mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='playground'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Playground</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='playground'
+                  name='playground'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  type='checkbox'
+                  checked={!!playground}
+                  // value={!!playground}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='toilets'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Toilets</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='toilets'
+                  name='toilets'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  type='checkbox'
+                  checked={!!toilets}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='picnicSite'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Picnic Site</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='picnicSite'
+                  name='picnicSite'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none  focus:bg-white focus:border-green-500'
+                  type='checkbox'
+                  checked={!!picnicSite}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='sportsField'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Sports Field</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='sportsField'
+                  name='sportsField'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  type='checkbox'
+                  checked={!!sportsField}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='tramp'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Tramp</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='tramp'
+                  name='tramp'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  type='checkbox'
+                  checked={!!tramp}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='dogWalking'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Dog Walking Allowed</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='dogWalking'
+                  name='dogWalking'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  type='checkbox'
+                  checked={!!dogWalking}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='approved'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
+                >Park Approved</label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='approved'
+                  name='approved'
+                  className='bg-gray-200 border-2 border-gray-200green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  type='checkbox'
+                  checked={!!approved}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div>
+              <div className="md:w-1/3"></div>
+              <div className='md:w-2/3'>
+                <button
+                  className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+                  onClick={handleSubmit}
+                >{props.action}</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <div className='column is-half'>
-        <h2 className='title is-5 mb-4'>Park Preview</h2>
-        <div className='box'>
+
+      {/* //preview of the park in realtime - functionaility in place for name, address, url and image text
+      <div className='block text-black font-bold mb-1 md:mb-0 pr-4'>
+        <h2 className='w-full max-w-sm'>Park Preview</h2>
+        <div >
           {name
             ? <h2>{name}</h2>
-            : <h2>Park Name here</h2>
+            : <h2 className='bg-gray-200 py-2 px-4 w-full max-w-sm'>Park Name here</h2>
           }
           {address
             ? <p>{address}</p>
@@ -278,7 +321,7 @@ export default function ParkForm (props) {
             : <p>Park Approved?</p>
           }
         </div>
-      </div>
+      </div> */}
     </>
   )
 }

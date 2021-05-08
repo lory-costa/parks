@@ -9,8 +9,8 @@ import ParkDetails from './pages/ParkDetails'
 function App () {
   useEffect(() => { }, [])
 
-  // const { isLoading, user } = useAuth0()
-
+  const { isLoading, user } = useAuth0()
+  console.log(user)
   // if (isLoading) {
   //   return <p>Loading..</p>
   // }

@@ -59,7 +59,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.body
   db.deletePark({ id })
     .then(() => {

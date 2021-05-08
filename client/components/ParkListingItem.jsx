@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { toggleParkApprovedStatus } from './ParkListingItemHelper'
 
-export default function ParkListingItem ({ parkListing }) {
+
+export default function ParkListingItem ({ parkListing, deleteItem }) {
   const { name, id, approved } = parkListing
   const [isApprovedStatus, setIsApproved] = useState(approved)
 
@@ -12,5 +13,9 @@ export default function ParkListingItem ({ parkListing }) {
     return toggleParkApprovedStatus(id, !isApprovedStatus)
   }
 
-  return <li>{name}------<input type="checkbox" checked={isApprovedStatus} onChange={(event) => handleInputChange(event)} /></li>
+  
+
+  return <li>{name}------<input type="checkbox" checked={isApprovedStatus} onChange={(event) => handleInputChange(event)} /><button  onClick={() => { if (window.confirm('Are you sure you wish to delete this park?')) deleteItem(id) } }>Delete</button></li>
 }
+
+{/* <button onClick={(e) => handleDelete(id)}>Delete</button> */}

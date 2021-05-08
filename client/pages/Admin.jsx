@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ParkListingItem from '../components/ParkListingItem'
-
-import { getParkLocations } from './AdminHelper'
+import { getParkLocations, deletePark } from './AdminHelper'
 
 function Admin () {
   const [parks, setParks] = useState([])
@@ -18,6 +17,14 @@ function Admin () {
       })
   }, [])
 
+  function deleteItem (id) {  
+    return deletePark(id)
+    .then ((parks) =>{
+    setParks(parks)
+    
+    })
+  }
+
   return (
     <div className='flex flex-col'>
       <Header />
@@ -27,7 +34,7 @@ function Admin () {
       <div>
         <h3>Parks</h3>
         <ul>
-          {parks.map(park => <ParkListingItem key={park.id} parkListing={park} />)}
+          {parks.map(park => <ParkListingItem key={park.id} parkListing={park} deleteItem = {deleteItem}/>)}
         </ul>
       </div>
       <Footer />

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 
 import Header from '../components/Header'
 import Map from '../components/Map'
 import Footer from '../components/Footer'
 
-import { getParkLocations } from './MainHelper'
+import { getParkLocations, signInUser } from './MainHelper'
 
 function Main () {
   const [parkIds, setParkIds] = useState([])
   const [parkCoordinates, setParkCoordinates] = useState([])
   const [addresses, setAddresses] = useState([])
-
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
     getParkLocations()
@@ -21,6 +21,13 @@ function Main () {
         return null
       })
   }, [])
+
+
+  // const { isLoading, user } = useAuth0()
+
+  // if (isLoading) {
+  //   return <p>Loading..</p>
+  // }
 
   return (
     <div className='flex flex-col'>

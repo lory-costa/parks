@@ -4,8 +4,8 @@ import LoginButton from './LoginButton'
 import LogoutButton from './LogoutButton'
 
 export default function Nav () {
-  const { isAuthenticated } = useAuth0()
-
+  const { isLoading, user, isAuthenticated } = useAuth0()
+  console.log(user)
   return (
     <div className='flex justify-between'>
       <div>

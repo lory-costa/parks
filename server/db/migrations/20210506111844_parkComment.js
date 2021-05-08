@@ -4,6 +4,7 @@ exports.up = function (knex) {
     table.int('user_id')
     table.int('park_id')
     table.string('comment')
+    table.int('rating')
   })
 }
 

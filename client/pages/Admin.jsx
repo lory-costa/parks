@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { toggleParkApprovedStatus } from './AdminHelper'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import ParkListingItem from '../components/ParkListingItem'
 
 import { getParkLocations } from './AdminHelper'
 
@@ -16,22 +15,11 @@ function Admin () {
     getParkLocations()
       .then(({ approvedParks, pendingParks }) => {
         setApprovedParks(approvedParks)
+        console.log(approvedParks)
         setPendingParks(pendingParks)
         return null
       })
   }, [])
-
-  const { id } = useParams()
-
-  function clickHandler () {
-    return toggleParkApprovedStatus(id, isApproved)
-      .then((wasSuccessful) => {
-        if (wasSuccessful) {
-          setApprovedParks(!isApproved)
-        }
-        return null
-      })
-  }
 
   return (
     <div className='flex flex-col'>
@@ -42,13 +30,13 @@ function Admin () {
       <div>
         <h3>Approved Parks</h3>
         <ul>
-          {approvedParks.map(park => <li>{park.name}------<button onClick={clickHandler}>Toggle Approved</button></li>)}
+          {approvedParks.map(park => <ParkListingItem key = {park.id} parkListing={park}/>)}
         </ul>
 
         <h3>Pending Parks</h3>
         <ul>
 
-          {pendingParks.map(park => <li>{park.name}------<button onClick={clickHandler}>Toggle Approved</button></li>)}
+          {/* {pendingParks.map(park => <li>{park.name}------<button onClick={clickHandler}>Toggle Approved</button></li>)} */}
         </ul>
       </div>
       <Footer />

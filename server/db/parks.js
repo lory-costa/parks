@@ -8,11 +8,11 @@ module.exports = {
   deletePark
 }
 
-function getParks(db = connection) {
+function getParks (db = connection) {
   return db('parks').select()
 }
 
-function getParkById(id, db = connection) {
+function getParkById (id, db = connection) {
   return db('parks')
     .where('parks.id', id)
     .select(
@@ -54,7 +54,7 @@ function getParkById(id, db = connection) {
     })
 }
 
-function addPark(newPark, db = connection) {
+function addPark (newPark, db = connection) {
   const { id, name, address, description, lat, lon, url, image, playGround, picnicSite, sportsField, toilets, tramp, dogWalking, approved } = newPark
   return db('parks')
     .insert({
@@ -76,16 +76,18 @@ function addPark(newPark, db = connection) {
     })
 }
 
-function deletePark(submission, db = connection) {
+function deletePark (submission, db = connection) {
   const { id } = submission
   return db('parks')
     .where({ id: id })
     .delete()
 }
 
-function updatePark(updatedPark, db = connection) {
-  const { id, name, address, lat, lon, council_url, description, image,
-    playground, toilets, picnic_site, sports_field, tramp, dog_walking, approved } = updatedPark
+function updatePark (updatedPark, db = connection) {
+  const {
+    id, name, address, lat, lon, council_url, description, image,
+    playground, toilets, picnic_site, sports_field, tramp, dog_walking, approved
+  } = updatedPark
   return db('parks')
     .where('id', id)
     .update({

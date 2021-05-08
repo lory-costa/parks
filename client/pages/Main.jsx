@@ -22,7 +22,6 @@ function Main () {
       })
   }, [])
 
-
   // const { isLoading, user } = useAuth0()
 
   // if (isLoading) {

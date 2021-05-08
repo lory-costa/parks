@@ -8,12 +8,13 @@ module.exports = {
 }
 
 function addComment (newComment, db = connection) {
-  const { parkId, userId, comment } = newComment
+  const { parkId, userId, comment, rating } = newComment
   return db('parkComment')
     .insert({
       park_id: parkId,
       user_id: userId,
-      comment
+      comment,
+      rating: rating
     })
 }
 

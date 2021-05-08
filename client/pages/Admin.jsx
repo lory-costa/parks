@@ -17,12 +17,11 @@ function Admin () {
       })
   }, [])
 
-  function deleteItem (id) {  
+  function deleteItem (id) {
     return deletePark(id)
-    .then ((parks) =>{
-    setParks(parks)
-    
-    })
+      .then((parks) => {
+        setParks(parks)
+      })
   }
 
   return (

@@ -19,12 +19,12 @@ export function getParkLocations (consume = requestor) {
     })
 }
 
-export function deletePark(id, consume = requestor) {
+export function deletePark (id, consume = requestor) {
   dispatch(setWaiting())
   const userData = { id: id }
   return consume(`/park/${id}}`, 'delete', userData)
     .then(() => {
-      return consume(`/park`)
+      return consume('/park')
         .then((res) => {
           return res.body.parks
         })

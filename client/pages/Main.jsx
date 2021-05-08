@@ -11,13 +11,17 @@ function Main () {
   const [parkIds, setParkIds] = useState([])
   const [parkCoordinates, setParkCoordinates] = useState([])
   const [addresses, setAddresses] = useState([])
+  const [parkNames, setParkNames] = useState([])
+  const [parkImages, setParkImages] = useState([])
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
     getParkLocations()
-      .then(({ parkIds, parkCoords, addrs }) => {
+      .then(({ parkIds, parkCoords, addrs, prkNames, prkImages }) => {
         setParkIds(parkIds)
         setParkCoordinates(parkCoords)
         setAddresses(addrs)
+        setParkNames(prkNames)
+        setParkImages(prkImages)
         return null
       })
   }, [])
@@ -38,6 +42,8 @@ function Main () {
         ids={parkIds}
         coordinates={parkCoordinates}
         addresses={addresses}
+        names={parkNames}
+        images={parkImages}
       />
       <Footer />
     </div>

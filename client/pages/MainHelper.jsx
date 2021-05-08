@@ -11,10 +11,14 @@ export function getParkLocations (consume = requestor) {
         return { lat, lon }
       })
       const addrs = parks.map(({ address }) => address)
+      const prkNames = parks.map(({ name }) => name )
+      const prkImages = parks.map(({ image }) => image)
       return {
         parkIds,
         parkCoords,
-        addrs
+        addrs,
+        prkNames,
+        prkImages
       }
     })
     .catch((error) => {

@@ -22,7 +22,7 @@ function Comments (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(addComment(newComment, parkId, user.id, 5)) // TODO: 1. Johann - Pass a real userId (this will be from auth0) 2.Lory - Pass a real rating from the react stars component
+    dispatch(addComment(newComment, parkId, user.name, 5)) // TODO: 1. Johann - Pass a real userId (this will be from auth0) 2.Lory - Pass a real rating from the react stars component
     setNewComment('')
   }
 

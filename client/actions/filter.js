@@ -1,9 +1,10 @@
 export const SET_FILTER = 'SET_FILTER'
 export const CLEAR_FILTER = 'CLEAR_FILTER'
 
-export function setFilter () {
+export function setFilter (filter) {
   return {
-    type: SET_FILTER
+    type: SET_FILTER,
+    filter: filter
   }
 }
 

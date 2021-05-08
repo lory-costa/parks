@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { addComment, fetchComments } from '../actions/comments'
 
 import CommentItem from './CommentItem'

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
-import { useSelector } from 'react-redux'
+import { setFilter } from '../actions/filter'
 
 import Header from '../components/Header'
 import Map from '../components/Map'
@@ -12,6 +13,7 @@ function Main () {
   const [parkIds, setParkIds] = useState([])
   const [parkCoordinates, setParkCoordinates] = useState([])
   const [addresses, setAddresses] = useState([])
+  const dispatch = useDispatch()
 
   const [filterItem] = useSelector(globalState => globalState.filter)
 
@@ -26,17 +28,9 @@ function Main () {
       })
   }, [])
 
-  function handleChange (e) {
-    const { value } = e.target
-    console.log(value)
-    // setFilter(value)
+  function handleChange () {
+    dispatch(setFilter((document.getElementById('parkFilter').value)))
   }
-
-  // const { isLoading, user } = useAuth0()
-
-  // if (isLoading) {
-  //   return <p>Loading..</p>
-  // }
 
   return (
     <div className='flex flex-col'>
@@ -44,7 +38,7 @@ function Main () {
       <div className='absolute inset-x-0.5 top-14 flex justify-center' >
         <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
       </div>
-      <select onChange={(e) => handleChange(e)}>
+      <select id='parkFilter' onChange={() => handleChange()}>
         <option value='playground'>playground</option>
         <option value='toilets'>toilets</option>
         <option value='picnic_site'>picnic site</option>

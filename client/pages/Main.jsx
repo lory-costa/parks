@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-// import { useSelector } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import Header from '../components/Header'
 import Map from '../components/Map'
@@ -13,8 +13,7 @@ function Main () {
   const [parkCoordinates, setParkCoordinates] = useState([])
   const [addresses, setAddresses] = useState([])
 
-  const filterItem = ''
-  // const [filterItem] = useSelector(globalState => globalState.filter)
+  const [filterItem] = useSelector(globalState => globalState.filter)
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return

@@ -5,7 +5,6 @@ module.exports = {
   deleteComment,
   getCommentsByParkId,
   updateComment
-
 }
 
 function addComment (newComment, db = connection) {
@@ -27,7 +26,7 @@ function deleteComment (submission, db = connection) {
 
 function getCommentsByParkId (id, db = connection) {
   return db('parkComment')
-    .select('id', 'park_id as parkId', 'user_id as userId', 'comment')
+    .select('id', 'park_id as parkId', 'user_id as userId', 'comment', 'rating')
     .where('park_id', id)
 }
 

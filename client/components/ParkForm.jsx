@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { validate, rules } from './ValidationForm'
 
 export default function ParkForm (props) {
-  console.log(props)
+  const [invalid, setInvalid] = useState({})
   const [form, setForm] = useState(props.formData || {
     name: '',
     address: '',
@@ -18,22 +19,23 @@ export default function ParkForm (props) {
     dogWalking: 0,
     approved: 0
   })
+  // Validation for required fields
+  const validationRules = {
+    name: [rules.isRequired],
+    address: [rules.isRequired],
+    url: [rules.isRequired],
+    description: [rules.isRequired]
+  }
 
+  // onChange for text inputs
   function handleChange (e) {
     const { name, value } = e.target
     setForm({
       ...form,
       [name]: value
     })
-    console.log('Handle Change:', form)
   }
-  // handle submit function not hooked up yet
-  function handleSubmit (e) {
-    e.preventDefault()
-    props.submitPark(form)
-    console.log(props)
-  }
-
+  // onChange for checkbox inputs
   function handleInputChange (event) {
     const target = event.target
     const name = target.name
@@ -44,7 +46,19 @@ export default function ParkForm (props) {
     })
   }
 
-  const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = form
+  // Submit
+  function handleSubmit (e) {
+    const results = validate(form, validationRules, invalid)
+    e.preventDefault()
+
+    if (results.isValid) {
+      props.submitPark(form)
+    } else {
+      setInvalid(results.details)
+    }
+  }
+
+  const { name, address, url, description, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = form
 
   return (
     <>
@@ -61,14 +75,18 @@ export default function ParkForm (props) {
               </div>
               <div className= 'md:w-2/3'>
                 <input
+                  data-validation='isRequired'
                   id='name'
                   name='name'
                   className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
                   type='text'
                   placeholder='Park Awesome'
+
                   value={name}
                   onChange={handleChange}
                 />
+                {invalid.name &&
+        <div >{invalid.name}</div>}
               </div>
             </div>
             <div className='md:flex md:items-center mb-6'>
@@ -88,6 +106,8 @@ export default function ParkForm (props) {
                   value={address}
                   onChange={handleChange}
                 />
+                {invalid.address &&
+        <div >{invalid.address}</div>}
               </div>
             </div>
             <div className='md:flex md:items-center mb-6'>
@@ -102,12 +122,36 @@ export default function ParkForm (props) {
                   id='url'
                   name='url'
                   className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-                  placeholder="https://example.com"
+                  placeholder="https://www.example.com"
                   pattern="https://.*" size="30"
                   type='url'
                   value={url}
                   onChange={handleChange}
                 />
+                {invalid.url &&
+                <div >{invalid.url}</div>}
+              </div>
+            </div>
+            <div className='md:flex md:items-center mb-6'>
+              <div className='md:w-1/3'>
+                <label
+                  htmlFor='description'
+                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'>Description
+                </label>
+              </div>
+              <div className= 'md:w-2/3'>
+                <input
+                  id='description'
+                  name='description'
+                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+                  placeholder= 'How awesome is this park!'
+                  maxLength="200"
+                  type='text'
+                  value={description}
+                  onChange={handleChange}
+                />
+                {invalid.description &&
+                <div >{invalid.description}</div>}
               </div>
             </div>
             <div className='md:flex md:items-center mb-6'>
@@ -143,7 +187,6 @@ export default function ParkForm (props) {
                   className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
                   type='checkbox'
                   checked={!!playground}
-                  // value={!!playground}
                   onChange={handleInputChange}
                 />
               </div>

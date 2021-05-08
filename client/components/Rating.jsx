@@ -10,6 +10,7 @@ function RatingChanged (newRating) {
         edit={false}
         value={3}
         size={24}
+        color='#BBB'
         activeColor="#ffd700"
       />
     </div>

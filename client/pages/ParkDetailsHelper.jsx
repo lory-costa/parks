@@ -1,4 +1,5 @@
 import requestor from '../consume'
+import request from 'superagent'
 
 export function getPark (id, consume = requestor) {
   return consume(`/park/${id}`)
@@ -21,3 +22,12 @@ export function getComments (id, consume = requestor) {
       console.log(error.message)
     })
 }
+
+// export function postComments(comment) {
+//   const newComment = { comment: comment };
+
+//   return request
+//     .post(`/comments/${id}`)
+//     .send(newComment)
+//     .then((res) => res.body);
+// }

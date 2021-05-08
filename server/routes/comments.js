@@ -8,8 +8,8 @@ const router = express.Router()
 module.exports = router
 
 router.post('/', (req, res) => {
-  const { comment, parkId, userId } = req.body
-  const newComment = { comment, parkId, userId }
+  const { comment, parkId, userId, rating } = req.body
+  const newComment = { comment, parkId, userId, rating }
   const createdComment = null
   db.addComment(newComment)
     .then(() => {

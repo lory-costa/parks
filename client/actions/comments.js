@@ -1,18 +1,30 @@
-// export const ADD_COMMENT = "ADD_COMMENT";
-// export const DELETE_COMMENT = "DELETE_COMMENT";
+import { getComments, postComment } from '../apis/comments'
 
-// export function addComment(id, userId, comment) {
-//   return {
-//     type: ADD_COMMENT,
-//     id: id,
-//     userId: userId,
-//     comment: comment,
-//   };
-// }
+export const SET_COMMENTS = 'SET_COMMENTS'
 
-// export function deleteComment(id) {
-//   return {
-//     type: DELETE_COMMENT,
-//     id: id,
-//   };
-// }
+export function setComments (comments) {
+  return {
+    type: SET_COMMENTS,
+    comments
+  }
+}
+
+export function fetchComments (parkId) {
+  return (dispatch) => {
+    return getComments(parkId)
+      .then((result) => {
+        dispatch(setComments(result))
+        return null
+      })
+  }
+}
+
+export function addComment (comment, parkId, userId, rating) {
+  return (dispatch) => {
+    return postComment(comment, parkId, userId, rating)
+      .then(() => {
+        dispatch(fetchComments(parkId))
+        return null
+      })
+  }
+}

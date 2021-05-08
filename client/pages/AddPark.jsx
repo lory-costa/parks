@@ -4,6 +4,9 @@ import requestor from '../consume'
 
 import ParkForm from '../components/ParkForm'
 
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
 export default function AddPark (props) {
   const history = useHistory()
 
@@ -24,9 +27,13 @@ export default function AddPark (props) {
   }
 
   return (
-    <ParkForm
-      action='Create Event'
-      submitPark={submitPark}
-    />
+    <div className='flex flex-col'>
+      <Header />
+      <ParkForm
+        action='Create Event'
+        submitPark={submitPark}
+      />
+      <Footer />
+    </div >
   )
 }

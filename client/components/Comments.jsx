@@ -15,11 +15,11 @@ function Comments (props) {
     setNewComment(e.target.value)
   }
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   postComments(newComment);
-  //   setNewComment('')
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postComments(newComment);
+    setNewComment('')
+  }
 
   return (
     <div className='mt-8 mx-14'>

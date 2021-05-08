@@ -9,7 +9,7 @@ function Footer () {
         <Link to="/">Kahikatea Dev Academy</Link>
       </div>
       <div className='py-2'>
-        <Link to="/">Suggest a Park</Link>
+        <Link to="/add-park">Suggest a Park</Link>
       </div>
     </div>
   )

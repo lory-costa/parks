@@ -1,43 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAuth0 } from '@auth0/auth0-react'
 import { setFilter } from '../actions/filter'
 
 import Header from '../components/Header'
 import Map from '../components/Map'
 import Footer from '../components/Footer'
 
-import { getParkLocations, signInUser } from './MainHelper'
-
-
-
 function Main () {
+  // const [filterItem] = useSelector(globalState => globalState.filter)
 
-  const [parkIds, setParkIds] = useState([])
-  const [parkCoordinates, setParkCoordinates] = useState([])
-  const [addresses, setAddresses] = useState([])
-  const dispatch = useDispatch()
-
-  const [filterItem] = useSelector(globalState => globalState.filter)
-
-  const [parkNames, setParkNames] = useState([])
-  const [parkImages, setParkImages] = useState([])
-  useEffect(() => {
-    // eslint-disable-next-line promise/catch-or-return
-    getParkLocations()
-      .then(({ parkIds, parkCoords, addrs, prkNames, prkImages }) => {
-        setParkIds(parkIds)
-        setParkCoordinates(parkCoords)
-        setAddresses(addrs)
-        setParkNames(prkNames)
-        setParkImages(prkImages)
-        return null
-      })
-  }, [])
-
-  function handleChange () {
-    dispatch(setFilter((document.getElementById('parkFilter').value)))
-  }
+  // function handleChange () {
+  //   dispatch(setFilter((document.getElementById('parkFilter').value)))
+  // }
 
   return (
     <div className='flex flex-col'>
@@ -53,13 +27,7 @@ function Main () {
         <option value='tramp'> tramp</option>
         <option value='dog_walking'> dog walking</option>
       </select>
-      <Map
-        ids={parkIds}
-        coordinates={parkCoordinates}
-        addresses={addresses}
-        names={parkNames}
-        images={parkImages}
-      />
+      <Map />
       <Footer />
     </div>
   )

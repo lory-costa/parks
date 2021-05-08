@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import Facilities from '../components/Facilities'
 import Comments from '../components/Comments'
 import Footer from '../components/Footer'
+import AddPark from './AddPark'
 
 import { getPark, getComments } from './ParkDetailsHelper'
 
@@ -53,6 +54,7 @@ function ParkDetails () {
         </div>
         <Comments comments={comments} />
       </div>
+      <AddPark />
 
       <Footer />
     </div>

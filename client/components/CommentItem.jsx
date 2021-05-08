@@ -8,11 +8,12 @@ export default function CommentItem ({ userComment }) {
       <h4 className='text-lg mr-4'>{userId}</h4>
       <ReactStars
         edit={false}
-        size={20}
+        size={14}
         value={rating}
-        activeColor="#ffd700"
+        color='#BBB'
+        activeColor='#ffd700'
       />
     </div>
-    <p className='mb-3' >{comment}</p>
+    <p>{comment}</p>
   </div >
 }

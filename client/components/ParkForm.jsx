@@ -27,10 +27,11 @@ export default function ParkForm (props) {
     })
     console.log('Handle Change:', form)
   }
-
+  // handle submit function not hooked up yet
   function handleSubmit (e) {
     e.preventDefault()
     props.submitPark(form)
+    console.log(props)
   }
 
   function handleInputChange (event) {
@@ -42,13 +43,9 @@ export default function ParkForm (props) {
       [name]: target.checked
     })
   }
-  console.log(form)
-  // const btn = document.querySelector('#btn')
-  // btn.addEventListener('click', (event) => {
-  //   console.log(('color'))
-  // })
 
   const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = form
+
   return (
     <>
       <div>

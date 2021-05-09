@@ -12,7 +12,7 @@ export default function FilterItem ({ facilityName, facilityValue }) {
       : dispatch(removeFilter(e.target.value))
   }
 
-  return <>
+  return <div className ='w-32 m-1' >
     <label>{facilityName}</label>
     <input
       id={facilityValue}
@@ -22,5 +22,5 @@ export default function FilterItem ({ facilityName, facilityValue }) {
       type='checkbox'
       onChange={(e) => handleChange(e)}
     />
-  </>
+  </div>
 }

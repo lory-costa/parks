@@ -10,7 +10,7 @@ function Footer () {
   return (
     <div className='flex justify-between mt-4 mx-14 text-green-700'>
       <div className='py-2'>
-        <Link to="/">Kahikatea Dev Academy</Link>
+        <Link to="/">©Kahikatea2021 Dev Academy</Link>
       </div>
       <div className='py-2'>
         { isAuthenticated && <Link to="/add-park">

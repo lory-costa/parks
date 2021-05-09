@@ -3,7 +3,12 @@ const connection = require('./connection')
 module.exports = {
   addFavPark,
   deleteFavPark,
-  getFavByUserId
+  getFavByUserId,
+  getFavs
+}
+
+function getFavs (db = connection) {
+  return db('favParks').select()
 }
 
 function getFavByUserId (id, db = connection) {

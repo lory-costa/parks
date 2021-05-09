@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.body
   db.deleteFavPark({ id })
     .then(() => {
@@ -55,6 +55,21 @@ router.get('/:id', (req, res) => {
       res.status(500).json({
         error: {
           title: 'Unable to retrieve favourite'
+        }
+      })
+    })
+})
+
+router.get('/', (req, res) => {
+  db.getFavs()
+    .then((favParks) => {
+      return res.json({ favParks })
+    })
+    .catch((err) => {
+      log(err.message)
+      res.status(500).json({
+        error: {
+          title: 'Unable to retrieve favourites'
         }
       })
     })

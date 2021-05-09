@@ -5,3 +5,9 @@ export function getFavParks (userId) {
     .get(`/api/v1/fav/${userId}`)
     .then((res) => res.body)
 }
+
+export function deleteFav (id) {
+  return request
+    .delete(`/api/v1/fav/${id}`)
+    .then((res) => res.body)
+}

@@ -6,7 +6,7 @@ const toVisit = (state = initialState, action) => {
   switch (action.type) {
     case SET_TO_VISIT:
       return action.toVisit
-      
+
     case CLEAR_TO_VISIT:
       return null
 

@@ -20,6 +20,6 @@ export function fetchToVisit (dispatch, id) {
 
 export function clearToVisit () {
   return {
-    type: CLEAR_USER
+    type: CLEAR_TO_VISIT
   }
 }

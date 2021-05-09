@@ -1,6 +1,7 @@
-import { getFavParks } from '../apis/favParks'
+import { getFavParks, deleteFav } from '../apis/favParks'
 
 export const SET_FAV_PARKS = 'SET_FAV_PARKS'
+export const DELETE_FAV_PARK = 'DELETE_FAV_PARK'
 
 export function setFavParks (favParks) {
   return {
@@ -13,16 +14,27 @@ export function fetchFavParks (dispatch, id) {
   return getFavParks(id)
     .then((result) => {
       dispatch(setFavParks(result))
-      return null
+      return result
     })
 }
 
-// export function addComment (comment, parkId, userName, rating) {
-//   return (dispatch) => {
-//     return postComment(comment, parkId, userName, rating)
-//       .then(() => {
-//         dispatch(fetchComments(parkId))
-//         return null
-//       })
-//   }
-// }
+export function deleteFavPark (dispatch, id, userId) {
+  console.log(id, userId)
+  return deleteFav(id)
+    .then(() => {
+      dispatch(fetchFavParks(userId))
+      return null
+    })
+
+  // return deleteFav(id)
+
+  //   return (dispatch) => {
+  //     console.log(id)
+  //     return deleteFav(id)
+  //       .then(() => {
+  //         dispatch(fetchFavParks(userId))
+  //         return null
+  //       })
+  //   }
+  // }
+}

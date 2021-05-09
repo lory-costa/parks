@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Facilities ({ playground, toilets, picnic, sports, tramp, dogs }) {
+function Facilities ({url, playground, toilets, picnic, sports, tramp, dogs }) {
   return (
     <div>
       <h2 className='mt-4 text-xl mb-2 text-green-700'>Facilities</h2>
@@ -12,7 +12,7 @@ function Facilities ({ playground, toilets, picnic, sports, tramp, dogs }) {
         {!!tramp && <img className='mr-3' src='/icons/icon-walking.svg' alt="tramp walking icon" width="35" height="35"/>}
         {!!dogs && <img src='/icons/dogAllowed.png' alt="dog allowed icon" width="35" height="35"/>}
       </div>
-      <p className='mt-4' >For more information, visit the <a className='text-blue-500 underline' href={props.url}>council website</a>.</p>
+      <p className='mt-4' >For more information, visit the <a className='text-blue-500 underline' href={url}>council website</a>.</p>
     </div>
   )
 }

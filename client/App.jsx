@@ -22,6 +22,7 @@ function App () {
     return <p>Loading...</p>
   }
   if (user) {
+    console.log(user)
     dispatch(setUser(user))
   }
 

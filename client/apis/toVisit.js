@@ -6,8 +6,8 @@ export function getToVisit (userId) {
     .then((res) => res.body)
 }
 
-export function deleteToVisit (userId) {
+export function deleteVisit (id) {
   return request
-    .delete(`/api/v1/visit/${userId}`)
+    .delete(`/api/v1/visit/${id}`)
     .then((res) => res.body)
 }

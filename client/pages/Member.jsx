@@ -31,11 +31,11 @@ function Member () {
       <div>
         <h3>Favourite Parks</h3>
         <ul>
-          {favParks.map(favPark => < ParkListingItem key = {favPark.id} parkListing = {favPark}/>)}
+          {favParks.map(favPark => < ParkListingItem key = {favPark.id} parkListing = {favPark} type ={'favPark'}/>)}
         </ul>
         <h3>To Visit Parks</h3>
         <ul>
-          {toVisit.map(toVisitPark => <li key={toVisitPark.id}>{toVisitPark.name} <button onClick={(e) => toVisitParkDelete(toVisitPark.id)}>Delete</button></li>)}
+          {toVisit.map(toVisitPark => < ParkListingItem key = {toVisitPark.id} parkListing = {toVisitPark} type ={'toVisitPark'}/>)}
         </ul>
       </div>
       <Footer />

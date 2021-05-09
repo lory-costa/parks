@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import store from './store'
 import { Auth0Provider } from '@auth0/auth0-react'
 
-import App from './components/App'
+import App from './App'
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
       domain="dev-zipxfr0g.us.auth0.com"
       clientId="3aihuOf7l5QiXbtKjZ2hPOjUjFIyaqCB"
       redirectUri='http://localhost:3000/Main'
+      // useRefreshTokens={true}
+      // audience={}
     >
       <Provider store={store}>
         <Router>

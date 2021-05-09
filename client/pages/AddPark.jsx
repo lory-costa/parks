@@ -27,9 +27,10 @@ export default function AddPark (props) {
   }
 
   return (
-    <div className='flex flex-col'>
+    <div>
       <Header />
       <ParkForm
+        className='md:flex md:justify-center mb-6'
         action='Add Park'
         submitPark={submitPark}
       />

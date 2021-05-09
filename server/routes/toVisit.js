@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.body
   db.deleteParkFromToVisit({ id })
     .then(() => {
@@ -43,7 +43,7 @@ router.delete('/', (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
   const id = Number(req.params.id)
   db.getToVisitByUserId(id)
     .then((visitStatus) => {

@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.body
   db.deleteFavPark({ id })
     .then(() => {
@@ -44,7 +44,7 @@ router.delete('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  const id = Number(req.params.id)
+  const id = String(req.params.id)
   db.getFavByUserId(id)
     .then((visitStatus) => {
       res.json(visitStatus)

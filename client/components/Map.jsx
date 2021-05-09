@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchMap } from '../actions/map'
 import Filter from '../components/Filter'
 
-
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default function Map () {

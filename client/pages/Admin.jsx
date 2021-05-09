@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import AdminParkItem from '../components/AdminParkItem'
 import { getParkLocations, deletePark } from './AdminHelper'
+import AdminRedirect from './AdminRedirect'
 
 function Admin () {
   const [parks, setParks] = useState([])
@@ -28,7 +29,11 @@ function Admin () {
   }
 
   if (!isAdmin) {
-    return <p>go Away</p>
+    return (
+      <>
+        <AdminRedirect />
+      </>
+    )
   }
 
   return (

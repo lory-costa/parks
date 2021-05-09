@@ -13,8 +13,8 @@ export default function EditEvent (props) {
   function getPark (id, consume = requestor) {
     return consume(`/park/${id}`)
       .then((res) => {
-        const { title, date, volunteersNeeded, description } = res.body
-        return { title, date, description, volunteersNeeded }
+        const { name, address, url, description, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = res.body
+        return { name, address, url, description, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved }
       })
       .catch((err) => {
         console.log(err.message)
@@ -28,7 +28,7 @@ export default function EditEvent (props) {
     }
     return consume(`/park/${id}`, 'patch', parkToUpdate)
       .then(() => {
-        navigateTo(`/park/${id}`)
+        navigateTo(`/park-details/${id}`)
         return null
       })
       .catch((err) => {
@@ -39,8 +39,8 @@ export default function EditEvent (props) {
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
     getPark(id)
-      .then((eventData) => {
-        setEvent(eventData)
+      .then((parkData) => {
+        setEvent(parkData)
         return null
       })
   }, [])

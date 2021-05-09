@@ -19,9 +19,9 @@ export function fetchComments (parkId) {
   }
 }
 
-export function addComment (comment, parkId, userId, rating) {
+export function addComment (comment, parkId, userName, rating) {
   return (dispatch) => {
-    return postComment(comment, parkId, userId, rating)
+    return postComment(comment, parkId, userName, rating)
       .then(() => {
         dispatch(fetchComments(parkId))
         return null

@@ -7,7 +7,7 @@ import Facilities from '../components/Facilities'
 import Comments from '../components/Comments'
 import Footer from '../components/Footer'
 
-import { getPark, getComments } from './ParkDetailsHelper'
+import { getPark } from './ParkDetailsHelper'
 
 function ParkDetails () {
   const { id } = useParams()

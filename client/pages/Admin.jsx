@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import AdminParkItem from '../components/AdminParkItem'
@@ -7,6 +7,7 @@ import { getParkLocations, deletePark } from './AdminHelper'
 
 function Admin () {
   const [parks, setParks] = useState([])
+  const isAdmin = useSelector(globalState => globalState.user.isAdmin)
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
@@ -24,6 +25,10 @@ function Admin () {
         setParks(parks)
         return null
       })
+  }
+
+  if (!isAdmin) {
+    return <p>"go Away"</p>
   }
 
   return (

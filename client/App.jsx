@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import { setUser } from './actions/user'
 
 import { Route } from 'react-router-dom'
@@ -21,6 +20,7 @@ function App () {
   if (isLoading) {
     return <p>Loading...</p>
   }
+
   if (user) {
     console.log(user)
     dispatch(setUser(user))

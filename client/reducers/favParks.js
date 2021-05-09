@@ -1,4 +1,4 @@
-import {  SET_FAV_PARKS, DELETE_FAV_PARK } from '../actions/favParks'
+import { SET_FAV_PARKS, DELETE_FAV_PARK } from '../actions/favParks'
 
 const initialState = []
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { deleteFavPark } from '../actions/favParks'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 export default function ParkListingItem ({ parkListing }) {
   const dispatch = useDispatch()

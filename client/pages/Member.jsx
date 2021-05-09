@@ -22,14 +22,6 @@ function Member () {
     fetchToVisit(dispatch, String(userId))
   }, [])
 
-  function favParksDelete (id) {
-    deleteFavPark(dispatch, id, userId)
-  }
-
-  function toVisitParkDelete (id) {
-
-  }
-
   return (
     <div className='flex flex-col'>
       <Header />
@@ -39,7 +31,7 @@ function Member () {
       <div>
         <h3>Favourite Parks</h3>
         <ul>
-          {favParks.map(favPark => < ParkListingItem key = {favPark.id} parkListing = {favPark}/> )}
+          {favParks.map(favPark => < ParkListingItem key = {favPark.id} parkListing = {favPark}/>)}
         </ul>
         <h3>To Visit Parks</h3>
         <ul>

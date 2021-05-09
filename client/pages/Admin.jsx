@@ -28,7 +28,7 @@ function Admin () {
   }
 
   if (!isAdmin) {
-    return <p>"go Away"</p>
+    return <p>go Away</p>
   }
 
   return (

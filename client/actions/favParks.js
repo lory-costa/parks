@@ -10,6 +10,13 @@ export function setFavParks (favParks) {
   }
 }
 
+export function delFavParks (id) {
+  return {
+    type: DELETE_FAV_PARK,
+    id
+  }
+}
+
 export function fetchFavParks (dispatch, id) {
   return getFavParks(id)
     .then((result) => {
@@ -22,19 +29,7 @@ export function deleteFavPark (dispatch, id, userId) {
   console.log(id, userId)
   return deleteFav(id)
     .then(() => {
-      dispatch(fetchFavParks(userId))
+      dispatch(delFavParks(id))
       return null
     })
-
-  // return deleteFav(id)
-
-  //   return (dispatch) => {
-  //     console.log(id)
-  //     return deleteFav(id)
-  //       .then(() => {
-  //         dispatch(fetchFavParks(userId))
-  //         return null
-  //       })
-  //   }
-  // }
 }

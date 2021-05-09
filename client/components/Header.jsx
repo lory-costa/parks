@@ -8,7 +8,9 @@ function Header () {
   return (
     <div className='flex justify-between mt-8 mx-14 items-center' >
       <div className='text-4xl' >
-        <Link to="/main">PARKS</Link>
+        <Link to="/main">
+          <img className='flex flex-col bg-cover' src='/images/logos/ProjectLogoFinal.png'/>
+        </Link>
       </div>
       <Nav />
     </div>

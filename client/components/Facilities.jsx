@@ -1,13 +1,6 @@
 import React from 'react'
 
-function Facilities (props) {
-  const playground = props.playground
-  const toilets = props.toilets
-  const picnic = props.picnicSite
-  const sports = props.sportsField
-  const tramp = props.tramp
-  const dogs = props.dogWalking
-
+function Facilities ({ playground, toilets, picnic, sports, tramp, dogs }) {
   return (
     <div>
       <h2 className='mt-4 text-xl mb-2 text-green-700'>Facilities</h2>

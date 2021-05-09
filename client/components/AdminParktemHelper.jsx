@@ -1,5 +1,5 @@
 import requestor from '../consume'
-import { dispatch, getState } from '../store'
+import { dispatch } from '../store'
 import { setWaiting, clearWaiting } from '../actions/waiting'
 import { showError } from '../actions/error'
 

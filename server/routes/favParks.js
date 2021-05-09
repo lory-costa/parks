@@ -27,8 +27,8 @@ router.post('/', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  const { id } = req.body
-  db.deleteFavPark({ id })
+  const id = Number(req.params.id)
+  db.deleteFavPark(id)
     .then(() => {
       res.sendStatus(200)
       return null

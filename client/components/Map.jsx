@@ -7,7 +7,7 @@ import Filter from '../components/Filter'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default function Map () {
-  const parks = useSelector(globalState => globalState.map)
+  const parks = useSelector(globalState => globalState.map).filter(park => park.approved === 1)
   const filter = useSelector(globalState => globalState.filter)
   const dispatch = useDispatch()
 
@@ -35,7 +35,8 @@ export default function Map () {
 
   return (<>
     <Filter />
-    <MapContainer className="mt-5" style={{ width: '100vw', height: 'calc(100vh - 172px)' }}
+    {/* <MapContainer className="mt-5" style={{ width: '100vw', height: 'calc(100vh - 172px)' }} */}
+    <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
       center={[-36.8826700, 174.7666700]}
       zoom={13}
       scrollWheelZoom={true}>

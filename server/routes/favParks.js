@@ -44,7 +44,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  const id = Number(req.params.id)
+  const id = String(req.params.id)
   db.getFavByUserId(id)
     .then((visitStatus) => {
       res.json(visitStatus)
@@ -55,21 +55,6 @@ router.get('/:id', (req, res) => {
       res.status(500).json({
         error: {
           title: 'Unable to retrieve favourite'
-        }
-      })
-    })
-})
-
-router.get('/', (req, res) => {
-  db.getFavs()
-    .then((favParks) => {
-      return res.json({ favParks })
-    })
-    .catch((err) => {
-      log(err.message)
-      res.status(500).json({
-        error: {
-          title: 'Unable to retrieve favourites'
         }
       })
     })

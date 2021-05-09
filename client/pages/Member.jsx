@@ -1,61 +1,37 @@
 import React, { useEffect, useState } from 'react'
-
+import { fetchFavParks } from '../actions/favParks'
+import { useDispatch, useSelector } from 'react-redux'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-// import ParkListingItem from '../components/ParkListingItem'
-import { getFavParks, deleteFavParks } from './MemberHelper'
-import { getToVisitParks, deleteToVisit } from './MemberHelper'
 
-function Member() {
-  const [favParks, setFavParks] = useState([])
-  const [toVisit, setToVisit] = useState([])
-  console.log(favParks)
+// import ParkListingItem from '../components/ParkListingItem'
+// import { getFavParks, deleteFavParks } from './MemberHelper'
+// import { getToVisitParks, deleteToVisit } from './MemberHelper'
+
+function Member () {
+  const userId = useSelector(globalState => globalState.user.id)
+  const favParks = useSelector(globalState => globalState.favParks)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
-    getFavParks()
-      .then(( favParks ) => {
-        setFavParks(favparks)
-        return null
-      })
+    console.log(userId)
+    fetchFavParks(dispatch, String(userId))
   }, [])
 
-  // useEffect(() => {
-  //   // eslint-disable-next-line promise/catch-or-return
-  //   getToVisitParks()
-  //     .then(({ toVisit }) => {
-  //       setToVisit(toVisit)
-  //       return null
-  //     })
-  // }, [])
+  // function ParkListingItem({ parkListing, deleteItemFav }) {
+  //   const { name, id } = parkListing
+  //   const [visitStatus, setIsVisited] = useState(visited)
 
-  function deleteItemFav(id) {
-    return deleteFavParks(id)
-      .then((favParks) => {
-        setFavParks(favParks)
-      })
-  }
+  //   function handleInputChange(event) {
+  //     const { target } = event
+  //     setIsVisited(target.checked)
 
-  function deleteItemVisit(id) {
-    return deleteToVisit(id)
-      .then((toVisit) => {
-        setToVisit(toVisit)
-      })
-  }
+  //     return toggleParkVisitedStatus(id, !visitStatus)
+  //   }
 
-  function ParkListingItem({ parkListing, deleteItemFav }) {
-    const { name, id } = parkListing
-    const [visitStatus, setIsVisited] = useState(visited)
-
-    function handleInputChange(event) {
-      const { target } = event
-      setIsVisited(target.checked)
-
-      return toggleParkVisitedStatus(id, !visitStatus)
-    }
-
-    return <li>{name}------<td><input To type="checkbox" name="To Visit" checked={visitStatus} onChange={(event) => handleInputChange(event)} /></td><td><input To type="checkbox" name="Favourite" checked={visitStatus} onChange={(event) => handleInputChange(event)} /></td></li>
-  }
+  //   return <li>{name}------<td><input To type="checkbox" name="To Visit" checked={visitStatus} onChange={(event) => handleInputChange(event)} /></td><td><input To type="checkbox" name="Favourite" checked={visitStatus} onChange={(event) => handleInputChange(event)} /></td></li>
+  // }
 
   return (
     <div className='flex flex-col'>
@@ -66,11 +42,11 @@ function Member() {
       <div>
         <h3>Favourite Parks</h3>
         <ul>
-          {favParks.map(favPark => <ParkListingItem key={favPark.id} parkListing={park} deleteItem={deleteItem} />)}
+          {favParks.map(favPark => <p key={favPark.id}>{favPark.name}</p>)}
         </ul>
         <h3>To Visit Parks</h3>
         <ul>
-          {toVisit.map(toVisitPark => <ParkListingItem key={toVisitPark.id} parkListing={park} deleteItem={deleteItem} />)}
+          {/* {toVisit.map(toVisitPark => <ParkListingItem key={toVisitPark.id} parkListing={park} deleteItem={deleteItem} />)} */}
         </ul>
       </div>
       <Footer />

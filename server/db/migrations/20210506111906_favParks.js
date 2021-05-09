@@ -1,7 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('favParks', table => {
     table.increments('id')
-    table.int('user_id')
+    table.string('user_id')
     table.int('park_id')
   })
 }

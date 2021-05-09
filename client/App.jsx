@@ -22,7 +22,6 @@ function App () {
   }
 
   if (user) {
-    console.log(user)
     dispatch(setUser(user))
   }
 

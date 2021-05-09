@@ -8,7 +8,8 @@ module.exports = {
 
 function getFavByUserId (id, db = connection) {
   return db('favParks')
-    .select('id', 'park_id as parkId', 'user_id as userId')
+    .leftJoin('parks', 'favParks.park_id', 'parks.id')
+    .select('favParks.id as id', 'park_id as parkId', 'user_id as userId', 'parks.name as name')
     .where('user_id', id)
 }
 

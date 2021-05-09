@@ -14,5 +14,3 @@ export default function ParkListingItem ({ parkListing, deleteItem }) {
 
   return <li>{name}------<input type="checkbox" checked={isApprovedStatus} onChange={(event) => handleInputChange(event)} /><button onClick={() => { if (window.confirm('Are you sure you wish to delete this park?')) deleteItem(id) } }>Delete</button></li>
 }
-
-{ /* <button onClick={(e) => handleDelete(id)}>Delete</button> */ }

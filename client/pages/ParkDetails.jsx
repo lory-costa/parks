@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import Header from '../components/Header'
 import Rating from '../components/Rating'
@@ -12,23 +12,13 @@ import { getPark } from './ParkDetailsHelper'
 function ParkDetails () {
   const { id } = useParams()
   const [park, setPark] = useState([])
-  const [comments, setComments] = useState([])
-  const { name, address, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
-  console.log(park)
+  const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
+
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
     getPark(id)
       .then((park) => {
         setPark(park)
-        return null
-      })
-  }, [])
-
-  useEffect(() => {
-    // eslint-disable-next-line promise/catch-or-return
-    getComments(id)
-      .then((comments) => {
-        setComments(comments)
         return null
       })
   }, [])
@@ -45,18 +35,14 @@ function ParkDetails () {
               <Rating />
             </div>
             <p>{address}</p>
-            <Facilities playground={playGround} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
+            <Facilities playground={playground} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
           </div>
           <div className='mb-4 lg:mb-0 lg:w-1/2'>
             <img src={image} alt="park image" width="100%" height="600" />
           </div>
         </div>
-        <div>
-          <Link to = {`/edit-park/${id}`}><button className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded ml-4'>Edit Park</button></Link>
-        </div>
-        <Comments comments={comments} />
+        <Comments parkId={id} />
       </div>
-
       <Footer />
     </div>
   )

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import ParkListingItem from '../components/ParkListingItem'
+import AdminParkItem from '../components/AdminParkItem'
 import { getParkLocations, deletePark } from './AdminHelper'
 
 function Admin () {
@@ -35,7 +35,7 @@ function Admin () {
       <div>
         <h3>Parks</h3>
         <ul>
-          {parks.map(park => <ParkListingItem key={park.id} parkListing={park} deleteItem={deleteItem} />)}
+          {parks.map(park => <AdminParkItem key={park.id} parkListing={park} deleteItem={deleteItem} />)}
         </ul>
       </div>
       <Footer />

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { fetchFavParks, deleteFavPark } from '../actions/favParks'
 import { fetchToVisit } from '../actions/toVisit'
 import { useDispatch, useSelector } from 'react-redux'
 import Header from '../components/Header'
+import ParkListingItem from '../components/ParkListingItem'
 import Footer from '../components/Footer'
 
 function Member () {
@@ -38,7 +39,7 @@ function Member () {
       <div>
         <h3>Favourite Parks</h3>
         <ul>
-          {favParks.map(favPark => <li key={favPark.id}>{favPark.name} <button onClick={(e) => favParksDelete(favPark.id)}>Delete</button></li>)}
+          {favParks.map(favPark => < ParkListingItem key = {favPark.id} parkListing = {favPark}/> )}
         </ul>
         <h3>To Visit Parks</h3>
         <ul>

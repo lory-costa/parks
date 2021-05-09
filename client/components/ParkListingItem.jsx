@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
-import { toggleParkApprovedStatus } from './ParkListingItemHelper'
+import React from 'react'
+import { deleteFavPark } from '../actions/favParks'
+import { useDispatch, useSelector } from 'react-redux'
 
-export default function ParkListingItem ({ parkListing, deleteItem }) {
-  const { name, id, approved } = parkListing
-  const [isApprovedStatus, setIsApproved] = useState(approved)
-
-  function handleInputChange (event) {
-    const { target } = event
-    setIsApproved(target.checked)
-
-    return toggleParkApprovedStatus(id, !isApprovedStatus)
+export default function ParkListingItem ({ parkListing }) {
+  const dispatch = useDispatch()
+  function favParksDelete (id) {
+    deleteFavPark(dispatch, id)
   }
 
-  return <li>{name}------<input type="checkbox" checked={isApprovedStatus} onChange={(event) => handleInputChange(event)} /><button onClick={() => { if (window.confirm('Are you sure you wish to delete this park?')) deleteItem(id) } }>Delete</button></li>
+  return <><li key={parkListing.id}>{parkListing.name} <button onClick={(e) => favParksDelete(parkListing.id)}>Delete</button></li></>
 }

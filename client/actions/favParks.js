@@ -25,8 +25,7 @@ export function fetchFavParks (dispatch, id) {
     })
 }
 
-export function deleteFavPark (dispatch, id, userId) {
-  console.log(id, userId)
+export function deleteFavPark (dispatch, id) {
   return deleteFav(id)
     .then(() => {
       dispatch(delFavParks(id))

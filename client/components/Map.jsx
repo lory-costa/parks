@@ -25,7 +25,7 @@ export default function Map () {
   }
 
   const greenIcon = new L.Icon({
-    iconUrl: 'https://cdn.discordapp.com/attachments/831797837129056286/840740408531091506/ProjectIcon2.png',
+    iconUrl: 'https://raw.githubusercontent.com/kahikatea-2021/parks/frontend/server/public/icons/mapMarker.png?token=ASUCVDHBZ65YNYB4YCVPJ6LAUCGKQ',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
     iconSize: [40, 41],
     iconAnchor: [12, 41],

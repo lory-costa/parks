@@ -18,9 +18,11 @@ function Admin () {
   }, [])
 
   function deleteItem (id) {
+    // eslint-disable-next-line promise/catch-or-return
     return deletePark(id)
       .then((parks) => {
         setParks(parks)
+        return null
       })
   }
 
@@ -33,7 +35,7 @@ function Admin () {
       <div>
         <h3>Parks</h3>
         <ul>
-          {parks.map(park => <ParkListingItem key={park.id} parkListing={park} deleteItem = {deleteItem}/>)}
+          {parks.map(park => <ParkListingItem key={park.id} parkListing={park} deleteItem={deleteItem} />)}
         </ul>
       </div>
       <Footer />

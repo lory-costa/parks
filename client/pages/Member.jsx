@@ -13,7 +13,7 @@ function Member () {
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
-    fetchFavParks(dispatch, String(userId)) 
+    fetchFavParks(dispatch, String(userId))
   }, [])
 
   useEffect(() => {

@@ -1,4 +1,7 @@
 import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser } from './actions/user'
+
 import { Route } from 'react-router-dom'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -7,15 +10,16 @@ import Main from './pages/Main'
 import Admin from './pages/Admin'
 import ParkDetails from './pages/ParkDetails'
 import AddPark from './pages/AddPark'
+import { dispatch } from './store'
 
 function App () {
-  useEffect(() => { }, [])
+  const { isLoading, user } = useAuth0()
 
-  // const { isLoading, user } = useAuth0()
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
 
-  // if (isLoading) {
-  //   return <p>Loading..</p>
-  // }
+  dispatch(setUser(user))
 
   return (
     <>

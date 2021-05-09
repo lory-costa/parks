@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { addComment, fetchComments } from '../actions/comments'
 
 import CommentItem from './CommentItem'
@@ -8,6 +7,7 @@ import Rating from './Rating'
 
 function Comments (props) {
   const comments = useSelector(globalState => globalState.comments)
+  const user = useSelector(globalState => globalState.user)
   const parkId = props.parkId
   const [newComment, setNewComment] = useState('')
   const dispatch = useDispatch()
@@ -22,7 +22,7 @@ function Comments (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(addComment(newComment, parkId, 1, 5)) // TODO: 1. Johann - Pass a real userId (this will be from auth0) 2.Lory - Pass a real rating from the react stars component
+    dispatch(addComment(newComment, parkId, user.name, 5)) // TODO: 1. Johann - Pass a real userId (this will be from auth0) 2.Lory - Pass a real rating from the react stars component
     setNewComment('')
   }
 

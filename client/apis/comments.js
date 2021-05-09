@@ -6,8 +6,8 @@ export function getComments (parkId) {
     .then((res) => res.body)
 }
 
-export function postComment (comment, parkId, userId, rating) {
-  const commentData = { comment, parkId, userId, rating }
+export function postComment (comment, parkId, userName, rating) {
+  const commentData = { comment, parkId, userName, rating }
 
   return request
     .post('/api/v1/comments')

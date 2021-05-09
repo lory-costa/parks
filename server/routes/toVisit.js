@@ -43,8 +43,8 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-router.get('/', (req, res) => {
-  const id = Number(req.params.id)
+router.get('/:id', (req, res) => {
+  const id = String(req.params.id)
   db.getToVisitByUserId(id)
     .then((visitStatus) => {
       res.json(visitStatus)

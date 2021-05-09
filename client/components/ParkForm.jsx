@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { validate, rules } from './ValidationForm'
 
 export default function ParkForm (props) {
+  const isAdmin = useSelector(globalState => globalState.user.isAdmin)
+
   const [invalid, setInvalid] = useState({})
   const [form, setForm] = useState(props.formData || {
     name: '',
@@ -323,6 +326,7 @@ export default function ParkForm (props) {
                 />
               </div>
             </div>
+            { isAdmin &&
             <div className='md:flex md:items-center mb-6'>
               <div className='md:w-1/3'>
                 <label
@@ -341,6 +345,7 @@ export default function ParkForm (props) {
                 />
               </div>
             </div>
+            }
             <div>
               <div className="md:w-1/3"></div>
               <div className='md:w-2/3'>
@@ -382,10 +387,12 @@ export default function ParkForm (props) {
               {!!tramp && <img className='mr-3' src='/icons/icon-walking.svg' alt="tramp walking icon" width="35" height="35"/>}
               {!!dogWalking && <img src='/icons/dogAllowed.png' alt="dog allowed icon" width="35" height="35"/>}
             </div>
-            {approved
-              ? <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Park Approved: Yes</p>
-              : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Park Approved: No</p>
-            }
+            {isAdmin && <div>
+              { approved
+                ? <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Park Approved: Yes</p>
+                : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Park Approved: No</p>
+              }
+            </div>}
             {/* {playground
               ? <img className='mr-3' src='/icons/playground.png' alt="playground icon" width="35" height="35"/>
               : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Playground: No</p>

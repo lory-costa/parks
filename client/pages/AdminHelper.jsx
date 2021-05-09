@@ -1,6 +1,7 @@
 import requestor from '../consume'
 import { dispatch } from '../store'
 import { setWaiting, clearWaiting } from '../actions/waiting'
+import { showError } from '../actions/error'
 
 export function getParkLocations (consume = requestor) {
   dispatch(setWaiting())

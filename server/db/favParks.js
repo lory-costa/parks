@@ -23,7 +23,7 @@ function addFavPark (submission, db = connection) {
 }
 
 function deleteFavPark (submission, db = connection) {
-  const { id } = submission
+  const id = submission
   return db('favParks')
     .where({ id: id })
     .delete()

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 import Header from '../components/Header'
 import Rating from '../components/Rating'
@@ -50,6 +50,9 @@ function ParkDetails () {
           <div className='mb-4 lg:mb-0 lg:w-1/2'>
             <img src={image} alt="park image" width="100%" height="600" />
           </div>
+        </div>
+        <div>
+          <Link to = {`/edit-park/${id}`}><button className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded ml-4'>Edit Park</button></Link>
         </div>
         <Comments comments={comments} />
       </div>

@@ -12,7 +12,7 @@ function Facilities (props) {
     <div>
       <h2 className='mt-4 text-xl mb-2 text-green-700'>Facilities</h2>
       <div className='flex'>
-        {!!playground && <img className='mr-3' src='/icons/playground.svg.png' alt="playground icon" width="35" height="35"/>}
+        {!!playground && <img className='mr-3' src='/icons/playground.png' alt="playground icon" width="35" height="35"/>}
         {!!toilets && <img className='mr-3' src='/icons/icon-toilets.svg' alt="toilet icon" width="35" height="35"/>}
         {!!picnic && <img className='mr-3' src='/icons/icon-picnic-area.svg' alt="picnic icon" width="35" height="35"/> }
         {!!sports && <img className='mr-3' src='/icons/icon-sports-field.svg' alt="sports icon" width="35" height="35"/> }

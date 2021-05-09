@@ -16,7 +16,6 @@ export default function Map () {
     fetchMap(dispatch)
   }, [])
 
-
   function filterFunc (park) {
     if (filter.length === 0) return true
     let fBool = 0
@@ -25,6 +24,15 @@ export default function Map () {
     })
     return fBool === filter.length
   }
+
+  const greenIcon = new L.Icon({
+    iconUrl: 'https://cdn.discordapp.com/attachments/831797837129056286/840740408531091506/ProjectIcon2.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [40, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  })
 
   return (<>
     <Filter />
@@ -35,7 +43,7 @@ export default function Map () {
       <TileLayer
         url='https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWljaGFlbC1yIiwiYSI6ImNrZXM1Zm9iaDJiNmYycW1za2dobDZ4d3gifQ.a5mK2DxNqWhlzvoa8Zxb2Q' />
       {parks.filter(filterFunc).map(park =>
-        <Marker key={park.id} position={[park.lat, park.lon]}>
+        <Marker key={park.id} icon={greenIcon} position={[park.lat, park.lon]}>
           <Popup>
             <div><Link to={`/park-details/${park.id}`}>{park.name}</Link></div>
             <div>{park.address}</div>

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchRating } from '../actions/rating'
 
 import Header from '../components/Header'
-import Rating from '../components/Rating'
 import Facilities from '../components/Facilities'
 import Comments from '../components/Comments'
 import Footer from '../components/Footer'

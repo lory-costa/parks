@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import ParkListingItem from '../components/ParkListingItem'
+import AdminParkItem from '../components/AdminParkItem'
 import { getParkLocations, deletePark } from './AdminHelper'
 
 function Admin () {
   const [parks, setParks] = useState([])
+  const isAdmin = useSelector(globalState => globalState.user.isAdmin)
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
@@ -18,10 +19,16 @@ function Admin () {
   }, [])
 
   function deleteItem (id) {
+    // eslint-disable-next-line promise/catch-or-return
     return deletePark(id)
       .then((parks) => {
         setParks(parks)
+        return null
       })
+  }
+
+  if (!isAdmin) {
+    return <p>go Away</p>
   }
 
   return (
@@ -33,7 +40,7 @@ function Admin () {
       <div>
         <h3>Parks</h3>
         <ul>
-          {parks.map(park => <ParkListingItem key={park.id} parkListing={park} deleteItem = {deleteItem}/>)}
+          {parks.map(park => <AdminParkItem key={park.id} parkListing={park} deleteItem={deleteItem} />)}
         </ul>
       </div>
       <Footer />

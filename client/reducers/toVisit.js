@@ -1,4 +1,4 @@
-import { SET_TO_VISIT, CLEAR_TO_VISIT } from '../actions/toVisit'
+import { SET_TO_VISIT, DELETE_TO_VISIT } from '../actions/toVisit'
 
 const initialState = []
 
@@ -7,8 +7,8 @@ const toVisit = (state = initialState, action) => {
     case SET_TO_VISIT:
       return action.toVisit
 
-    case CLEAR_TO_VISIT:
-      return null
+    case DELETE_TO_VISIT:
+      return state.filter(toVisitPark => toVisitPark.id !== action.id)
 
     default:
       return state

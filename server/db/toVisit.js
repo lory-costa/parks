@@ -23,7 +23,7 @@ function addParkToVisit (submission, db = connection) {
 }
 
 function deleteParkFromToVisit (submission, db = connection) {
-  const { id } = submission
+  const id = submission
   return db('toVisit')
     .where({ id: id })
     .delete()

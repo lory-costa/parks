@@ -8,11 +8,11 @@ module.exports = {
 }
 
 function addComment (newComment, db = connection) {
-  const { parkId, userId, comment, rating } = newComment
+  const { parkId, userName, comment, rating } = newComment
   return db('parkComment')
     .insert({
       park_id: parkId,
-      user_id: userId,
+      user_name: userName,
       comment,
       rating: rating
     })
@@ -27,7 +27,7 @@ function deleteComment (submission, db = connection) {
 
 function getCommentsByParkId (id, db = connection) {
   return db('parkComment')
-    .select('id', 'park_id as parkId', 'user_id as userId', 'comment', 'rating')
+    .select('id', 'park_id as parkId', 'user_name as userName', 'comment', 'rating')
     .where('park_id', id)
 }
 

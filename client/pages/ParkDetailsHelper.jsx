@@ -10,14 +10,3 @@ export function getPark (id, consume = requestor) {
       console.log(error.message)
     })
 }
-
-export function getComments (id, consume = requestor) {
-  return consume(`/comments/${id}`)
-    .then((res) => {
-      const comments = res.body
-      return comments
-    })
-    .catch((error) => {
-      console.log(error.message)
-    })
-}

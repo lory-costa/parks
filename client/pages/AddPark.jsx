@@ -15,9 +15,9 @@ export default function AddPark (props) {
       ...event
     }
 
-    return consume('/parks', 'post', newEvent)
+    return consume('/park', 'post', newEvent)
       .then(() => {
-        navigateTo('/parks')
+        navigateTo('/admin')
         return null
       })
   }
@@ -30,7 +30,7 @@ export default function AddPark (props) {
     <div className='flex flex-col'>
       <Header />
       <ParkForm
-        action='Create Event'
+        action='Add Park'
         submitPark={submitPark}
       />
       <Footer />

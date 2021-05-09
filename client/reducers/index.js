@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux'
 
-import parks from './parks'
-import comments from './comments'
 import user from './user'
+import map from './map'
+import parks from './parks'
+import filter from './filter'
+import comments from './comments'
 
 export default combineReducers({
+  user,
+  map,
   parks,
-  comments,
-  user
+  filter,
+  comments
 })

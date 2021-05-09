@@ -4,12 +4,12 @@ import { fetchToVisit } from '../actions/toVisit'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
 
-import AdminRedirect from '../pages/AdminRedirect'
+import AdminRedirect from './AdminRedirect'
 import Header from '../components/Header'
 import ParkListingItem from '../components/ParkListingItem'
 import Footer from '../components/Footer'
 
-function Member () {
+function Profile () {
   const { isAuthenticated } = useAuth0()
   const userId = useSelector(globalState => globalState.user.id)
   const favParks = useSelector(globalState => globalState.favParks)
@@ -55,4 +55,4 @@ function Member () {
   )
 }
 
-export default Member
+export default Profile

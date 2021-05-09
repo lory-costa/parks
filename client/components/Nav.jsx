@@ -15,7 +15,7 @@ export default function Nav () {
         {!isAuthenticated ? <LoginButton /> : < LogoutButton />}
       </div>
       {!!isAdmin && <Link to = '/admin'><button className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded ml-4'>Admin</button></Link>}
-      {!!isAuthenticated && <Link to = '/member'><button className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded ml-4'>Member</button></Link> }
+      {!!isAuthenticated && <Link to = '/profile'><button className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded ml-4'>Profile</button></Link> }
     </div>
   )
 }

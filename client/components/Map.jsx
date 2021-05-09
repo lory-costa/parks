@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 const greenIcon = new L.Icon({
-  iconUrl: 'https://cdn.discordapp.com/attachments/831797837129056286/840740408531091506/ProjectIcon2.png',
+  iconUrl: 'https://cdn.discordapp.com/attachments/831797837129056286/840779477759426560/ProjectIcon4.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
   iconSize: [40, 41],
   iconAnchor: [12, 41],

@@ -20,8 +20,9 @@ function App () {
   if (isLoading) {
     return <p>Loading...</p>
   }
-
-  dispatch(setUser(user))
+  if (user) {
+    dispatch(setUser(user))
+  }
 
   return (
     <>

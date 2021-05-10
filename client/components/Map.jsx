@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
 import { fetchMap } from '../actions/map'
-import { addToFav, fetchFavParks } from '../actions/favParks'
+import { fetchFavParks } from '../actions/favParks'
+import { fetchToVisit } from '../actions/toVisit'
 import Filter from '../components/Filter'
 import FavButton from './FavButton'
+import ToVisitButton from './ToVisitButton'
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
@@ -13,12 +15,14 @@ export default function Map () {
   const id = useSelector(globalState => globalState.user.id)
   const parks = useSelector(globalState => globalState.map).filter(park => park.approved === 1)
   const favParks = useSelector(globalState => globalState.favParks)
+  const toVisit = useSelector(globalState => globalState.toVisit)
   const filter = useSelector(globalState => globalState.filter)
   const dispatch = useDispatch()
 
   useEffect(() => {
     fetchMap(dispatch)
     fetchFavParks(dispatch, id)
+    fetchToVisit(dispatch, id)
   }, [])
 
   function filterFunc (park) {
@@ -56,8 +60,10 @@ export default function Map () {
             {(favParks.filter(favPark => favPark.parkId === park.id).length)
               ? <FavButton parkId={park.id} heart={true} favParkId={(favParks.filter(favPark => favPark.parkId === park.id)[0].id)}/>
               : <FavButton parkId={park.id} heart={false} /> }
+            {(toVisit.filter(toVisitPark => toVisitPark.parkId === park.id).length)
+              ? <ToVisitButton parkId={park.id} toVisit={true} toVisitParkId={(toVisit.filter(toVisitPark => toVisitPark.parkId === park.id)[0].id)}/>
+              : <ToVisitButton parkId={park.id} toVisit={false} /> }
             <img src={park.image}></img>
-
           </Popup>
         </Marker>
       )}

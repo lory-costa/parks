@@ -3,7 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
 
-export default function FavButton ({ parkId, heart, favParkId }) {
+export default function mFavButton ({ parkId, heart, favParkId }) {
   const userId = useSelector(globalState => globalState.user.id)
   const { isAuthenticated } = useAuth0()
 

@@ -10,9 +10,6 @@ import FavButton from './FavButton'
 import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from 'react-leaflet'
 
 export default function Map () {
-  const { isAuthenticated } = useAuth0()
-  // const [newFav, setNewFav] = useState('')
-  // const id = props.id
   const id = useSelector(globalState => globalState.user.id)
   const parks = useSelector(globalState => globalState.map).filter(park => park.approved === 1)
   const favParks = useSelector(globalState => globalState.favParks)
@@ -23,12 +20,6 @@ export default function Map () {
     fetchMap(dispatch)
     fetchFavParks(dispatch, id)
   }, [])
-
-  // const handleClick = (e) => {
-  //   // e.preventDefault()
-  //   dispatch(addToFav(newFav, id))
-  //   setNewFav()
-  // }
 
   function filterFunc (park) {
     if (filter.length === 0) return true

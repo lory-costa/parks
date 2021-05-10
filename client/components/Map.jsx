@@ -60,12 +60,14 @@ export default function Map () {
       {parks.filter(filterFunc).map(park =>
         <Marker key={park.id} icon={greenIcon} position={[park.lat, park.lon]}>
           <Popup>
-            <div><Link to={`/park-details/${park.id}`}>{park.name}</Link></div>
+            <img className='mb-2' src={park.image}></img>
+            <Link to={`/park-details/${park.id}`}>{park.name}</Link>
             <div>{park.address}</div>
+            <div className='text-right mt-2'>
             {(favParks.filter(favPark => favPark.parkId === park.id).length)
               ? <FavButton parkId={park.id} heart={true} favParkId={(favParks.filter(favPark => favPark.parkId === park.id)[0].id)}/>
               : <FavButton parkId={park.id} heart={false} /> }
-            <img src={park.image}></img>
+            </div>
 
           </Popup>
         </Marker>

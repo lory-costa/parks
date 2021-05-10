@@ -11,3 +11,12 @@ export function deleteVisit (id) {
     .delete(`/api/v1/visit/${id}`)
     .then((res) => res.body)
 }
+
+export function AddVisit (userId, parkId) {
+  const toVisitData = { userId, parkId }
+
+  return request
+    .post('/api/v1/visit')
+    .send(toVisitData)
+    .then((res) => res.body)
+}

@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { fetchMap } from '../actions/map'
 import { addToFav, fetchFavParks } from '../actions/favParks'
 import Filter from '../components/Filter'
-import Fav from './Fav'
+import FavButton from './FavButton'
 
 import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from 'react-leaflet'
 
@@ -62,9 +62,11 @@ export default function Map () {
           <Popup>
             <div><Link to={`/park-details/${park.id}`}>{park.name}</Link></div>
             <div>{park.address}</div>
-            {console.log(favParks.filter(favPark => favPark.parkId === park.id).length)}
-            {(favParks.filter(favPark => favPark.parkId === park.id).length) ? <Fav parkId={park.id} heart={true}/> : <Fav parkId={park.id} heart={false}/> }
+            {(favParks.filter(favPark => favPark.parkId === park.id).length)
+              ? <FavButton parkId={park.id} heart={true} favParkId={(favParks.filter(favPark => favPark.parkId === park.id)[0].id)}/>
+              : <FavButton parkId={park.id} heart={false} /> }
             <img src={park.image}></img>
+
           </Popup>
         </Marker>
       )}

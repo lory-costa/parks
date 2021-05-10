@@ -5,7 +5,6 @@ export const DELETE_FAV_PARK = 'DELETE_FAV_PARK'
 export const ADD_FAV_PARK = 'ADD_FAV_PARK'
 
 export function setFavParks (favParks) {
-  console.log(favParks)
   return {
     type: SET_FAV_PARKS,
     favParks
@@ -49,6 +48,10 @@ export function addToFavParks (dispatch, userId, parkId) {
   return AddFav(userId, parkId)
     .then(() => {
       dispatch(addFavParks(userId, parkId))
+      return null
+    })
+    .then(() => {
+      fetchFavParks(dispatch, userId)
       return null
     })
 }

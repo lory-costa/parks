@@ -12,6 +12,7 @@ import { getPark } from './ParkDetailsHelper'
 
 function ParkDetails () {
   const { id } = useParams()
+  const [view, setView] = useState('View Decription')
   const [park, setPark] = useState([])
   const [button, setButton] = useState(false)
 
@@ -30,11 +31,13 @@ function ParkDetails () {
   function handleButtonClick (e) {
     if (button) {
       return (
-        setButton(false)
+        setButton(false),
+        setView('View Description')
       )
     }
     return (
-      setButton(true)
+      setButton(true),
+      setView('Hide Description')
     )
   }
 
@@ -54,7 +57,7 @@ function ParkDetails () {
             <p>{address}</p>
             <Facilities playground={playGround} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
             <div className="container">
-              <button onClick={handleButtonClick} type="button" className="button">Description</button>
+              <button onClick={handleButtonClick} type="button" className="button mt-4 text-lg mb-2 text-green-700">{view}</button>
               <div className="dropdown">
                 {button && description }
               </div>

@@ -7,7 +7,7 @@ import { addToFav, fetchFavParks } from '../actions/favParks'
 import Filter from '../components/Filter'
 import FavButton from './FavButton'
 
-import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 export default function Map () {
   const id = useSelector(globalState => globalState.user.id)

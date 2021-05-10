@@ -3,7 +3,7 @@ import { addFilter, removeFilter } from '../actions/filter'
 
 import { useDispatch } from 'react-redux'
 
-export default function FilterItem ({ facilityName, facilityValue }) {
+export default function FilterItem ({ facilityIcon, facilityValue }) {
   const dispatch = useDispatch()
 
   function handleChange (e) {
@@ -12,8 +12,8 @@ export default function FilterItem ({ facilityName, facilityValue }) {
       : dispatch(removeFilter(e.target.value))
   }
 
-  return <div className ='w-32 m-1' >
-    <label>{facilityName}</label>
+  return <div className='px-2'>
+    <label>{facilityIcon}</label>
     <input
       id={facilityValue}
       name={facilityValue}

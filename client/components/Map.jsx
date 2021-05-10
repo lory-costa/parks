@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchMap } from '../actions/map'
 import Filter from '../components/Filter'
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from 'react-leaflet'
 
 export default function Map () {
   const parks = useSelector(globalState => globalState.map).filter(park => park.approved === 1)
@@ -33,10 +33,10 @@ export default function Map () {
     shadowSize: [41, 41]
   })
 
-  return (<>
+  return (<div >
     <Filter />
-    {/* <MapContainer className="mt-5" style={{ width: '100vw', height: 'calc(100vh - 172px)' }} */}
-    <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
+    <MapContainer className="mt-5 relative z-10" style={{ width: '100vw', height: 'calc(100vh - 172px)' }}
+    // <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
       center={[-36.8826700, 174.7666700]}
       zoom={13}
       scrollWheelZoom={true}>
@@ -52,6 +52,6 @@ export default function Map () {
         </Marker>
       )}
     </MapContainer>
-  </>
+  </div>
   )
 }

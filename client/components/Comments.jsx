@@ -38,11 +38,11 @@ function Comments (props) {
       <h3 className='text-xl mb-4 text-green-700'>Comments</h3>
       {isAuthenticated && <div className='bg-gray-100 mb-4 p-4 rounded' >
         <ReactStars
-        count={5}
-        onChange={handleRatingChange}
-        size={24}
-        color='#BBB'
-        activeColor="#ffd700"
+          count={5}
+          onChange={handleRatingChange}
+          size={24}
+          color='#BBB'
+          activeColor="#ffd700"
         />
         <div className='flex flex-col lg:flex-row justify-between items-center mt-2' >
           <input className='border rounded py-2 px-4 w-full' type="text" placeholder="Add a comment" value={newComment} onChange={handleChange} />

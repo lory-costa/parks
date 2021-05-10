@@ -1,19 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
 import { fetchMap } from '../actions/map'
+import { addToFav, fetchFavParks } from '../actions/favParks'
 import Filter from '../components/Filter'
+import FavButton from './FavButton'
 
 import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from 'react-leaflet'
 
 export default function Map () {
+  const { isAuthenticated } = useAuth0()
+  // const [newFav, setNewFav] = useState('')
+  // const id = props.id
+  const id = useSelector(globalState => globalState.user.id)
   const parks = useSelector(globalState => globalState.map).filter(park => park.approved === 1)
+  const favParks = useSelector(globalState => globalState.favParks)
   const filter = useSelector(globalState => globalState.filter)
   const dispatch = useDispatch()
 
   useEffect(() => {
     fetchMap(dispatch)
+    fetchFavParks(dispatch, id)
   }, [])
+
+  // const handleClick = (e) => {
+  //   // e.preventDefault()
+  //   dispatch(addToFav(newFav, id))
+  //   setNewFav()
+  // }
 
   function filterFunc (park) {
     if (filter.length === 0) return true
@@ -36,7 +51,7 @@ export default function Map () {
   return (<div >
     <Filter />
     <MapContainer className="mt-5 relative z-10" style={{ width: '100vw', height: 'calc(100vh - 172px)' }}
-    // <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
+      // <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
       center={[-36.8826700, 174.7666700]}
       zoom={13}
       scrollWheelZoom={true}>
@@ -47,7 +62,11 @@ export default function Map () {
           <Popup>
             <div><Link to={`/park-details/${park.id}`}>{park.name}</Link></div>
             <div>{park.address}</div>
+            {(favParks.filter(favPark => favPark.parkId === park.id).length)
+              ? <FavButton parkId={park.id} heart={true} favParkId={(favParks.filter(favPark => favPark.parkId === park.id)[0].id)}/>
+              : <FavButton parkId={park.id} heart={false} /> }
             <img src={park.image}></img>
+
           </Popup>
         </Marker>
       )}

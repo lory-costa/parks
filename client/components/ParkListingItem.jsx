@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 
 export default function ParkListingItem ({ parkListing, type }) {
   const dispatch = useDispatch()
-  console.log(type)
   function deletePark (id) {
     if (type === 'favPark') {
       deleteFavPark(dispatch, id)

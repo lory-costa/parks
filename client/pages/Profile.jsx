@@ -17,12 +17,10 @@ function Profile () {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // eslint-disable-next-line promise/catch-or-return
     fetchFavParks(dispatch, String(userId))
   }, [])
 
   useEffect(() => {
-    // eslint-disable-next-line promise/catch-or-return
     fetchToVisit(dispatch, String(userId))
   }, [])
 
@@ -37,20 +35,21 @@ function Profile () {
   return (
     <div className='flex flex-col'>
       <Header />
-      <div className='absolute inset-x-0.5 top-14 flex justify-center' >
-        <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
+      <div className='mt-20 flex flex-col lg:flex-row justify-between mt-10 mx-14'>
+        <div>
+          <h3 className='text-2xl text-green-700 mb-2' >Favourite Parks</h3>
+          <ul>
+            {favParks.map(favPark => < ParkListingItem key = {favPark.id} parkListing = {favPark} type ={'favPark'}/>)}
+          </ul>
+        </div>
+        <div>
+          <h3 className='text-2xl text-green-700 mb-2'>Parks I want to visit</h3>
+          <ul>
+            {toVisit.map(toVisitPark => < ParkListingItem key = {toVisitPark.id} parkListing = {toVisitPark} type ={'toVisitPark'}/>)}
+          </ul>
+        </div>
       </div>
-      <div>
-        <h3>Favourite Parks</h3>
-        <ul>
-          {favParks.map(favPark => < ParkListingItem key = {favPark.id} parkListing = {favPark} type ={'favPark'}/>)}
-        </ul>
-        <h3>To Visit Parks</h3>
-        <ul>
-          {toVisit.map(toVisitPark => < ParkListingItem key = {toVisitPark.id} parkListing = {toVisitPark} type ={'toVisitPark'}/>)}
-        </ul>
-      </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

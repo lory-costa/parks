@@ -18,7 +18,9 @@ function App () {
   const { isLoading, user } = useAuth0()
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <div className='grid justify-items-center'>
+      <img className='justify-self-auto' src='/images/Loading.gif' />
+    </div>
   }
 
   if (user) {

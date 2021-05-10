@@ -37,13 +37,13 @@ function Profile () {
       <Header />
       <div className='mt-20 flex flex-col justify-between mt-10 mx-14'>
         <div>
-          <h3 className='text-3xl mb-4' >Favourite Parks</h3>
+          <h3 className='text-3xl mb-4'>Favourite Parks</h3>
           <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8' >
             {favParks.map(favPark => < ParkListingItem key = {favPark.id} parkListing = {favPark} type ={'favPark'}/>)}
           </ul>
         </div>
         <div>
-          <h3 className='text-3xl mb-4'>Parks to visit</h3>
+          <h3 className='text-3xl mb-4'>Parks to Visit</h3>
           <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4'>
             {toVisit.map(toVisitPark => < ParkListingItem key = {toVisitPark.id} parkListing = {toVisitPark} type ={'toVisitPark'}/>)}
           </ul>

@@ -16,14 +16,18 @@ export default function ParkListingItem ({ parkListing, type }) {
   }
 
   return ( 
-    <Link to={`/park-details/${parkListing.parkId}`} 
+    <div 
     className='border-gray-200 border-2 rounded-lg' 
     key={parkListing.id}>
-      <img src={parkListing.image} alt="park image" className='object-cover h-36 w-full rounded-t-lg mb-2' />
+      <Link to={`/park-details/${parkListing.parkId}`}>
+        <img src={parkListing.image} alt="park image" className='object-cover h-36 w-full rounded-t-lg mb-2' />
+      </Link>
       <p className='ml-2' >{parkListing.name}</p>
-      <button onClick={(e) => deletePark(parkListing.id)}> 
-        <img src="/images/trash.png" alt="delete icon" width='25' height='25'/> 
-      </button>
-    </Link>
+      <div className='text-right mr-2 mt-1 mb-1'>
+        <button onClick={(e) => deletePark(parkListing.id)}> 
+          <img src="/icons/heart.png" alt="delete icon" width='20'/> 
+        </button>
+      </div>
+    </div>
   )
 }

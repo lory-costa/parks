@@ -5,6 +5,7 @@ export const DELETE_FAV_PARK = 'DELETE_FAV_PARK'
 export const ADD_TO_FAV = 'ADD_TO_FAV'
 
 export function setFavParks (favParks) {
+  console.log(favParks)
   return {
     type: SET_FAV_PARKS,
     favParks
@@ -34,19 +35,19 @@ export function deleteFavPark (dispatch, id) {
     })
 }
 
-export function addToFav (id) {
-  return (dispatch) => {
-    return postToFav(id)
-      .then(() => {
-        dispatch(fetchFavParks(id))
-        return null
-      })
-  }
-}
-
 // export function addToFav (id) {
+//   return (dispatch) => {
+//     return postToFav(id)
+//       .then(() => {
+//         dispatch(fetchFavParks(id))
+//         return null
+//       })
+//   }
+// }
+
+// export function addFav (id) {
 //   return {
-//     type: ADD_TO_CART,
+//     type: ADD_TO_FAV,
 //     id: id
 //   }
 // }

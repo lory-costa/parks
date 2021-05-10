@@ -15,6 +15,7 @@ function getFavByUserId (id, db = connection) {
 
 function addFavPark (submission, db = connection) {
   const { userId, parkId } = submission
+  console.log(submission)
   return db('favParks')
     .insert({
       user_id: userId,

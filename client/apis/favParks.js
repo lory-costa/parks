@@ -12,8 +12,8 @@ export function deleteFav (id) {
     .then((res) => res.body)
 }
 
-export function postToFav (id) {
-    const favData = { id }
+export function postToFav (userId, parkId) {
+  const favData = { userId, parkId }
 
   return request
     .post('/api/v1/fav')

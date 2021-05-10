@@ -15,9 +15,8 @@ function ParkDetails () {
   const [park, setPark] = useState([])
   const [button, setButton] = useState(false)
 
-
   const { name, address, description, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
-  const rates = useSelector(globalState => globalState.rating)
+  const rates = useSelector(globalState => globalState.comments)
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
@@ -26,10 +25,6 @@ function ParkDetails () {
         setPark(park)
         return null
       })
-  }, [])
-
-  useEffect(() => {
-    fetchRating(dispatch, id)
   }, [])
 
   function handleButtonClick (e) {

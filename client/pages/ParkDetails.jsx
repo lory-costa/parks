@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchRating } from '../actions/rating'
+import { useSelector } from 'react-redux'
 
 import Header from '../components/Header'
 import Facilities from '../components/Facilities'
@@ -10,15 +9,13 @@ import Footer from '../components/Footer'
 import ParkRating from '../components/ParkRating'
 
 import { getPark } from './ParkDetailsHelper'
-import { getComments } from '../apis/comments'
 
 function ParkDetails () {
   const { id } = useParams()
   const [park, setPark] = useState([])
 
   const { name, address, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
-  const rates = useSelector(globalState => globalState.rating)
-  const dispatch = useDispatch()
+  const rates = useSelector(globalState => globalState.comments)
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
@@ -29,13 +26,7 @@ function ParkDetails () {
       })
   }, [])
 
-  useEffect(() => {
-    fetchRating(dispatch, id)
-  }, [])
-
-  console.log(rates)
   const parkRate = rates.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0) / rates.length
-  console.log(parkRate)
 
   return (
     <div className='flex flex-col'>

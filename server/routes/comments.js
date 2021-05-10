@@ -77,20 +77,3 @@ router.get('/:id', (req, res) => {
       })
     })
 })
-
-router.get('/rating/:id', (req, res) => {
-  const id = Number(req.params.id)
-  db.getRatesByParkId(id)
-    .then((comment) => {
-      res.json(comment)
-      return null
-    })
-    .catch((err) => {
-      log(err.message)
-      res.status(500).json({
-        error: {
-          title: 'Unable to retrieve comment'
-        }
-      })
-    })
-})

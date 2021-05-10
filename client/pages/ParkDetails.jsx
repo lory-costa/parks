@@ -13,9 +13,11 @@ import { getPark } from './ParkDetailsHelper'
 function ParkDetails () {
   const { id } = useParams()
   const [park, setPark] = useState([])
+  const [button, setButton] = useState(false)
 
-  const { name, address, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
-  const rates = useSelector(globalState => globalState.comments)
+
+  const { name, address, description, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
+  const rates = useSelector(globalState => globalState.rating)
 
   useEffect(() => {
     // eslint-disable-next-line promise/catch-or-return
@@ -25,6 +27,21 @@ function ParkDetails () {
         return null
       })
   }, [])
+
+  useEffect(() => {
+    fetchRating(dispatch, id)
+  }, [])
+
+  function handleButtonClick (e) {
+    if (button) {
+      return (
+        setButton(false)
+      )
+    }
+    return (
+      setButton(true)
+    )
+  }
 
   const parkRate = rates.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0) / rates.length
 
@@ -41,6 +58,12 @@ function ParkDetails () {
             </div>
             <p>{address}</p>
             <Facilities playground={playGround} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
+            <div className="container">
+              <button onClick={handleButtonClick} type="button" className="button">Description</button>
+              <div className="dropdown">
+                {button && description }
+              </div>
+            </div>
           </div>
           <div className='mb-4 lg:mb-0 lg:w-1/2'>
             <img src={image} alt="park image" width="100%" height="600" />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { validate, rules } from './ValidationForm'
+import ParkFormFacilityItem from './ParkFormFacilityItem'
 
 export default function ParkForm (props) {
   const isAdmin = useSelector(globalState => globalState.user.isAdmin)
@@ -218,114 +219,12 @@ export default function ParkForm (props) {
                 />
               </div>
             </div>
-            <div className='md:flex md:items-stretch mb-6'>
-              <div className='md:w-1/3'>
-                <label
-                  htmlFor='playground'
-                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
-                >Playground</label>
-              </div>
-              <div className= 'md:w-2/3'>
-                <input
-                  id='playground'
-                  name='playground'
-                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-                  type='checkbox'
-                  checked={!!playground}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-            <div className='md:flex md:items-center mb-6'>
-              <div className='md:w-1/3'>
-                <label
-                  htmlFor='toilets'
-                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
-                >Toilets</label>
-              </div>
-              <div className= 'md:w-2/3'>
-                <input
-                  id='toilets'
-                  name='toilets'
-                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-                  type='checkbox'
-                  checked={!!toilets}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-            <div className='md:flex md:items-center mb-6'>
-              <div className='md:w-1/3'>
-                <label
-                  htmlFor='picnicSite'
-                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
-                >Picnic Site</label>
-              </div>
-              <div className= 'md:w-2/3'>
-                <input
-                  id='picnicSite'
-                  name='picnicSite'
-                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none  focus:bg-white focus:border-green-500'
-                  type='checkbox'
-                  checked={!!picnicSite}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-            <div className='md:flex md:items-center mb-6'>
-              <div className='md:w-1/3'>
-                <label
-                  htmlFor='sportsField'
-                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
-                >Sports Field</label>
-              </div>
-              <div className= 'md:w-2/3'>
-                <input
-                  id='sportsField'
-                  name='sportsField'
-                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-                  type='checkbox'
-                  checked={!!sportsField}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-            <div className='md:flex md:items-center mb-6'>
-              <div className='md:w-1/3'>
-                <label
-                  htmlFor='tramp'
-                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
-                >Tramp</label>
-              </div>
-              <div className= 'md:w-2/3'>
-                <input
-                  id='tramp'
-                  name='tramp'
-                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-                  type='checkbox'
-                  checked={!!tramp}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-            <div className='md:flex md:items-center mb-6'>
-              <div className='md:w-1/3'>
-                <label
-                  htmlFor='dogWalking'
-                  className='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'
-                >Dog Walking Allowed</label>
-              </div>
-              <div className= 'md:w-2/3'>
-                <input
-                  id='dogWalking'
-                  name='dogWalking'
-                  className='bg-gray-200 border-2 border-green-300 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-                  type='checkbox'
-                  checked={!!dogWalking}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
+            < ParkFormFacilityItem facilityName = {'Playground'} facilityValue = {'playground'} checkValue = {playground} onChangeFunc={handleInputChange}/>
+            < ParkFormFacilityItem facilityName = {'Toilets'} facilityValue = {'toilets'} checkValue = {toilets} onChangeFunc={handleInputChange}/>
+            < ParkFormFacilityItem facilityName = {'Picnic Site'} facilityValue = {'picnicSite'} checkValue = {picnicSite} onChangeFunc={handleInputChange}/>
+            < ParkFormFacilityItem facilityName = {'Sports Field'} facilityValue = {'sportsField'} checkValue = {sportsField} onChangeFunc={handleInputChange}/>        
+            < ParkFormFacilityItem facilityName = {'Tramping'} facilityValue = {'tramp'} checkValue = {tramp} onChangeFunc={handleInputChange}/>
+            < ParkFormFacilityItem facilityName = {'Dog Walking Allowed'} facilityValue = {'dogWalking'} checkValue = {dogWalking} onChangeFunc={handleInputChange}/>
             { isAdmin &&
             <div className='md:flex md:items-center mb-6'>
               <div className='md:w-1/3'>
@@ -381,11 +280,11 @@ export default function ParkForm (props) {
             }
             <div className='flex'>
               {!!playground && <img className='mr-3' src='/icons/playground.png' alt="playground icon" width="35" height="35"/>}
-              {!!toilets && <img className='mr-3' src='/icons/icon-toilets.svg' alt="toilet icon" width="35" height="35"/>}
-              {!!picnicSite && <img className='mr-3' src='/icons/icon-picnic-area.svg' alt="picnic icon" width="35" height="35"/> }
-              {!!sportsField && <img className='mr-3' src='/icons/icon-sports-field.svg' alt="sports icon" width="35" height="35"/> }
-              {!!tramp && <img className='mr-3' src='/icons/icon-walking.svg' alt="tramp walking icon" width="35" height="35"/>}
-              {!!dogWalking && <img src='/icons/dogAllowed.png' alt="dog allowed icon" width="35" height="35"/>}
+              {!!toilets && <img className='mr-3' src='/icons/toilets.png' alt="toilet icon" width="35" height="35"/>}
+              {!!picnicSite && <img className='mr-3' src='/icons/picnicSite.png' alt="picnic icon" width="35" height="35"/> }
+              {!!sportsField && <img className='mr-3' src='/icons/sportsField.png' alt="sports icon" width="35" height="35"/> }
+              {!!tramp && <img className='mr-3' src='/icons/tramp.png' alt="tramp walking icon" width="35" height="35"/>}
+              {!!dogWalking && <img className='mr-3' src='/icons/dogWalking.png' alt="dog walking icon" width="35" height="35"/>}
             </div>
             {isAdmin && <div>
               { approved
@@ -393,31 +292,6 @@ export default function ParkForm (props) {
                 : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Park Approved: No</p>
               }
             </div>}
-            {/* {playground
-              ? <img className='mr-3' src='/icons/playground.png' alt="playground icon" width="35" height="35"/>
-              : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Playground: No</p>
-            }
-            {toilets
-              ? <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Toilets: Yes</p>
-              : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Toilets: No</p>
-            }
-            {picnicSite
-              ? <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Picnic Site: Yes</p>
-              : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Picnic Site: No</p>
-            }
-            {sportsField
-              ? <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Sports field: Yes</p>
-              : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Sports field: No</p>
-            }
-            {tramp
-              ? <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Tramp/Bush walk: Yes</p>
-              : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Tramp/Bush walk: No</p>
-            }
-            {dogWalking
-              ? <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Dog Walking Allowed: Yes</p>
-              : <p className='bg-gray-200 md:w-2/3 py-2 px-4 w-full max-w-sm'>Dog Walking allowed: No</p>
-            } */}
-
           </div>
         </div>
       </div>

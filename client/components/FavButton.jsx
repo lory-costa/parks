@@ -23,7 +23,7 @@ export default function mFavButton ({ parkId, heart, favParkId }) {
     return <>
       { isAuthenticated &&
         <div>
-          <button onClick={() => handleClick(heart)}><img src='./icons/heart.png' />Remove from Favorites</button>
+          <button onClick={() => handleClick(heart)}><img src='./icons/heart.png' width='20'/></button>
         </div>
       }
     </>
@@ -33,7 +33,7 @@ export default function mFavButton ({ parkId, heart, favParkId }) {
     <>
       {isAuthenticated &&
         <div>
-          <button onClick={() => handleClick(heart)}><img src='./icons/heartWhitePlaceholder.png' />Add to Favorites</button>
+          <button onClick={() => handleClick(heart)}><img src='./icons/heart-filled.png' width='20'/></button>
         </div>
       }
     </>

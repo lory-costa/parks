@@ -25,7 +25,7 @@ export default function ParkListingItem ({ parkListing, type }) {
       <p className='ml-2' >{parkListing.name}</p>
       <div className='text-right mr-2 mt-1 mb-1'>
         <button onClick={(e) => deletePark(parkListing.id)}> 
-          <img src="/icons/heart.png" alt="delete icon" width='20'/> 
+          <img src="/icons/heart-filled.png" alt="Remove Park" width='20'/> 
         </button>
       </div>
     </div>

@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
 import { fetchMap } from '../actions/map'
+// import { addToFav, fetchFavParks } from '../actions/favParks'
 import Filter from '../components/Filter'
+import Fav from './Fav'
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-export default function Map () {
+export default function Map() {
+  const { isAuthenticated } = useAuth0()
+  // const [newFav, setNewFav] = useState('')
+  // const id = props.id
   const parks = useSelector(globalState => globalState.map).filter(park => park.approved === 1)
   const filter = useSelector(globalState => globalState.filter)
   const dispatch = useDispatch()
@@ -15,7 +21,17 @@ export default function Map () {
     fetchMap(dispatch)
   }, [])
 
-  function filterFunc (park) {
+  // useEffect(() => {
+  //   dispatch(fetchFavParks(id))
+  // }, [])
+
+  // const handleClick = (e) => {
+  //   // e.preventDefault()
+  //   dispatch(addToFav(newFav, id))
+  //   setNewFav()
+  // }
+
+  function filterFunc(park) {
     if (filter.length === 0) return true
     let fBool = 0
     filter.forEach(item => {
@@ -47,6 +63,7 @@ export default function Map () {
           <Popup>
             <div><Link to={`/park-details/${park.id}`}>{park.name}</Link></div>
             <div>{park.address}</div>
+            <Fav parkId = {park.id}/>
             <img src={park.image}></img>
           </Popup>
         </Marker>

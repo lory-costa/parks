@@ -11,3 +11,12 @@ export function deleteFav (id) {
     .delete(`/api/v1/fav/${id}`)
     .then((res) => res.body)
 }
+
+export function postToFav (id) {
+    const favData = { id }
+
+  return request
+    .post('/api/v1/fav')
+    .send(favData)
+    .then((res) => res.body)
+}

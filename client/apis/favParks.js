@@ -12,7 +12,7 @@ export function deleteFav (id) {
     .then((res) => res.body)
 }
 
-export function postToFav (userId, parkId) {
+export function AddFav (userId, parkId) {
   const favData = { userId, parkId }
 
   return request

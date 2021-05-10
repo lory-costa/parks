@@ -22,8 +22,8 @@ export default function ToVisitButton ({ parkId, toVisit, toVisitParkId }) {
   if (toVisit) {
     return <>
       { isAuthenticated &&
-        <div>
-          <button onClick={() => handleClick(toVisit)}>Remove from To Visit</button>
+        <div className='flex items-center' >
+          <button onClick={() => handleClick(toVisit)}><img src='./icons/bookmark-filled.png' width='20'/></button><span className='ml-2' >Remove from watchlist</span>
         </div>
       }
     </>
@@ -32,8 +32,8 @@ export default function ToVisitButton ({ parkId, toVisit, toVisitParkId }) {
   return (
     <>
       {isAuthenticated &&
-        <div>
-          <button onClick={() => handleClick(toVisit)}>Add to To Visit</button>
+        <div className='flex items-center'>
+          <button onClick={() => handleClick(toVisit)}><img src='./icons/bookmark.png' width='20'/></button><span className='ml-2' >Add to watchlist</span>
         </div>
       }
     </>

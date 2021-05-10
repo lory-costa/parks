@@ -69,7 +69,7 @@ export default function Map() {
               <img className='mb-2' src={park.image}></img>
               <Link to={`/park-details/${park.id}`}>{park.name}</Link>
               <div>{park.address}</div>
-              <div className='text-right mt-2'>
+              <div className='mt-2'>
                 {favParks.filter((favPark) => favPark.parkId === park.id)
                   .length ? (
                   <FavButton
@@ -85,7 +85,7 @@ export default function Map() {
                   <FavButton parkId={park.id} heart={false} />
                 )}
               </div>
-
+              <div className='mt-2'>
               {toVisit.filter((toVisitPark) => toVisitPark.parkId === park.id)
                 .length ? (
                 <ToVisitButton
@@ -100,7 +100,7 @@ export default function Map() {
               ) : (
                 <ToVisitButton parkId={park.id} toVisit={false} />
               )}
-              <img src={park.image}></img>
+              </div>
             </Popup>
           </Marker>
         ))}

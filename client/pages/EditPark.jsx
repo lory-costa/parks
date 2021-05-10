@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import requestor from '../consume'
 
+import { useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
+import AdminRedirect from './AdminRedirect'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -9,6 +11,7 @@ import ParkForm from '../components/ParkForm'
 
 export default function EditEvent (props) {
   const [event, setEvent] = useState(null)
+  const isAdmin = useSelector(globalState => globalState.user.isAdmin)
   const history = useHistory()
   const { id } = useParams()
 
@@ -49,6 +52,14 @@ export default function EditEvent (props) {
 
   function submitPark (form) {
     updatePark(id, form, history.push)
+  }
+
+  if (!isAdmin) {
+    return (
+      <>
+        <AdminRedirect />
+      </>
+    )
   }
 
   return (

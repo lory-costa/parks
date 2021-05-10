@@ -5,6 +5,7 @@ import map from './map'
 import parks from './parks'
 import filter from './filter'
 import comments from './comments'
+import rating from './rating'
 import favParks from './favParks'
 import toVisit from './toVisit'
 
@@ -14,6 +15,7 @@ export default combineReducers({
   parks,
   filter,
   comments,
+  rating,
   favParks,
   toVisit
 })

@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Facilities ({ url, playground, toilets, picnicSite, sportsField, tramp, dogWalking }) {
+
   return (
     <div>
       <h2 className='mt-4 text-xl mb-2 text-green-700'>Facilities</h2>

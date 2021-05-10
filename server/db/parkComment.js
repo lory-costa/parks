@@ -4,6 +4,7 @@ module.exports = {
   addComment,
   deleteComment,
   getCommentsByParkId,
+  getRatesByParkId,
   updateComment
 }
 
@@ -31,6 +32,11 @@ function getCommentsByParkId (id, db = connection) {
     .where('park_id', id)
 }
 
+function getRatesByParkId (id, db = connection) {
+  return db('parkComment')
+    .select('rating')
+    .where('park_id', id)
+}
 function updateComment (updatedComment, db = connection) {
   const { comment, parkId, id } = updatedComment
   return db('parkComment')

@@ -25,12 +25,12 @@ export default function Map () {
   }
 
   const greenIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/kahikatea-2021/parks/frontend/server/public/icons/mapMarker.png?token=ASUCVDHBZ65YNYB4YCVPJ6LAUCGKQ',
+    iconUrl: 'https://raw.githubusercontent.com/kahikatea-2021/parks/frontend/server/public/images/Logos/ProjectLogoFinal.png?token=ASUCVDFNTFPZ47WDXE6ALC3AUG4UI',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-    iconSize: [40, 41],
+    iconSize: [40, 50],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
-    shadowSize: [41, 41]
+    shadowSize: [60, 40]
   })
 
   return (<div >

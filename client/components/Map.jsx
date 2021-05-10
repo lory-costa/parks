@@ -7,7 +7,7 @@ import { fetchMap } from '../actions/map'
 import Filter from '../components/Filter'
 import Fav from './Fav'
 
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from 'react-leaflet'
 
 export default function Map() {
   const { isAuthenticated } = useAuth0()
@@ -41,18 +41,18 @@ export default function Map() {
   }
 
   const greenIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/kahikatea-2021/parks/frontend/server/public/icons/mapMarker.png?token=ASUCVDHBZ65YNYB4YCVPJ6LAUCGKQ',
+    iconUrl: 'https://raw.githubusercontent.com/kahikatea-2021/parks/frontend/server/public/images/Logos/ProjectLogoFinal.png?token=ASUCVDFNTFPZ47WDXE6ALC3AUG4UI',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-    iconSize: [40, 41],
+    iconSize: [40, 50],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
-    shadowSize: [41, 41]
+    shadowSize: [60, 40]
   })
 
-  return (<>
+  return (<div >
     <Filter />
-    {/* <MapContainer className="mt-5" style={{ width: '100vw', height: 'calc(100vh - 172px)' }} */}
-    <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
+    <MapContainer className="mt-5 relative z-10" style={{ width: '100vw', height: 'calc(100vh - 172px)' }}
+    // <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
       center={[-36.8826700, 174.7666700]}
       zoom={13}
       scrollWheelZoom={true}>
@@ -69,6 +69,6 @@ export default function Map() {
         </Marker>
       )}
     </MapContainer>
-  </>
+  </div>
   )
 }

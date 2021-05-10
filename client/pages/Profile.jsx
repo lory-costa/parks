@@ -2,11 +2,15 @@ import React, { useEffect } from 'react'
 import { fetchFavParks, deleteFavPark } from '../actions/favParks'
 import { fetchToVisit } from '../actions/toVisit'
 import { useDispatch, useSelector } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
+
+import AdminRedirect from './AdminRedirect'
 import Header from '../components/Header'
 import ParkListingItem from '../components/ParkListingItem'
 import Footer from '../components/Footer'
 
-function Member () {
+function Profile () {
+  const { isAuthenticated } = useAuth0()
   const userId = useSelector(globalState => globalState.user.id)
   const favParks = useSelector(globalState => globalState.favParks)
   const toVisit = useSelector(globalState => globalState.toVisit)
@@ -21,6 +25,14 @@ function Member () {
     // eslint-disable-next-line promise/catch-or-return
     fetchToVisit(dispatch, String(userId))
   }, [])
+
+  if (!isAuthenticated) {
+    return (
+      <>
+        <AdminRedirect />
+      </>
+    )
+  }
 
   return (
     <div className='flex flex-col'>
@@ -43,4 +55,4 @@ function Member () {
   )
 }
 
-export default Member
+export default Profile

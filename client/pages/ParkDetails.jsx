@@ -55,13 +55,13 @@ function ParkDetails () {
               <ParkRating rating = {parkRate} />
             </div>
             <p>{address}</p>
-            <Facilities playground={playGround} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
             <div className="container">
               <button onClick={handleButtonClick} type="button" className="button mt-4 text-lg mb-2 text-green-700">{view}</button>
               <div className="dropdown">
                 {button && description }
               </div>
             </div>
+            <Facilities playground={playGround} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
           </div>
           <div className='mb-4 lg:mb-0 lg:w-1/2'>
             <img src={image} alt="park image" width="100%" height="600" />

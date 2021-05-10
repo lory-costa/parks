@@ -17,8 +17,6 @@ function ParkDetails () {
   const [park, setPark] = useState([])
 
   const { name, address, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
-  console.log(park)
-  const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
   const rates = useSelector(globalState => globalState.rating)
   const dispatch = useDispatch()
 

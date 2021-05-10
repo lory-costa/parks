@@ -15,6 +15,9 @@ import { getComments } from '../apis/comments'
 function ParkDetails () {
   const { id } = useParams()
   const [park, setPark] = useState([])
+
+  const { name, address, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
+  console.log(park)
   const { name, address, url, image, playground, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
   const rates = useSelector(globalState => globalState.rating)
   const dispatch = useDispatch()
@@ -48,7 +51,7 @@ function ParkDetails () {
               <ParkRating rating = {parkRate} />
             </div>
             <p>{address}</p>
-            <Facilities playground={playground} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
+            <Facilities playground={playGround} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
           </div>
           <div className='mb-4 lg:mb-0 lg:w-1/2'>
             <img src={image} alt="park image" width="100%" height="600" />

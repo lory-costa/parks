@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { toggleParkApprovedStatus } from './AdminParktemHelper'
 
 export default function AdminParkItem ({ parkListing, deleteItem }) {
@@ -12,5 +13,5 @@ export default function AdminParkItem ({ parkListing, deleteItem }) {
     return toggleParkApprovedStatus(id, !isApprovedStatus)
   }
 
-  return <li>{name}------<input type="checkbox" checked={isApprovedStatus} onChange={(event) => handleInputChange(event)} /><button onClick={() => { if (window.confirm('Are you sure you wish to delete this park?')) deleteItem(id) } }>Delete</button></li>
+  return <li><Link to={`/edit-park/${id}`}>{name}</Link>------<input type="checkbox" checked={isApprovedStatus} onChange={(event) => handleInputChange(event)} /><button onClick={() => { if (window.confirm('Are you sure you wish to delete this park?')) deleteItem(id) }}>Delete</button></li>
 }

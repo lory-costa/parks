@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
 export default function ParkFormFacilityItem({
   facilityName,
   facilityValue,
   checkValue,
-  onChangeFunc,
+  onChangeFunc
 }) {
   return (
     <div className='mt-6 mb-4'>

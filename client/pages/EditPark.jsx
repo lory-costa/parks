@@ -3,6 +3,8 @@ import requestor from '../consume'
 
 import { useParams, useHistory } from 'react-router-dom'
 
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import ParkForm from '../components/ParkForm'
 
 export default function EditEvent (props) {
@@ -51,11 +53,13 @@ export default function EditEvent (props) {
 
   return (
     event
-      ? <ParkForm
-        formData={event}
-        action='Update Park'
-        submitPark={submitPark}
-      />
+      ? <><Header />
+        <ParkForm
+          formData={event}
+          action='Update Park'
+          submitPark={submitPark}
+        />
+        <Footer /></>
       : null
   )
 }

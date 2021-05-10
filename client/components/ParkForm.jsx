@@ -1,66 +1,66 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { validate, rules } from "./ValidationForm";
-import ParkFormFacilityItem from "./ParkFormFacilityItem";
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { validate, rules } from './ValidationForm'
+import ParkFormFacilityItem from './ParkFormFacilityItem'
 
-export default function ParkForm(props) {
-  const isAdmin = useSelector((globalState) => globalState.user.isAdmin);
+export default function ParkForm (props) {
+  const isAdmin = useSelector((globalState) => globalState.user.isAdmin)
 
-  const [invalid, setInvalid] = useState({});
+  const [invalid, setInvalid] = useState({})
   const [form, setForm] = useState(
     props.formData || {
-      name: "",
-      address: "",
+      name: '',
+      address: '',
       lat: -36.858961086253935,
       lon: 174.77547498145518,
-      url: "",
-      description: "",
-      image: "",
+      url: '',
+      description: '',
+      image: '',
       playground: 0,
       toilets: 0,
       picnicSite: 0,
       sportsField: 0,
       tramp: 0,
       dogWalking: 0,
-      approved: 0,
+      approved: 0
     }
-  );
+  )
   // Validation for required fields
   const validationRules = {
     name: [rules.isRequired],
     address: [rules.isRequired],
     url: [rules.isRequired],
-    description: [rules.isRequired],
-  };
+    description: [rules.isRequired]
+  }
 
   // onChange for text inputs
-  function handleChange(e) {
-    const { name, value } = e.target;
+  function handleChange (e) {
+    const { name, value } = e.target
     setForm({
       ...form,
-      [name]: value,
-    });
+      [name]: value
+    })
   }
   // onChange for checkbox inputs
-  function handleInputChange(event) {
-    const target = event.target;
-    const name = target.name;
+  function handleInputChange (event) {
+    const target = event.target
+    const name = target.name
 
     setForm({
       ...form,
-      [name]: target.checked,
-    });
+      [name]: target.checked
+    })
   }
 
   // Submit
-  function handleSubmit(e) {
-    const results = validate(form, validationRules, invalid);
-    e.preventDefault();
+  function handleSubmit (e) {
+    const results = validate(form, validationRules, invalid)
+    e.preventDefault()
 
     if (results.isValid) {
-      props.submitPark(form);
+      props.submitPark(form)
     } else {
-      setInvalid(results.details);
+      setInvalid(results.details)
     }
   }
 
@@ -78,8 +78,8 @@ export default function ParkForm(props) {
     sportsField,
     tramp,
     dogWalking,
-    approved,
-  } = form;
+    approved
+  } = form
 
   return (
     <div className='flex flex-col mt-8 mx-14'>
@@ -183,38 +183,38 @@ export default function ParkForm(props) {
         </div>
         <div>
           <ParkFormFacilityItem
-            facilityName={"Playground"}
-            facilityValue={"playground"}
+            facilityName={'Playground'}
+            facilityValue={'playground'}
             checkValue={playground}
             onChangeFunc={handleInputChange}
           />
           <ParkFormFacilityItem
-            facilityName={"Toilets"}
-            facilityValue={"toilets"}
+            facilityName={'Toilets'}
+            facilityValue={'toilets'}
             checkValue={toilets}
             onChangeFunc={handleInputChange}
           />
           <ParkFormFacilityItem
-            facilityName={"Picnic Site"}
-            facilityValue={"picnicSite"}
+            facilityName={'Picnic Site'}
+            facilityValue={'picnicSite'}
             checkValue={picnicSite}
             onChangeFunc={handleInputChange}
           />
           <ParkFormFacilityItem
-            facilityName={"Sports Field"}
-            facilityValue={"sportsField"}
+            facilityName={'Sports Field'}
+            facilityValue={'sportsField'}
             checkValue={sportsField}
             onChangeFunc={handleInputChange}
           />
           <ParkFormFacilityItem
-            facilityName={"Tramping"}
-            facilityValue={"tramp"}
+            facilityName={'Tramping'}
+            facilityValue={'tramp'}
             checkValue={tramp}
             onChangeFunc={handleInputChange}
           />
           <ParkFormFacilityItem
-            facilityName={"Dog Walking Allowed"}
-            facilityValue={"dogWalking"}
+            facilityName={'Dog Walking Allowed'}
+            facilityValue={'dogWalking'}
             checkValue={dogWalking}
             onChangeFunc={handleInputChange}
           />
@@ -273,12 +273,12 @@ export default function ParkForm(props) {
               : <p className='bg-gray-200 md:w-1/3 py-2 px-4 w-full max-w-sm'>Image</p>
             }
             <div className='flex'>
-              {!!playground && <img className='mr-3' src='/icons/playground.png' alt="playground icon" width="35" height="35"/>}
-              {!!toilets && <img className='mr-3' src='/icons/toilets.png' alt="toilet icon" width="35" height="35"/>}
-              {!!picnicSite && <img className='mr-3' src='/icons/picnicSite.png' alt="picnic icon" width="35" height="35"/> }
-              {!!sportsField && <img className='mr-3' src='/icons/sportsField.png' alt="sports icon" width="35" height="35"/> }
-              {!!tramp && <img className='mr-3' src='/icons/tramp.png' alt="tramp walking icon" width="35" height="35"/>}
-              {!!dogWalking && <img className='mr-3' src='/icons/dogWalking.png' alt="dog walking icon" width="35" height="35"/>}
+              {!!playground && <img className='mr-3' src='/icons/playground.png' alt='playground icon' width='35' height='35'/>}
+              {!!toilets && <img className='mr-3' src='/icons/toilets.png' alt='toilet icon' width='35' height='35'/>}
+              {!!picnicSite && <img className='mr-3' src='/icons/picnicSite.png' alt='picnic icon' width='35' height='35'/> }
+              {!!sportsField && <img className='mr-3' src='/icons/sportsField.png' alt='sports icon' width='35' height='35'/> }
+              {!!tramp && <img className='mr-3' src='/icons/tramp.png' alt='tramp walking icon' width='35' height='35'/>}
+              {!!dogWalking && <img className='mr-3' src='/icons/dogWalking.png' alt='dog walking icon' width='35' height='35'/>}
             </div>
             {isAdmin && <div>
               { approved
@@ -290,5 +290,5 @@ export default function ParkForm(props) {
         </div>
       </div> */}
     </div>
-  );
+  )
 }

@@ -9,6 +9,7 @@ function ParkRating ({ rating }) {
   return (
     <div>
       <ReactStars
+        key={rating}
         edit={false}
         isHalf={true}
         value={rating}

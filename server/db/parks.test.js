@@ -111,30 +111,30 @@ describe('deletePark', () => {
   })
 })
 
-// describe('updatePark', () => {
-//   it('returns the updatedPark', () => {
-//     const updatedPark = {
-//       id: 5,
-//       name: 'Updated Park',
-//       address: 'NewPlace',
-//       lat: -36.86437506365,
-//       lon: 174.77655125415,
-//       url: 'https://www.updatedpark.co.nz',
-//       description: 'Lovely test park',
-//       image: '/parkImages/imaginaryImage.jpg',
-//       playGround: true,
-//       picnicSite: true,
-//       sportsField: true,
-//       toilets: true,
-//       tramp: true,
-//       dogWalking: true,
-//       approved: true
-//     }
+describe('updatePark', () => {
+  it('returns the updatedPark', () => {
+    const updatedPark = {
+      id: 5,
+      name: 'Updated Park',
+      address: 'NewPlace',
+      lat: -36.86437506365,
+      lon: 174.77655125415,
+      url: 'https://www.updatedpark.co.nz',
+      description: 'Lovely test park',
+      image: '/parkImages/imaginaryImage.jpg',
+      playGround: true,
+      picnicSite: true,
+      sportsField: true,
+      toilets: true,
+      tramp: true,
+      dogWalking: true,
+      approved: true
+    }
 
-//     return db.updatePark(updatedPark, testDb)
-//       .then(park => {
-//         expect(park.approved).toBe(1)
-//         return null
-//       })
-//   })
-// })
+    return db.updatePark(updatedPark, testDb)
+      .then(park => {
+        expect(park.approved).toBe(1)
+        return null
+      })
+  })
+})

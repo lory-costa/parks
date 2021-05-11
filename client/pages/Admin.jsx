@@ -11,7 +11,6 @@ function Admin () {
   const isAdmin = useSelector(globalState => globalState.user.isAdmin)
 
   useEffect(() => {
-    // eslint-disable-next-line promise/catch-or-return
     getParkLocations()
       .then(({ parks }) => {
         setParks(parks)
@@ -20,7 +19,6 @@ function Admin () {
   }, [])
 
   function deleteItem (id) {
-    // eslint-disable-next-line promise/catch-or-return
     return deletePark(id)
       .then((parks) => {
         setParks(parks)
@@ -39,12 +37,9 @@ function Admin () {
   return (
     <div className='flex flex-col'>
       <Header />
-      <div className='absolute inset-x-0.5 top-14 flex justify-center' >
-        <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
-      </div>
-      <div>
-        <h3>Parks</h3>
-        <ul>
+      <div className='mt-20 flex flex-col mx-14 page-content'>
+        <h3 className='text-3xl text-green-700 mb-4'>Added Parks</h3>
+        <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8' >
           {parks.map(park => <AdminParkItem key={park.id} parkListing={park} deleteItem={deleteItem} />)}
         </ul>
       </div>

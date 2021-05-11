@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
 export default function ParkFormFacilityItem({
   facilityName,
   facilityValue,
   checkValue,
-  onChangeFunc,
+  onChangeFunc
 }) {
   return (
     <div className='mt-6 mb-4'>
@@ -16,7 +16,7 @@ export default function ParkFormFacilityItem({
         onChange={onChangeFunc}
       />
       <img
-        src={`icons/${facilityValue}.png`}
+        src={`/icons/${facilityValue}.png`}
         alt={`${facilityName} icon`}
         width='30'
         height='30'

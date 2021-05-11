@@ -18,8 +18,10 @@ function App () {
   const { isLoading, user } = useAuth0()
 
   if (isLoading) {
-    return <div className='grid justify-items-center'>
-      <img className='justify-self-auto' src='/images/Loading.gif' />
+    return <div className='relative h-screen w-screen'>
+      <div className='absolute top-1/2 left-1/2' style={{ transform: 'translate(-50%, -50%)'}}>
+        <img className='block mx-auto' src='/images/Loading.gif' />
+      </div>
     </div>
   }
 

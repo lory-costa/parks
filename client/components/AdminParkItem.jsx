@@ -28,12 +28,12 @@ export default function AdminParkItem ({ parkListing, deleteItem }) {
       </Link>
       <p className='ml-2'>{name}</p>
       <div className='flex justify-between ml-2 items-center' >
-        <button onClick={toggleClick}>
-          {isApprovedStatus ? <img src='/icons/activeMarker.gif' alt="Active Park" width='30' />
-            : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='30' />}
+        <button className='focus:outline-none' onClick={toggleClick}>
+          {isApprovedStatus ? <img src='/icons/activeMarker.gif' alt="Active Park" width='25' />
+            : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='25' />}
         </button>
-        <button onClick={() => { if (window.confirm('Are you sure you wish to delete this park?')) deleteItem(id) }}>
-          <img src='/images/trash.png' alt="Remove Park" width='30' />
+        <button className='focus:outline-none mr-2' onClick={() => { if (window.confirm('Are you sure you wish to delete this park?')) deleteItem(id) }}>
+          <img src='/icons/delete.png' alt="Remove Park" width='25' />
         </button>
       </div>
     </div>

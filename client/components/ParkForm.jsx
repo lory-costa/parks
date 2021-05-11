@@ -219,23 +219,25 @@ export default function ParkForm (props) {
             onChangeFunc={handleInputChange}
           />
         </div>
-
         {isAdmin && (
           <div className='md:flex md:items-center mb-6'>
-            <div className='md:w-1/3'>
-              <label htmlFor='approved' className='text-lg'>
+            <input
+              id='approved'
+              name='approved'
+              className='bg-gray-200 border-2 border-gray-200green-300 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
+              type='checkbox'
+              checked={!!approved}
+              onChange={handleInputChange}
+            />
+            {approved ? <img src='/icons/activeMarker.gif' alt="Active Park" width='25' />
+              : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='25' />}
+            <label htmlFor='approved' className='text-lg'>
                 Park Approved
-              </label>
+            </label>
+            <div className='md:w-1/3'>
             </div>
             <div className='md:w-2/3'>
-              <input
-                id='approved'
-                name='approved'
-                className='bg-gray-200 border-2 border-gray-200green-300 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-                type='checkbox'
-                checked={!!approved}
-                onChange={handleInputChange}
-              />
+
             </div>
           </div>
         )}

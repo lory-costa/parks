@@ -16,7 +16,7 @@ export default function ParkFormFacilityItem({
         onChange={onChangeFunc}
       />
       <img
-        src={`icons/${facilityValue}.png`}
+        src={`/icons/${facilityValue}.png`}
         alt={`${facilityName} icon`}
         width='30'
         height='30'

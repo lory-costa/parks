@@ -46,7 +46,7 @@ function Comments (props) {
         />
         <div className='flex flex-col lg:flex-row justify-between items-center mt-2' >
           <input className='border rounded py-2 px-4 w-full' type="text" placeholder="Add a comment" value={newComment} onChange={handleChange} />
-          <button className='border rounded py-2 px-4 mt-2 ml-0 lg:ml-2 lg:mt-0 bg-white' onClick={handleSubmit}>Submit</button>
+          <button className='border rounded py-2 px-4 mt-2 ml-0 lg:ml-2 lg:mt-0 bg-white focus:outline-none' onClick={handleSubmit}>Submit</button>
         </div>
       </div>
       }

@@ -2,10 +2,8 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import requestor from '../consume'
 
-import ParkForm from '../components/ParkForm'
-
 import Header from '../components/Header'
-import Footer from '../components/Footer'
+import ParkForm from '../components/ParkForm'
 
 export default function AddPark (props) {
   const history = useHistory()
@@ -34,7 +32,6 @@ export default function AddPark (props) {
         action='Add Park'
         submitPark={submitPark}
       />
-      <Footer />
     </div >
   )
 }

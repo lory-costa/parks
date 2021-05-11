@@ -42,7 +42,6 @@ export default function EditEvent (props) {
   }
 
   useEffect(() => {
-    // eslint-disable-next-line promise/catch-or-return
     getPark(id)
       .then((parkData) => {
         setEvent(parkData)

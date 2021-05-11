@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const id = Number(req.params.id)
-  db.deleteParkFromToVisit({ id })
+  db.deleteParkFromToVisit(id)
     .then(() => {
       res.sendStatus(200)
       return null

@@ -8,9 +8,7 @@ function Main () {
   return (
     <div className='flex flex-col'>
       <Header />
-      <div className='absolute inset-x-0.5 top-14 flex justify-center' >
-        <p className='text-xl text-green-700'>SELECT A PARK FOR DETAILS</p>
-      </div>
+      <p className='text-xl flex absolute inset-x-0.5 ml-96 top-32 z-20 w-72'>SELECT A PARK FOR DETAILS</p>
       <Map />
       <Footer />
     </div>

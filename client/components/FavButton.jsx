@@ -23,7 +23,7 @@ export default function mFavButton ({ parkId, heart, favParkId }) {
     return <>
       { isAuthenticated &&
         <div className='flex items-center'>
-          <button onClick={() => handleClick(heart)}><img src='./icons/heart-filled.png' width='20'/></button><span className='ml-2' >Remove from favourites</span>
+          <button className='focus:outline-none' onClick={() => handleClick(heart)}><img src='./icons/heart-filled.png' width='20'/></button><span className='ml-2' >Remove from favourites</span>
         </div>
       }
     </>
@@ -33,7 +33,7 @@ export default function mFavButton ({ parkId, heart, favParkId }) {
     <>
       {isAuthenticated &&
         <div className='flex items-center'>
-          <button onClick={() => handleClick(heart)}><img src='./icons/heart.png' width='20'/></button><span className='ml-2' >Add to favourites</span>
+          <button className='focus:outline-none' onClick={() => handleClick(heart)}><img src='./icons/heart.png' width='20'/></button><span className='ml-2' >Add to favourites</span>
         </div>
       }
     </>

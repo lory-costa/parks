@@ -6,7 +6,6 @@ import { useAuth0 } from '@auth0/auth0-react'
 import AdminRedirect from './AdminRedirect'
 import ParkForm from '../components/ParkForm'
 import Header from '../components/Header'
-import Footer from '../components/Footer'
 
 export default function AddPark (props) {
   const history = useHistory()
@@ -40,12 +39,13 @@ export default function AddPark (props) {
   return (
     <div>
       <Header />
-      <ParkForm
-        className='md:flex md:justify-center mb-6'
-        action='Add Park'
-        submitPark={submitPark}
-      />
-      <Footer />
+      <div className='flex flex-col mt-20 mx-14'>
+        <h1 className='text-green-700 text-3xl'>Add a Park</h1>
+        <ParkForm
+          action='Add Park'
+          submitPark={submitPark}
+        />
+      </div>
     </div >
   )
 }

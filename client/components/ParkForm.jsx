@@ -84,6 +84,7 @@ export default function ParkForm (props) {
   return (
     <div className='flex flex-col mt-20 mx-14'>
       <h1 className='text-green-700 text-3xl'>Add a Park</h1>
+
       <form className='flex flex-col md:flex-row'>
         <div className='w-1/3 mr-16'>
           <div className='mt-4'>

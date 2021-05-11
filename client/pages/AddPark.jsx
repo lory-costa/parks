@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-import requestor from '../consume'
+import requestor from '../consume
 import Header from '../components/Header'
 import ParkForm from '../components/ParkForm'
 

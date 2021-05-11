@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+
 import { useSelector } from 'react-redux'
 
 import AdminRedirect from '../pages/AdminRedirect'
@@ -45,7 +45,7 @@ function ParkDetails () {
 
   const parkRate = rates.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0) / rates.length
 
-  if (!approved) {
+  if (!approved && !isAdmin) {
     return <AdminRedirect />
   }
 

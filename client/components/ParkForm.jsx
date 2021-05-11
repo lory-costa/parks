@@ -17,7 +17,7 @@ export default function ParkForm (props) {
       url: '',
       description: '',
       image: '',
-      playground: 0,
+      playGround: 0,
       toilets: 0,
       picnicSite: 0,
       sportsField: 0,
@@ -61,6 +61,7 @@ export default function ParkForm (props) {
     if (results.isValid) {
       props.submitPark(form)
     } else {
+      console.log('something went wrong')
       setInvalid(results.details)
     }
   }
@@ -72,8 +73,8 @@ export default function ParkForm (props) {
     lon,
     url,
     description,
-    imageUrl,
-    playground,
+    image,
+    playGround,
     toilets,
     picnicSite,
     sportsField,
@@ -81,26 +82,29 @@ export default function ParkForm (props) {
     dogWalking,
     approved
   } = form
+  console.log(form)
 
+  // Cloudinary functions
+  // check upload was successful then pull the sescure_url off the response
+  // NOTE: image is secure_url
   const checkUploadResult = (resultEvent) => {
     if (resultEvent.event === 'success') {
-      const imageUrl = resultEvent.info.secure_url
+      const image = resultEvent.info.secure_url
       setForm({
         ...form,
-        imageUrl: imageUrl
+        image: image
       })
       console.log(resultEvent.info.secure_url)
-      return imageUrl
+      return image
     }
   }
-
+  // pop up widget shows for image upload
   function showWidget (event, widget) {
     event.preventDefault()
     widget.open()
   }
-
+  // Accessing cloudinary account in widget pop-up
   useEffect(() => {
-    console.log('hehel')
     setWidget(window.cloudinary.createUploadWidget({
       cloudName: 'dvsikj1gh',
       uploadPreset: 'guboz3wj'
@@ -210,139 +214,16 @@ export default function ParkForm (props) {
             pattern='https://.*'
             size='30'
             type='url'
-            value={imageUrl}
-            onChange={handleChange}
-          />
-          {/* <input
-            id='image'
-            name='image'
-            className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500 mb-4'
-            placeholder='jpg,png,svg'
-            type='text'
             value={image}
             onChange={handleChange}
-          /> */}
-          <div className='mt-4'>
-            <label htmlFor='name' className='text-lg mt-4'>
-              Park Name
-            </label>
-            <input
-              data-validation='isRequired'
-              id='name'
-              name='name'
-              className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              type='text'
-              placeholder='Park Awesome'
-              value={name}
-              onChange={handleChange}
-            />
-            {invalid.name && <div className='text-red-500'>{invalid.name}</div>}
-          </div>
-
-          <div className='mt-4'>
-            <label htmlFor='address' className='text-lg mt-4'>
-              Address
-            </label>
-            <input
-              id='address'
-              name='address'
-              className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              placeholder='12 Morgan Street'
-              type='text'
-              value={address}
-              onChange={handleChange}
-            />
-            {invalid.address && <div className='text-red-500'>{invalid.address}</div>}
-          </div>
-
-          <div className='mt-4'>
-            <label htmlFor='lat' className='text-lg mt-4'>
-              Latitude
-            </label>
-            <input
-              id='lat'
-              name='lat'
-              className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              placeholder='-36.858961086253935'
-              type='text'
-              value={lat}
-              onChange={handleChange}
-            />
-            {invalid.lat && <div className='text-red-500'>{invalid.lat}</div>}
-          </div>
-
-          <div className='mt-4'>
-            <label htmlFor='lon' className='text-lg mt-4'>
-              Longitude
-            </label>
-            <input
-              id='lon'
-              name='lon'
-              className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              placeholder='174.77547498145518'
-              type='text'
-              value={lon}
-              onChange={handleChange}
-            />
-            {invalid.lon && <div className='text-red-500'>{invalid.lon}</div>}
-          </div>
-
-          <div className='mt-4'>
-            <label htmlFor='url' className='text-lg mt-4'>
-              Website (url)
-            </label>
-            <input
-              id='url'
-              name='url'
-              className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              placeholder='https://www.example.com'
-              pattern='https://.*'
-              size='30'
-              type='url'
-              value={url}
-              onChange={handleChange}
-            />
-            {invalid.url && <div className='text-red-500'>{invalid.url}</div>}
-          </div>
-
-          <div className='mt-4'>
-            <label htmlFor='image' className='text-lg mt-4'>
-              Image
-            </label>
-            <input
-              id='image'
-              name='image'
-              className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              placeholder='jpg,png,svg'
-              type='text'
-              value={image}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className='mt-4'>
-            <label htmlFor='description' className='text-lg mt-4'>
-              Description
-            </label>
-            <textarea
-              id='description'
-              name='description'
-              className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              placeholder='How awesome is this park!'
-              maxLength='200'
-              type='text'
-              value={description}
-              onChange={handleChange}
-            />
-            {invalid.description && <div className='text-red-500' >{invalid.description}</div>}
-          </div>
+          />
         </div>
 
         <div className='mt-4'>
           <ParkFormFacilityItem
             facilityName={'Playground'}
-            facilityValue={'playground'}
-            checkValue={playground}
+            facilityValue={'playGround'}
+            checkValue={playGround}
             onChangeFunc={handleInputChange}
           />
           <ParkFormFacilityItem
@@ -376,28 +257,6 @@ export default function ParkForm (props) {
             onChangeFunc={handleInputChange}
           />
         </div>
-        {isAdmin && (
-          <div className='md:flex md:items-center mb-6'>
-            <input
-              id='approved'
-              name='approved'
-              className='bg-gray-200 border-2 border-gray-200green-300 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              type='checkbox'
-              checked={!!approved}
-              onChange={handleInputChange}
-            />
-            {approved ? <img src='/icons/activeMarker.gif' alt="Active Park" width='25' />
-              : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='25' />}
-            <label htmlFor='approved' className='text-lg'>
-              Park Approved
-            </label>
-            <div className='md:w-1/3'>
-            </div>
-            <div className='md:w-2/3'>
-
-            </div>
-          </div>
-        )}
       </form>
 
       <div className='flex flex-row justify-between w-1/3 mt-8' >

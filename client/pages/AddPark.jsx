@@ -5,10 +5,7 @@ import requestor from '../consume'
 import { useAuth0 } from '@auth0/auth0-react'
 import AdminRedirect from './AdminRedirect'
 import ParkForm from '../components/ParkForm'
-
-import requestor from '../consume'
 import Header from '../components/Header'
-import ParkForm from '../components/ParkForm'
 
 export default function AddPark (props) {
   const history = useHistory()

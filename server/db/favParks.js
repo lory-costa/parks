@@ -21,11 +21,13 @@ function getFavByUserId (id, db = connection) {
 
 function addFavPark (submission, db = connection) {
   const { userId, parkId } = submission
+
   return db('favParks')
     .insert({
       user_id: userId,
       park_id: parkId
     })
+    .then(() => getFavByUserId(userId, db))
 }
 
 function deleteFavPark (submission, db = connection) {

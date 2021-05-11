@@ -38,36 +38,32 @@ describe('getFavByUserId', () => {
   })
 })
 
-// describe('addFavPark', () => {
-//   it('inserts comment correctly', () => {
-//     const newComment = {
-//       parkId: 2,
-//       userName: 'test user',
-//       comment: 'test comment',
-//       rating: 5
-//     }
-//     return db.addComment(newComment, testDb)
-//       .then((parkComments) => {
-//         expect(parkComments).toHaveLength(3)
-//         expect(parkComments[2].parkId).toBe(2)
-//         expect(parkComments[2].userName).toMatch('test user')
-//         expect(parkComments[2].comment).toMatch('test comment')
-//         expect(parkComments[2].rating).toBe(5)
-//         return null
-//       })
-//   })
-// })
+describe('addFavPark', () => {
+  it('inserts favourite park correctly', () => {
+    const newFav = {
+      userId: 2,
+      parkId: 5
+    }
+    return db.addFavPark(newFav, testDb)
+      .then((favParks) => {
+        expect(favParks).toHaveLength(3)
+        expect(favParks[2].parkId).toBe(5)
+        expect(favParks[2].userId).toMatch('2')
+        return null
+      })
+  })
+})
 
-// describe('deleteComment', () => {
-//   it('deletes correct comment entry', () => {
-//     const test = {
-//       id: 3
-//     }
-//     return db.deleteComment(test, testDb)
-//       .then(() => getTestComment())
-//       .then((info) => {
-//         expect(info).toHaveLength(7)
-//         return null
-//       })
-//   })
-// })
+describe('deleteFavPark', () => {
+  it('deletes correct favourite entry', () => {
+    const test = {
+      id: 3
+    }
+    return db.deleteFavPark(test, testDb)
+      .then(() => getTestFavourites())
+      .then((info) => {
+        expect(info).toHaveLength(12)
+        return null
+      })
+  })
+})

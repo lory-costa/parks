@@ -14,7 +14,7 @@ import { getPark } from './ParkDetailsHelper'
 
 function ParkDetails () {
   const { id } = useParams()
-  const [view, setView] = useState('View Decription')
+  const [view, setView] = useState('View Description')
   const [park, setPark] = useState([])
   const [button, setButton] = useState(false)
 
@@ -46,7 +46,7 @@ function ParkDetails () {
 
   const parkRate = rates.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0) / rates.length
 
-  if (!isAdmin) {
+  if (!approved) {
     return <AdminRedirect />
   }
 

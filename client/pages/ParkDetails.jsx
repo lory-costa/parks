@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
+import AdminRedirect from '../pages/AdminRedirect'
 import Header from '../components/Header'
 import Facilities from '../components/Facilities'
 import Comments from '../components/Comments'
@@ -44,6 +45,10 @@ function ParkDetails () {
   }
 
   const parkRate = rates.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0) / rates.length
+
+  if (!isAdmin) {
+    return <AdminRedirect />
+  }
 
   return (
     <div className='flex flex-col'>

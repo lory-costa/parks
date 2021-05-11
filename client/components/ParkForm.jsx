@@ -81,6 +81,10 @@ export default function ParkForm (props) {
     approved
   } = form
 
+  let widget = window.cloudinary.createUploadWidget({
+    cloudName::
+  })
+
   return (
     <div className='flex flex-col mt-8 mx-14'>
       <h1 className='text-green-700 text-3xl mb-4'>Add a Park</h1>

@@ -24,12 +24,17 @@ beforeEach(() => {
 })
 
 describe('getToVisitByUserId', () => {
-    it('returns parks visited with correct info'), () => {
-        return db.getToVisitByUserId(1, testDb)
-          .then(toVisit => {
-              console.log(toVisit)
-              expect(toVisit[0].id).toBe(2)
-              expect(toVisit[0].parkId).toBe(2)
-          })
-    }
-})
+    it('returns info on the parks visited by userID and is correct', () => {
+      return db.getToVisitByUserId(1, testDb)
+        .then(toVisit => {
+            console.log(toVisit)
+          expect(toVisit[0].id).toBe(2)
+          expect(toVisit[0].parkId).toBe(2)
+          expect(toVisit[0].userId).toBe(1)
+          expect(toVisit[0].name).toMatch('Mt Hobson Path')
+          expect(toVisit[0].image).toMatch('mtHobsonPath')
+          return null
+        })
+    })
+  })
+  

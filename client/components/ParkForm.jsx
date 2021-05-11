@@ -71,7 +71,7 @@ export default function ParkForm (props) {
     lon,
     url,
     description,
-    image,
+    imageUrl,
     playground,
     toilets,
     picnicSite,
@@ -81,9 +81,28 @@ export default function ParkForm (props) {
     approved
   } = form
 
-  let widget = window.cloudinary.createUploadWidget({
-    cloudName::
-  })
+  const checkUploadResult = (resultEvent) => {
+    if (resultEvent.event === 'success') {
+      const imageUrl = resultEvent.info.secure_url
+      setForm({
+        ...form,
+        imageUrl: imageUrl
+      })
+      console.log(resultEvent.info.secure_url)
+      return imageUrl
+    }
+  }
+
+  function showWidget (event, widget) {
+    event.preventDefault()
+    widget.open()
+  }
+
+  const widget = window.cloudinary.createUploadWidget({
+    cloudName: 'dvsikj1gh',
+    uploadPreset: 'guboz3wj'
+  },
+  (error, result) => { checkUploadResult(result) })
 
   return (
     <div className='flex flex-col mt-8 mx-14'>
@@ -175,7 +194,21 @@ export default function ParkForm (props) {
           <label htmlFor='image' className='text-lg'>
             Image
           </label>
+          <div id='photo-form-container'>
+            <button onClick={(event) => { showWidget(event, widget) }}>Upload Photo</button>
+          </div>
           <input
+            id='image'
+            name='image'
+            className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500 mb-4'
+            placeholder='https://www.example.com'
+            pattern='https://.*'
+            size='30'
+            type='url'
+            value={imageUrl}
+            onChange={handleChange}
+          />
+          {/* <input
             id='image'
             name='image'
             className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500 mb-4'
@@ -183,7 +216,7 @@ export default function ParkForm (props) {
             type='text'
             value={image}
             onChange={handleChange}
-          />
+          /> */}
         </div>
         <div>
           <ParkFormFacilityItem

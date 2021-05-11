@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "node server",
-    "test": "jest --watchall --verbose",
+    "test": "jest --watchAll --verbose",
     "test:watch": "jest --noStackTrace --watchAll",
     "dev": "run-p dev:client dev:server",
     "dev:client": "npm run webpack -- --watch",

@@ -74,6 +74,7 @@ function addPark (newPark, db = connection) {
       dog_Walking: dogWalking,
       approved: approved
     })
+    .then((ids) => getParkById(ids[0], db))
 }
 
 function deletePark (submission, db = connection) {

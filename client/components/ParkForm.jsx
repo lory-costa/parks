@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { validate, rules } from './ValidationForm'
 import ParkFormFacilityItem from './ParkFormFacilityItem'
 
-export default function ParkForm (props) {
+export default function ParkForm(props) {
   const isAdmin = useSelector((globalState) => globalState.user.isAdmin)
+  const [widget, setWidget] = useState({})
 
   const [invalid, setInvalid] = useState({})
   const [form, setForm] = useState(
@@ -34,7 +35,7 @@ export default function ParkForm (props) {
   }
 
   // onChange for text inputs
-  function handleChange (e) {
+  function handleChange(e) {
     const { name, value } = e.target
     setForm({
       ...form,
@@ -42,7 +43,7 @@ export default function ParkForm (props) {
     })
   }
   // onChange for checkbox inputs
-  function handleInputChange (event) {
+  function handleInputChange(event) {
     const target = event.target
     const name = target.name
 
@@ -53,7 +54,7 @@ export default function ParkForm (props) {
   }
 
   // Submit
-  function handleSubmit (e) {
+  function handleSubmit(e) {
     const results = validate(form, validationRules, invalid)
     e.preventDefault()
 
@@ -93,16 +94,21 @@ export default function ParkForm (props) {
     }
   }
 
-  function showWidget (event, widget) {
+  function showWidget(event, widget) {
     event.preventDefault()
     widget.open()
   }
 
-  const widget = window.cloudinary.createUploadWidget({
-    cloudName: 'dvsikj1gh',
-    uploadPreset: 'guboz3wj'
-  },
-  (error, result) => { checkUploadResult(result) })
+  useEffect(() => {
+    console.log('hehel')
+    setWidget(window.cloudinary.createUploadWidget({
+      cloudName: 'dvsikj1gh',
+      uploadPreset: 'guboz3wj'
+    },
+      (error, result) => {
+        checkUploadResult(result)
+      }))
+  }, [])
 
   return (
     <div className='flex flex-col mt-8 mx-14'>
@@ -269,7 +275,7 @@ export default function ParkForm (props) {
             {approved ? <img src='/icons/activeMarker.gif' alt="Active Park" width='25' />
               : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='25' />}
             <label htmlFor='approved' className='text-lg'>
-                Park Approved
+              Park Approved
             </label>
             <div className='md:w-1/3'>
             </div>

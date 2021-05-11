@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import requestor from '../consume'
 
+import requestor from '../consume
 import Header from '../components/Header'
 import ParkForm from '../components/ParkForm'
 
@@ -28,7 +28,6 @@ export default function AddPark (props) {
     <div>
       <Header />
       <ParkForm
-        className='md:flex md:justify-center mb-6'
         action='Add Park'
         submitPark={submitPark}
       />

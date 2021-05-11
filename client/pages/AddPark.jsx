@@ -41,6 +41,7 @@ export default function AddPark (props) {
       <Header />
       <div className='flex flex-col mt-20 mx-14'>
         <h1 className='text-green-700 text-3xl'>Add a Park</h1>
+        <h4 className='text-gray-700'> *required fields</h4>
         <ParkForm
           action='Add Park'
           submitPark={submitPark}

@@ -7,6 +7,10 @@ export default function ParkForm (props) {
   const isAdmin = useSelector((globalState) => globalState.user.isAdmin)
   const [widget, setWidget] = useState({})
 
+  // state for image upload button
+  const [color, setColor] = useState('bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded focus:outline-green-500')
+  const [upload, setUpload] = useState('Upload Photo')
+
   const [invalid, setInvalid] = useState({})
   const [form, setForm] = useState(
     props.formData || {
@@ -84,12 +88,17 @@ export default function ParkForm (props) {
   } = form
   console.log(form)
 
+  function changeButtonColor () {
+    setColor('bg-green-500 hover:bg-green-500 text-white py-2 px-4 rounded focus:outline-none')
+  }
+
   // Cloudinary functions
   // check upload was successful then pull the sescure_url off the response
   // NOTE: image is secure_url
   const checkUploadResult = (resultEvent) => {
     if (resultEvent.event === 'success') {
       const image = resultEvent.info.secure_url
+      setUpload('Image uploaded')
       setForm({
         ...form,
         image: image
@@ -102,6 +111,7 @@ export default function ParkForm (props) {
   function showWidget (event, widget) {
     event.preventDefault()
     widget.open()
+    changeButtonColor()
   }
   // Accessing cloudinary account in widget pop-up
   useEffect(() => {
@@ -119,7 +129,7 @@ export default function ParkForm (props) {
       <form className='flex flex-col md:flex-row'>
         <div className='w-1/3 mr-16'>
           <label htmlFor='name' className='text-lg'>
-            Park Name
+            Park Name*
           </label>
           <input
             data-validation='isRequired'
@@ -133,7 +143,7 @@ export default function ParkForm (props) {
           />
           {invalid.name && <div>{invalid.name}</div>}
           <label htmlFor='address' className='text-lg'>
-            Address
+            Address*
           </label>
           <input
             id='address'
@@ -172,7 +182,7 @@ export default function ParkForm (props) {
           />
           {invalid.lon && <div>{invalid.lon}</div>}
           <label htmlFor='url' className='text-lg'>
-            Website (url)
+            Website (url)*
           </label>
           <input
             id='url'
@@ -187,7 +197,7 @@ export default function ParkForm (props) {
           />
           {invalid.url && <div>{invalid.url}</div>}
           <label htmlFor='description' className='text-lg'>
-            Description
+            Description*
           </label>
           <textarea
             id='description'
@@ -204,16 +214,16 @@ export default function ParkForm (props) {
             Image
           </label>
           <div id='photo-form-container'>
-            <button onClick={(event) => { showWidget(event, widget) }}>Upload Photo</button>
+            <button className={color} onClick={(event) => { showWidget(event, widget) }}>{upload}</button>
           </div>
           <input
             id='image'
             name='image'
             className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500 mb-4'
-            placeholder='https://www.example.com'
+            placeholder='Please select Upload Photo'
             pattern='https://.*'
             size='30'
-            type='url'
+            type='hidden'
             value={image}
             onChange={handleChange}
           />

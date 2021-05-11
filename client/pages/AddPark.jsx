@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-import requestor from '../consume
+import requestor from '../consume'
 import Header from '../components/Header'
 import ParkForm from '../components/ParkForm'
 
@@ -27,10 +27,13 @@ export default function AddPark (props) {
   return (
     <div>
       <Header />
-      <ParkForm
-        action='Add Park'
-        submitPark={submitPark}
-      />
+      <div className='flex flex-col mt-20 mx-14'>
+        <h1 className='text-green-700 text-3xl'>Add a Park</h1>
+        <ParkForm
+          action='Add Park'
+          submitPark={submitPark}
+        />
+      </div>
     </div >
   )
 }

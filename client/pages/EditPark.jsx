@@ -64,12 +64,15 @@ export default function EditEvent (props) {
   return (
     event
       ? <><Header />
-        <ParkForm
-          formData={event}
-          action='Update Park'
-          submitPark={submitPark}
-        />
-        <Footer /></>
+      <div className='flex flex-col mt-20 mx-14'>
+        <h1 className='text-green-700 text-3xl'>Edit Park</h1>
+          <ParkForm
+            formData={event}
+            action='Update Park'
+            submitPark={submitPark}
+          />
+        </div>
+        </>
       : null
   )
 }

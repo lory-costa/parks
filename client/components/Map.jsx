@@ -53,7 +53,6 @@ export default function Map() {
       <MapContainer
         className='mt-5 relative z-10'
         style={{ width: "100vw", height: "calc(100vh - 172px)" }}
-        // <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
         center={[-36.88267, 174.76667]}
         zoom={13}
         scrollWheelZoom={true}

@@ -30,3 +30,4 @@
 //   render(<Provider store={store}><App /></Provider>)
 //   expect('a').toMatch('a')
 // })
+as

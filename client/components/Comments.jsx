@@ -34,7 +34,7 @@ function Comments (props) {
   }
 
   return (
-    <div className='mt-8 mx-14'>
+    <div className='mx-14'>
       <h3 className='text-xl mb-4 text-green-700'>Comments</h3>
       {isAuthenticated && <div className='bg-gray-100 mb-4 p-4 rounded' >
         <ReactStars

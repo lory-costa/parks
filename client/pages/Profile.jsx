@@ -31,6 +31,26 @@ function Profile () {
       </>
     )
   }
+  console.log(favParks)
+
+  function checkFavs (favParks) {
+    const favyPark = favParks.map(favPark => < ParkListingItem key={favPark.id} parkListing={favPark} type={'favPark'} image='/icons/heart-filled.png' />)
+    if (favParks.length === 0) {
+      console.log('Favourite parks', favParks)
+      return 'No favourite parks yet'
+    } else {
+      return favyPark
+    }
+  }
+
+  function checkVisit (toVisit) {
+    const toVisitParks = toVisit.map(toVisitPark => < ParkListingItem key={toVisitPark.id} parkListing={toVisitPark} type={'toVisitPark'} image='/icons/bookmark-filled.png' />)
+    if (toVisit.length === 0) {
+      return 'No parks on your watch list yet. Get exploring!'
+    } else {
+      return toVisitParks
+    }
+  }
 
   return (
     <div className='flex flex-col'>
@@ -40,13 +60,13 @@ function Profile () {
         <div>
           <h3 className='text-2xl text-gray-700 mb-4'>Favourite Parks</h3>
           <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8' >
-            {favParks.map(favPark => < ParkListingItem key={favPark.id} parkListing={favPark} type={'favPark'} image='/icons/heart-filled.png' />)}
+            {checkFavs(favParks)}
           </ul>
         </div>
         <div>
           <h3 className='text-2xl text-gray-700 mb-4'>Parks to Visit</h3>
           <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4'>
-            {toVisit.map(toVisitPark => < ParkListingItem key={toVisitPark.id} parkListing={toVisitPark} type={'toVisitPark'} image='/icons/bookmark-filled.png' />)}
+            {checkVisit(toVisit)}
           </ul>
         </div>
       </div>

@@ -5,7 +5,6 @@ import { addComment, fetchComments } from '../actions/comments'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import CommentItem from './CommentItem'
-import CommentDelete from './CommentDelete'
 
 function Comments (props) {
   const comments = useSelector(globalState => globalState.comments)
@@ -53,7 +52,6 @@ function Comments (props) {
       <ul>
         {comments.map(comment => (<>
           <CommentItem key={comment.id} userComment={comment} parkId={parkId}/>
-          <CommentDelete key={comment.user} userComment={comment} parkId={parkId}/>
         </>
         ))}
       </ul>

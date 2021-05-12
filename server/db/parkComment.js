@@ -32,20 +32,12 @@ function getCommentsByParkId (id, db = connection) {
     .select('id', 'park_id as parkId', 'user_name as userName', 'comment', 'rating')
     .where('park_id', id)
     .then((result) => {
-      // const parkComment = result[0]
       return result
-      // return {
-      //   id: parkComment.id,
-      //   parkId: parkComment.parkId,
-      //   userName: parkComment.userName,
-      //   comment: parkComment.comment,
-      //   rating: parkComment.rating
-      // }
     })
 }
 
 function updateComment (updatedComment, db = connection) {
-  const { comment, parkId, id } = updatedComment
+  const { comment, id } = updatedComment
   return db('parkComment')
     .where('id', id)
     .update({

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchComments, deleteParkComment } from '../actions/comments'
+import { deleteParkComment } from '../actions/comments'
 
 export default function CommentDelete ({ userComment, parkId }) {
   const { id } = userComment
@@ -11,5 +11,5 @@ export default function CommentDelete ({ userComment, parkId }) {
     return <></>
   }
 
-  return <button onClick={() => deleteParkComment(dispatch, id, parkId)}>X</button>
+  return <button onClick={() => deleteParkComment(dispatch, id, parkId)}><img src='/icons/delete.png' width ="20px" /></button>
 }

@@ -11,6 +11,7 @@ function Admin () {
   const isAdmin = useSelector(globalState => globalState.user.isAdmin)
 
   useEffect(() => {
+    // eslint-disable-next-line promise/catch-or-return
     getParkLocations()
       .then(({ parks }) => {
         setParks(parks)

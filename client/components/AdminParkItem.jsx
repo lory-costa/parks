@@ -6,13 +6,6 @@ export default function AdminParkItem ({ parkListing, deleteItem }) {
   const { name, id, approved } = parkListing
   const [isApprovedStatus, setIsApproved] = useState(approved)
 
-  function handleInputChange (event) {
-    const { target } = event
-    setIsApproved(target.checked)
-
-    return toggleParkApprovedStatus(id, !isApprovedStatus)
-  }
-
   function toggleClick () {
     setIsApproved(!isApprovedStatus)
     return toggleParkApprovedStatus(id, !isApprovedStatus)

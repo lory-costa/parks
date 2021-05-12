@@ -2,7 +2,7 @@ import { getParkApprovalStatus } from '../apis/park'
 export const SET_PARK = 'SET_PARK'
 
 export function setPark (park) {
-  const approvalStatus = park.approved ? true : false
+  const approvalStatus = !!park.approved
 
   return {
     type: SET_PARK,

@@ -59,7 +59,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.body
   db.deletePark({ id })
     .then(() => {
@@ -77,8 +77,8 @@ router.delete('/', (req, res) => {
 })
 
 router.patch('/:id', (req, res) => {
-  const { id, approved } = req.body
-  const updatedPark = { id, approved }
+  const { id, name, address, description, lat, lon, url, image, playGround, picnicSite, sportsField, toilets, tramp, dogWalking, approved } = req.body
+  const updatedPark = { id, name, address, description, lat, lon, url, image, playGround, picnicSite, sportsField, toilets, tramp, dogWalking, approved }
   db.updatePark(updatedPark)
     .then((park) => {
       res.status(200).json(park)

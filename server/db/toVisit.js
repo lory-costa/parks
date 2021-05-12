@@ -8,7 +8,8 @@ module.exports = {
 
 function getToVisitByUserId (id, db = connection) {
   return db('toVisit')
-    .select('id', 'park_id as parkId', 'user_id as userId')
+    .leftJoin('parks', 'toVisit.park_id', 'parks.id')
+    .select('toVisit.id as id', 'park_id as parkId', 'user_id as userId', 'parks.name as name', 'parks.image as image')
     .where('user_id', id)
 }
 
@@ -22,7 +23,7 @@ function addParkToVisit (submission, db = connection) {
 }
 
 function deleteParkFromToVisit (submission, db = connection) {
-  const { id } = submission
+  const id = submission
   return db('toVisit')
     .where({ id: id })
     .delete()

@@ -1,16 +1,33 @@
-import React, { useState } from 'react'
-import { toggleParkApprovedStatus } from './ParkListingItemHelper'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { deleteFavPark } from '../actions/favParks'
+import { deleteToVisitPark } from '../actions/toVisit'
+import { useDispatch } from 'react-redux'
 
-export default function ParkListingItem ({ parkListing }) {
-  const { name, id, approved } = parkListing
-  const [isApprovedStatus, setIsApproved] = useState(approved)
+export default function ParkListingItem ({ parkListing, type, image }) {
+  const dispatch = useDispatch()
 
-  function handleInputChange (event) {
-    const { target } = event
-    setIsApproved(target.checked)
-
-    return toggleParkApprovedStatus(id, !isApprovedStatus)
+  function deletePark (id) {
+    if (type === 'favPark') {
+      deleteFavPark(dispatch, id)
+    } else {
+      deleteToVisitPark(dispatch, id)
+    }
   }
 
-  return <li>{name}------<input type="checkbox" checked={isApprovedStatus} onChange={(event) => handleInputChange(event)} /></li>
+  return (
+    <div
+      className='border-gray-200 border-2 rounded-lg'
+      key={parkListing.id}>
+      <Link to={`/park-details/${parkListing.parkId}`}>
+        <img src={parkListing.image} alt="park image" className='object-cover h-36 w-full rounded-t-lg mb-2' />
+      </Link>
+      <p className='ml-2' >{parkListing.name}</p>
+      <div className='text-right mr-2 mt-1 mb-1'>
+        <button onClick={(e) => deletePark(parkListing.id)}>
+          <img src={image} alt="Remove Park" width='20'/>
+        </button>
+      </div>
+    </div>
+  )
 }

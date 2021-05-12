@@ -7,8 +7,10 @@ import Nav from './Nav'
 function Header () {
   return (
     <div className='flex justify-between mt-8 mx-14 items-center' >
-      <div className='text-4xl' >
-        <Link to="/">PARKS</Link>
+      <div>
+        <Link to="/main">
+          <img className='flex flex-col bg-cover h-10' src='/images/logos/ProjectLogoFinal.png'/>
+        </Link>
       </div>
       <Nav />
     </div>

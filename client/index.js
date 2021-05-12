@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <Auth0Provider
       domain="dev-zipxfr0g.us.auth0.com"
       clientId="3aihuOf7l5QiXbtKjZ2hPOjUjFIyaqCB"
-      redirectUri='http://localhost:3000/Main'
-      useRefreshTokens={true}
+      redirectUri='http://localhost:3000/main'
+      // useRefreshTokens={true}
       // audience={}
     >
       <Provider store={store}>

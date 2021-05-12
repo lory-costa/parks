@@ -8,13 +8,16 @@ module.exports = {
 }
 
 function addComment (newComment, db = connection) {
-  const { parkId, userId, comment } = newComment
+  const { id, parkId, userName, comment, rating } = newComment
   return db('parkComment')
     .insert({
+      id: id,
       park_id: parkId,
-      user_id: userId,
-      comment
+      user_name: userName,
+      comment,
+      rating: rating
     })
+    .then(() => getCommentsByParkId(parkId, db))
 }
 
 function deleteComment (submission, db = connection) {
@@ -26,8 +29,19 @@ function deleteComment (submission, db = connection) {
 
 function getCommentsByParkId (id, db = connection) {
   return db('parkComment')
-    .select('id', 'park_id as parkId', 'user_id as userId', 'comment', 'rating')
+    .select('id', 'park_id as parkId', 'user_name as userName', 'comment', 'rating')
     .where('park_id', id)
+    .then((result) => {
+      // const parkComment = result[0]
+      return result
+      // return {
+      //   id: parkComment.id,
+      //   parkId: parkComment.parkId,
+      //   userName: parkComment.userName,
+      //   comment: parkComment.comment,
+      //   rating: parkComment.rating
+      // }
+    })
 }
 
 function updateComment (updatedComment, db = connection) {
@@ -37,4 +51,5 @@ function updateComment (updatedComment, db = connection) {
     .update({
       comment
     })
+    .then(() => getCommentsByParkId(id, db))
 }

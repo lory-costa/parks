@@ -31,13 +31,11 @@ function Profile () {
       </>
     )
   }
-  console.log(favParks)
 
   function checkFavs (favParks) {
     const favyPark = favParks.map(favPark => < ParkListingItem key={favPark.id} parkListing={favPark} type={'favPark'} image='/icons/heart-filled.png' />)
     if (favParks.length === 0) {
-      console.log('Favourite parks', favParks)
-      return 'No favourite parks yet'
+      return <p className='text-green-600 -mt-4' >You don't have any favourite parks yet.</p>
     } else {
       return favyPark
     }
@@ -46,7 +44,7 @@ function Profile () {
   function checkVisit (toVisit) {
     const toVisitParks = toVisit.map(toVisitPark => < ParkListingItem key={toVisitPark.id} parkListing={toVisitPark} type={'toVisitPark'} image='/icons/bookmark-filled.png' />)
     if (toVisit.length === 0) {
-      return 'No parks on your watch list yet. Get exploring!'
+      return <p className='text-green-600 -mt-4' >No parks on your watchlist yet. Get exploring!</p>
     } else {
       return toVisitParks
     }

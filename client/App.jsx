@@ -11,6 +11,7 @@ import Profile from './pages/Profile'
 import ParkDetails from './pages/ParkDetails'
 import AddPark from './pages/AddPark'
 import EditPark from './pages/EditPark'
+import About from './pages/About'
 
 import { dispatch } from './store'
 
@@ -18,8 +19,8 @@ function App () {
   const { isLoading, user } = useAuth0()
 
   if (isLoading) {
-    return <div className='relative h-screen w-screen'>
-      <div className='absolute top-1/2 left-1/2' style={{ transform: 'translate(-50%, -50%)'}}>
+    return <div className='r                                                                                                                                                                                                        elative h-screen w-screen'>
+      <div className='absolute top-1/2 left-1/2' style={{ transform: 'translate(-50%, -50%)' }}>
         <img className='block mx-auto' src='/images/Loading.gif' />
       </div>
     </div>
@@ -38,6 +39,7 @@ function App () {
       <Route path='/park-details/:id' component={ParkDetails} />
       <Route path='/add-park' component={AddPark} />
       <Route path='/edit-park/:id' component={EditPark} />
+      <Route path='/about' component={About} />
     </>
   )
 }

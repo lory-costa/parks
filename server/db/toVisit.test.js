@@ -32,7 +32,7 @@ describe('getToVisitByUserId', () => {
           expect(toVisit[0].parkId).toBe(2)
           expect(toVisit[0].userId).toBe(1)
           expect(toVisit[0].name).toMatch('Mt Hobson Path')
-          expect(toVisit[0].image).toMatch('mtHobsonPath')
+          expect(toVisit[0].image).toMatch('https://res.cloudinary.com/dvsikj1gh/image/upload/v1620789915/Public/parkImages/sjsq5iocs9fuc576nq0h.jpg')
           return null
         })
     })

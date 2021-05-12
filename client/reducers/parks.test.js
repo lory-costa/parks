@@ -1,5 +1,5 @@
-import { SET_PARKS } from '../actions/parks'
-import parkReducer from './parks'
+import { SET_PARK } from '../actions/park'
+import parkReducer from './park'
 
 describe('park reducer', () => {
   it('returns new park object on "SET_PARKS"', () => {
@@ -9,7 +9,7 @@ describe('park reducer', () => {
     }
 
     const action = {
-      type: SET_PARKS,
+      type: SET_PARK,
       park: {
         id: 2,
         park_name: 'very cool park'

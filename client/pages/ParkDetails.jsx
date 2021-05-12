@@ -59,7 +59,7 @@ function ParkDetails () {
       <Header />
 
       <div style={{ minHeight: 'calc(100vh - 172px)' }}>
-        <div className='flex flex-col flex-col-reverse lg:flex-row justify-between mt-10 mx-14'>
+        <div className='flex flex-col flex-col-reverse lg:flex-row justify-between mt-10 mx-4 lg:mx-14'>
           <div className='w-full lg:w-1/2' >
             <div className='flex flex-col lg:flex-row'>
               <h1 className='text-2xl mr-4 text-green-700'>{name}</h1>
@@ -75,7 +75,7 @@ function ParkDetails () {
             <Facilities playground={playGround} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
             {isAdmin && <Link to={`/edit-park/${id}`}><button className='bg-green-700 hover:bg-green-500 text-white py-2 px-4 rounded mt-4 focus:outline-none'>Edit Park</button></Link>}
           </div>
-          <div className='mb-4 lg:mb-0 lg:w-1/2'>
+          <div className='mb-4 ml-4 lg:mb-0 lg:w-1/2'>
             <img src={image} className='rounded-lg' alt="park image" width="100%" height="600" />
           </div>
         </div>

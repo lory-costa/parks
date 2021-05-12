@@ -34,8 +34,8 @@ function Comments (props) {
   }
 
   return (
-    <div className='mx-14'>
-      <h3 className='text-xl mb-4 text-green-700'>Comments</h3>
+    <div className='mx-4 lg:mx-14 mt-4'>
+      <h3 className='text-xl mb-4 text-green-700'>Reviews</h3>
       {!(comments.filter(comment => comment.userName === user.name)).length && isAuthenticated && <div className='bg-gray-100 mb-4 p-4 rounded' >
         <ReactStars
           count={5}
@@ -45,8 +45,8 @@ function Comments (props) {
           activeColor="#ffd700"
         />
         <div className='flex flex-col lg:flex-row justify-between items-center mt-2' >
-          <input className='border rounded py-2 px-4 w-full' type="text" placeholder="Add a comment" value={newComment} onChange={handleChange} />
-          <button className='border rounded py-2 px-4 mt-2 ml-0 lg:ml-2 lg:mt-0 bg-white focus:outline-none' onClick={handleSubmit}>Submit</button>
+          <input className='border rounded py-2 px-4 w-full' type="text" placeholder="Add a review" value={newComment} onChange={handleChange} />
+          <button className='border rounded py-2 px-4 mt-2 ml-0 lg:ml-2 lg:mt-0 bg-white focus:outline-none' onClick={handleSubmit}>Send</button>
         </div>
       </div> }
       <ul>

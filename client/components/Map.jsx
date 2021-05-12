@@ -65,10 +65,10 @@ export default function Map () {
             icon={greenIcon}
             position={[park.lat, park.lon]}
           >
-            <Popup>
+            <Popup className='w-60' >
               <img className='mb-2' src={park.image}></img>
-              <Link to={`/park-details/${park.id}`}>{park.name}</Link>
-              <div>{park.address}</div>
+              <Link className='text-base' to={`/park-details/${park.id}`}>{park.name}</Link>
+              <div className='text-sm text-gray-500'>{park.address}</div>
               <div className='mt-2'>
                 {favParks.filter((favPark) => favPark.parkId === park.id)
                   .length ? (

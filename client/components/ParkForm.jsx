@@ -121,7 +121,7 @@ export default function ParkForm (props) {
       }
       checkUploadResult(result)
     }))
-  }, [])image
+  }, [])
 
   return (
     <>

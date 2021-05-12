@@ -10,7 +10,7 @@ export default function ParkForm (props) {
   // state for image upload button
   const [color, setColor] = useState('bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded focus:outline-green-500')
   const [upload, setUpload] = useState('Upload Photo')
-
+  const [image, setImage] = useState((props.formData && props.formData.image) || '')
   const [invalid, setInvalid] = useState({})
   const [form, setForm] = useState(
     props.formData || {
@@ -20,7 +20,6 @@ export default function ParkForm (props) {
       lon: 174.77547498145518,
       url: '',
       description: '',
-      image: '',
       playGround: 0,
       toilets: 0,
       picnicSite: 0,
@@ -63,7 +62,8 @@ export default function ParkForm (props) {
     e.preventDefault()
 
     if (results.isValid) {
-      props.submitPark(form)
+      const park = { ...form, image }
+      props.submitPark(park)
     } else {
       console.log('something went wrong')
       setInvalid(results.details)
@@ -77,7 +77,6 @@ export default function ParkForm (props) {
     lon,
     url,
     description,
-    image,
     playGround,
     toilets,
     picnicSite,
@@ -97,21 +96,16 @@ export default function ParkForm (props) {
   // NOTE: image is secure_url
   const checkUploadResult = (resultEvent) => {
     if (resultEvent.event === 'success') {
-      const image = resultEvent.info.secure_url
+      changeButtonColor()
       setUpload('Image uploaded')
-      setForm({
-        ...form,
-        image: image
-      })
+      setImage(resultEvent.info.secure_url)
       console.log(resultEvent.info.secure_url)
-      return image
     }
   }
   // pop up widget shows for image upload
   function showWidget (event, widget) {
     event.preventDefault()
     widget.open()
-    changeButtonColor()
   }
   // Accessing cloudinary account in widget pop-up
   useEffect(() => {
@@ -120,9 +114,14 @@ export default function ParkForm (props) {
       uploadPreset: 'guboz3wj'
     },
     (error, result) => {
+      if (error) {
+        // TODO: Let the user know something is wrong
+        console.log('Upload error:', error)
+        return
+      }
       checkUploadResult(result)
     }))
-  }, [])
+  }, [])image
 
   return (
     <>
@@ -216,7 +215,7 @@ export default function ParkForm (props) {
           <div id='photo-form-container'>
             <button className={color} onClick={(event) => { showWidget(event, widget) }}>{upload}</button>
           </div>
-          <input
+          {/* <input
             id='image'
             name='image'
             className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500 mb-4'
@@ -226,7 +225,7 @@ export default function ParkForm (props) {
             type='hidden'
             value={image}
             onChange={handleChange}
-          />
+          /> */}
         </div>
 
         <div className='mt-4'>

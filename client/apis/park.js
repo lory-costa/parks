@@ -1,7 +1,7 @@
 import request from 'superagent'
 
-export function getParks () {
-  return request.get('/api/v1/park')
+export function getParkApprovalStatus (id) {
+  return request.get(`/api/v1/park/${id}`)
     .then(res => {
       return res.body.parks
     })

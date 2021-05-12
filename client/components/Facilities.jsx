@@ -12,7 +12,7 @@ function Facilities ({ url, playground, toilets, picnicSite, sportsField, tramp,
         {!!tramp && <img className='mr-3' src='/icons/tramp.png' alt="tramp walking icon" width="35" height="35" />}
         {!!dogWalking && <img src='/icons/dogWalking.png' alt="dog allowed icon" width="35" height="35" />}
       </div>
-      <p className='mt-4' >For more information, visit the <a className='underline' target='_blank' href={url}>council website</a>.</p>
+      <p className='mt-4' >For more information, visit the <a className='underline' target='_blank' href={url} rel="noreferrer">council website</a>.</p>
     </div>
   )
 }

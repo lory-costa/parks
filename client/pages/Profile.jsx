@@ -35,7 +35,7 @@ function Profile () {
   function checkFavs (favParks) {
     const favyPark = favParks.map(favPark => < ParkListingItem key={favPark.id} parkListing={favPark} type={'favPark'} image='/icons/heart-filled.png' />)
     if (favParks.length === 0) {
-      return <p className='text-green-600 -mt-4' >You don't have any favourite parks yet.</p>
+      return <p className='text-green-600 -mt-4' >You don&apdos;t have any favourite parks yet.</p>
     } else {
       return favyPark
     }

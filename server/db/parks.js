@@ -74,6 +74,7 @@ function addPark (newPark, db = connection) {
       dog_Walking: dogWalking,
       approved: approved
     })
+    .then((ids) => getParkById(ids[0], db))
 }
 
 function deletePark (submission, db = connection) {
@@ -84,13 +85,23 @@ function deletePark (submission, db = connection) {
 }
 
 function updatePark (updatedPark, db = connection) {
-  const {
-    id, name, address, lat, lon, council_url, description, image,
-    playground, toilets, picnic_site, sports_field, tramp, dog_walking, approved
-  } = updatedPark
+  const { id, name, address, description, lat, lon, url, image, playGround, picnicSite, sportsField, toilets, tramp, dogWalking, approved } = updatedPark
   return db('parks')
     .where('id', id)
     .update({
+      name: name,
+      address: address,
+      description: description,
+      lat: lat,
+      lon: lon,
+      council_url: url,
+      image: image,
+      playGround: playGround,
+      picnic_site: picnicSite,
+      sports_field: sportsField,
+      toilets: toilets,
+      tramp: tramp,
+      dog_Walking: dogWalking,
       approved: approved
     })
     .then(() => getParkById(id, db))

@@ -26,9 +26,9 @@ export function deletePark (id, consume = requestor) {
   return consume(`/park/${id}}`, 'delete', userData)
     .then(() => {
       return consume('/park')
-        .then((res) => {
-          return res.body.parks
-        })
+    })
+    .then((res) => {
+      return res.body.parks
     })
     .catch((error) => {
       dispatch(showError(error.message))

@@ -8,11 +8,11 @@ function Footer () {
   const isAdmin = useSelector(globalState => globalState.user.isAdmin)
 
   return (
-    <div className='flex justify-between mt-4 mx-14 text-green-700'>
-      <div className='py-2'>
-        <Link to="/">Kahikatea Dev Academy</Link>
+    <div className='flex justify-between mt-4 mb-2 mx-14 text-green-700'>
+      <div className='py-2 underline'>
+        <Link to="/about">EDA - Kahikatea 2021</Link>
       </div>
-      <div className='py-2'>
+      <div className='py-2 underline'>
         { isAuthenticated && <Link to="/add-park">
           {isAdmin ? 'Add a Park' : 'Suggest a Park'}
         </Link>}

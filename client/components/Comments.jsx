@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import ReactStars from 'react-rating-stars-component'
 import { addComment, fetchComments } from '../actions/comments'
 import { useAuth0 } from '@auth0/auth0-react'
 
 import CommentItem from './CommentItem'
-import Rating from './Rating'
 
 function Comments (props) {
   const comments = useSelector(globalState => globalState.comments)
   const user = useSelector(globalState => globalState.user)
   const parkId = props.parkId
   const [newComment, setNewComment] = useState('')
+  const [newRating, setNewRating] = useState(0)
   const dispatch = useDispatch()
   const { isAuthenticated } = useAuth0()
 
   useEffect(() => {
-    dispatch(fetchComments(parkId))
+    fetchComments(dispatch, parkId)
   }, [])
 
   const handleChange = (e) => {
@@ -24,24 +25,34 @@ function Comments (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(addComment(newComment, parkId, user.name, 5)) // TODO: 1. Johann - Pass a real userId (this will be from auth0) 2.Lory - Pass a real rating from the react stars component
+    addComment(dispatch, newComment, parkId, user.name, newRating)
     setNewComment('')
   }
 
+  const handleRatingChange = (rating) => {
+    setNewRating(rating)
+  }
+
   return (
-    <div className='mt-8 mx-14'>
+    <div className='mx-14'>
       <h3 className='text-xl mb-4 text-green-700'>Comments</h3>
-      {isAuthenticated && <div className='bg-gray-100 mb-4 p-4 rounded' >
-        <Rating />
+      {!(comments.filter(comment => comment.userName === user.name)).length && isAuthenticated && <div className='bg-gray-100 mb-4 p-4 rounded' >
+        <ReactStars
+          count={5}
+          onChange={handleRatingChange}
+          size={24}
+          color='#BBB'
+          activeColor="#ffd700"
+        />
         <div className='flex flex-col lg:flex-row justify-between items-center mt-2' >
           <input className='border rounded py-2 px-4 w-full' type="text" placeholder="Add a comment" value={newComment} onChange={handleChange} />
-          <button className='border rounded py-2 px-4 mt-2 ml-0 lg:ml-2 lg:mt-0 bg-white' onClick={handleSubmit}>Submit</button>
+          <button className='border rounded py-2 px-4 mt-2 ml-0 lg:ml-2 lg:mt-0 bg-white focus:outline-none' onClick={handleSubmit}>Submit</button>
         </div>
-      </div>
-      }
+      </div> }
       <ul>
-        {comments.map(comment => (
-          <CommentItem key={comment.id} userComment={comment} />
+        {comments.map(comment => (<>
+          <CommentItem key={comment.id} userComment={comment} parkId={parkId}/>
+        </>
         ))}
       </ul>
     </div>

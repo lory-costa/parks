@@ -9,7 +9,7 @@ module.exports = {
 function getToVisitByUserId (id, db = connection) {
   return db('toVisit')
     .leftJoin('parks', 'toVisit.park_id', 'parks.id')
-    .select('toVisit.id as id', 'park_id as parkId', 'user_id as userId', 'parks.name as name')
+    .select('toVisit.id as id', 'park_id as parkId', 'user_id as userId', 'parks.name as name', 'parks.image as image')
     .where('user_id', id)
 }
 

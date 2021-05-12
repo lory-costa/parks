@@ -6,6 +6,10 @@
   "keywords": [
     "fullstack"
   ],
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "start": "node server",
     "test": "jest --watchall --verbose",

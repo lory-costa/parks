@@ -11,6 +11,7 @@ import Profile from './pages/Profile'
 import ParkDetails from './pages/ParkDetails'
 import AddPark from './pages/AddPark'
 import EditPark from './pages/EditPark'
+import About from './pages/About'
 
 import { dispatch } from './store'
 
@@ -38,6 +39,7 @@ function App () {
       <Route path='/park-details/:id' component={ParkDetails} />
       <Route path='/add-park' component={AddPark} />
       <Route path='/edit-park/:id' component={EditPark} />
+      <Route path='/about' component={About} />
     </>
   )
 }

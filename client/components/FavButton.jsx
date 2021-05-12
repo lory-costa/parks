@@ -11,10 +11,8 @@ export default function mFavButton ({ parkId, heart, favParkId }) {
 
   function handleClick (heart) {
     if (!heart) {
-      console.log(heart, 'I am adding', parkId, 'to my favorites')
       addToFavParks(dispatch, userId, parkId)
     } else {
-      console.log(heart, 'I am deleteing', favParkId)
       deleteFavPark(dispatch, favParkId)
     }
   }
@@ -23,7 +21,7 @@ export default function mFavButton ({ parkId, heart, favParkId }) {
     return <>
       { isAuthenticated &&
         <div className='flex items-center'>
-          <button className='focus:outline-none' onClick={() => handleClick(heart)}><img src='./icons/heart-filled.png' width='20'/></button><span className='ml-2' >Remove from favourites</span>
+          <button className='focus:outline-none' onClick={() => handleClick(heart)}><img src='./icons/heart-filled.png' width='20'/></button><span onClick={() => handleClick(heart)} className='ml-2 cursor-pointer text-sm' >Remove from favourites</span>
         </div>
       }
     </>
@@ -33,7 +31,7 @@ export default function mFavButton ({ parkId, heart, favParkId }) {
     <>
       {isAuthenticated &&
         <div className='flex items-center'>
-          <button className='focus:outline-none' onClick={() => handleClick(heart)}><img src='./icons/heart.png' width='20'/></button><span className='ml-2' >Add to favourites</span>
+          <button className='focus:outline-none' onClick={() => handleClick(heart)}><img src='./icons/heart.png' width='20'/></button><span onClick={() => handleClick(heart)} className='ml-2 cursor-pointer text-sm' >Add to favourites</span>
         </div>
       }
     </>

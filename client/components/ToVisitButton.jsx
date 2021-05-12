@@ -23,7 +23,7 @@ export default function ToVisitButton ({ parkId, toVisit, toVisitParkId }) {
     return <>
       { isAuthenticated &&
         <div className='flex items-center' >
-          <button className='focus:outline-none' onClick={() => handleClick(toVisit)}><img src='./icons/bookmark-filled.png' width='20'/></button><span className='ml-2' >Remove from watchlist</span>
+          <button className='focus:outline-none' onClick={() => handleClick(toVisit)}><img src='./icons/bookmark-filled.png' width='20'/></button><span onClick={() => handleClick(toVisit)} className='ml-2 cursor-pointer text-sm' >Remove from watchlist</span>
         </div>
       }
     </>
@@ -33,7 +33,7 @@ export default function ToVisitButton ({ parkId, toVisit, toVisitParkId }) {
     <>
       {isAuthenticated &&
         <div className='flex items-center'>
-          <button className='focus:outline-none' onClick={() => handleClick(toVisit)}><img src='./icons/bookmark.png' width='20'/></button><span className='ml-2' >Add to watchlist</span>
+          <button className='focus:outline-none' onClick={() => handleClick(toVisit)}><img src='./icons/bookmark.png' width='20'/></button><span onClick={() => handleClick(toVisit)} className='ml-2 cursor-pointer text-sm' >Add to watchlist</span>
         </div>
       }
     </>

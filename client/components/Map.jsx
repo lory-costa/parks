@@ -35,6 +35,7 @@ export default function Map () {
     return fBool === filter.length
   }
 
+  // eslint-disable-next-line no-undef
   const greenIcon = new L.Icon({
     iconUrl:
       'https://raw.githubusercontent.com/kahikatea-2021/parks/frontend/server/public/icons/mapMarker.png?token=ASUCVDFJPTDDETP2PWK63Q3AUHJS2',

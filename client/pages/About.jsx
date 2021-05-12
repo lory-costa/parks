@@ -38,33 +38,37 @@ function About () {
         </div>
         <h3 className='text-3xl text-center text-green-700 mb-4'>The Project</h3>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 gap-4 mt-8 mb-8' >
-          <div className='border-gray-200 border-2 rounded-lg mb-4'>
-            <img src="/images/pictures/board.jpg" alt="group picture" className='object-cover h-full w-full rounded-t-lg mb-2'/>
-            <p className='ml-2'>The Plan</p>
+          <div className='bg-gray-100 border-gray-200 border-4 rounded-lg mb-6'>
+            <p className='py-2 ml-2'>The Plan</p>
+            <img src="/images/pictures/board.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
           </div>
-          <div className='border-gray-200 border-2 rounded-lg mb-4'>
-            <img src="/images/pictures/day1.jpg" alt="group picture" className='object-cover h-full w-full rounded-t-lg mb-2'/>
-            <p className='ml-2'>Day 1</p>
+          <div className='bg-gray-100 border-gray-200 border-2 rounded-lg mb-6'>
+            <p className='py-2 ml-2'>Day 1</p>
+            <img src="/images/pictures/plan.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
           </div>
-          <div className='border-gray-200 border-2 rounded-lg mb-4'>
-            <img src="/images/pictures/day2.jpg" alt="group picture" className='object-cover h-full w-full rounded-t-lg mb-2'/>
-            <p className='ml-2'>Day 2</p>
+          <div className='bg-gray-100 border-gray-200 border-2 rounded-lg mb-6'>
+            <p className='py-2 ml-2'>Day 1</p>
+            <img src="/images/pictures/day1.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
           </div>
-          <div className='border-gray-200 border-2 rounded-lg mb-4'>
-            <img src="/images/pictures/day3.jpg" alt="group picture" className='object-cover h-full w-full rounded-t-lg mb-2'/>
-            <p className='ml-2'>Day 3</p>
+          <div className='bg-gray-100 border-gray-200 border-2 rounded-lg mb-6'>
+            <p className='py-2 ml-2'>Day 2</p>
+            <img src="/images/pictures/day2.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
           </div>
-          <div className='border-gray-200 border-2 rounded-lg mb-4'>
-            <img src="/images/pictures/day4.jpg" alt="group picture" className='object-cover h-full w-full rounded-t-lg mb-2'/>
-            <p className='ml-2'>Day 4</p>
+          <div className='bg-gray-100 border-gray-200 border-2 rounded-lg mb-6'>
+            <p className='py-2 ml-2'>Day 3</p>
+            <img src="/images/pictures/day3.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
           </div>
-          <div className='border-gray-200 border-2 rounded-lg mb-4'>
-            <img src="/images/pictures/day5.jpg" alt="group picture" className='object-cover h-full w-full rounded-t-lg mb-2'/>
-            <p className='ml-2'>Day 5</p>
+          <div className='bg-gray-100 border-gray-200 border-2 rounded-lg mb-6'>
+            <p className='py-2 ml-2'>Day 4</p>
+            <img src="/images/pictures/day4.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
           </div>
-          <div className='border-gray-200 border-2 rounded-lg mb-4'>
-            <img src="/images/pictures/day6.jpg" alt="group picture" className='object-cover h-full w-full rounded-t-lg mb-2'/>
-            <p className='ml-2'>Day 6</p>
+          <div className='bg-gray-100 border-gray-200 border-2 rounded-lg mb-6'>
+            <p className='py-2 ml-2'>Day 5</p>
+            <img src="/images/pictures/day5.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
+          </div>
+          <div className='bg-gray-100 border-gray-200 border-2 rounded-lg mb-4'>
+            <p className='py-2 ml-2'>Day 6</p>
+            <img src="/images/pictures/day6.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
           </div>
         </div>
       </div>

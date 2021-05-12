@@ -38,7 +38,7 @@ function About () {
         </div>
         <h3 className='text-3xl text-center text-green-700 mb-4'>The Project</h3>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 gap-4 mt-8 mb-8' >
-          <div className='bg-gray-100 border-gray-200 border-4 rounded-lg mb-6'>
+          <div className='bg-gray-100 border-gray-200 border-2 rounded-lg mb-6'>
             <p className='py-2 ml-2'>The Plan</p>
             <img src="/images/pictures/board.jpg" alt="group picture" className='object-cover w-full rounded-b-lg'/>
           </div>

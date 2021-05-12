@@ -35,7 +35,7 @@ function Profile () {
   return (
     <div className='flex flex-col'>
       <Header />
-      <div className='mt-20 flex flex-col justify-between mt-10 mx-14 page-content'>
+      <div className='mt-20 flex flex-col mt-10 mx-14 page-content'>
         <h1 className='text-4xl text-green-700 mb-8'>{name}'s profile</h1>
         <div>
           <h3 className='text-2xl text-gray-700 mb-4'>Favourite Parks</h3>

@@ -5,3 +5,7 @@ server/public/bundle.js
 server/public/bundle.js.map
 server/public/index.css
 tags
+server/.DS_Store
+server/public/.DS_Store
+server/public/icons/.DS_Store
+.DS_Store

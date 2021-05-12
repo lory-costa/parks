@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAuth0 } from '@auth0/auth0-react'
 import { fetchMap } from '../actions/map'
 import { fetchFavParks } from '../actions/favParks'
 import { fetchToVisit } from '../actions/toVisit'
@@ -36,6 +35,7 @@ export default function Map () {
     return fBool === filter.length
   }
 
+  // eslint-disable-next-line no-undef
   const greenIcon = new L.Icon({
     iconUrl:
       'https://raw.githubusercontent.com/kahikatea-2021/parks/frontend/server/public/icons/mapMarker.png?token=ASUCVDFJPTDDETP2PWK63Q3AUHJS2',
@@ -52,7 +52,7 @@ export default function Map () {
       <Filter />
       <MapContainer
         className='mt-5 relative z-10'
-        style={{ width: '100vw', height: 'calc(100vh - 172px)' }}
+        style={{ width: '100vw', height: 'calc(100vh - 155px)' }}
         // <MapContainer className="mt-5" style={{ width: 'calc(100vh+100vh)', height: 'calc(100vh - 275px)' }}
         center={[-36.88267, 174.76667]}
         zoom={13}

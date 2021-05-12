@@ -60,7 +60,7 @@ function ParkDetails () {
 
       <div style={{ minHeight: 'calc(100vh - 172px)' }}>
         <div className='flex flex-col flex-col-reverse lg:flex-row justify-between mt-10 mx-14'>
-          <div className='lg:w-1/2  mb-4 p-4' >
+          <div className='w-full lg:w-1/2' >
             <div className='flex flex-col lg:flex-row'>
               <h1 className='text-2xl mr-4 text-green-700'>{name}</h1>
               <ParkRating rating={parkRate} />

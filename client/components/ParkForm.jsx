@@ -101,7 +101,7 @@ export default function ParkForm (props) {
             />
             {invalid.name && <div className='text-red-500'>{invalid.name}</div>}
           </div>
-          
+
           <div className='mt-4'>
             <label htmlFor='address' className='text-lg mt-4'>
               Address
@@ -117,7 +117,7 @@ export default function ParkForm (props) {
             />
             {invalid.address && <div className='text-red-500'>{invalid.address}</div>}
           </div>
-         
+
           <div className='mt-4'>
             <label htmlFor='lat' className='text-lg mt-4'>
               Latitude
@@ -133,7 +133,7 @@ export default function ParkForm (props) {
             />
             {invalid.lat && <div className='text-red-500'>{invalid.lat}</div>}
           </div>
-         
+
           <div className='mt-4'>
             <label htmlFor='lon' className='text-lg mt-4'>
               Longitude
@@ -149,7 +149,7 @@ export default function ParkForm (props) {
             />
             {invalid.lon && <div className='text-red-500'>{invalid.lon}</div>}
           </div>
-          
+
           <div className='mt-4'>
             <label htmlFor='url' className='text-lg mt-4'>
               Website (url)
@@ -167,7 +167,7 @@ export default function ParkForm (props) {
             />
             {invalid.url && <div className='text-red-500'>{invalid.url}</div>}
           </div>
-          
+
           <div className='mt-4'>
             <label htmlFor='image' className='text-lg mt-4'>
               Image
@@ -182,7 +182,7 @@ export default function ParkForm (props) {
               onChange={handleChange}
             />
           </div>
-          
+
           <div className='mt-4'>
             <label htmlFor='description' className='text-lg mt-4'>
               Description
@@ -242,17 +242,17 @@ export default function ParkForm (props) {
       </form>
 
       <div className='flex flex-row justify-between w-1/3 mt-8' >
-          <button
-            className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded focus:outline-none'
-            onClick={handleSubmit}
-          >
-            {props.action}
-          </button>
-          {isAdmin && (
+        <button
+          className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded focus:outline-none'
+          onClick={handleSubmit}
+        >
+          {props.action}
+        </button>
+        {isAdmin && (
           <div className='flex flex-row justify-between items-center' >
             <div>
-            {approved ? <img src='/icons/activeMarker.gif' alt="Active Park" width='20' />
-              : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='20' />}
+              {approved ? <img src='/icons/activeMarker.gif' alt="Active Park" width='20' />
+                : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='20' />}
             </div>
             <div className='mx-4'>
               <input

@@ -19,9 +19,9 @@ function addComment (newComment, db = connection) {
 }
 
 function deleteComment (submission, db = connection) {
-  const { id } = submission
+  const id = submission
   return db('parkComment')
-    .where({ id: id })
+    .where('id', id)
     .delete()
 }
 

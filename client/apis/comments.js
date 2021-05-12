@@ -14,3 +14,9 @@ export function postComment (comment, parkId, userName, rating) {
     .send(commentData)
     .then((res) => res.body)
 }
+
+export function deleteComment (id) {
+  return request
+    .delete(`/api/v1/comments/${id}`)
+    .then((res) => res.body)
+}

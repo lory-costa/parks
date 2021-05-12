@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useParams, Link } from 'react-router-dom'
+
+import { useSelector, useDispatch } from 'react-redux'
 
 import AdminRedirect from '../pages/AdminRedirect'
 import Header from '../components/Header'
@@ -11,18 +11,23 @@ import Footer from '../components/Footer'
 import ParkRating from '../components/ParkRating'
 
 import { getPark } from './ParkDetailsHelper'
+import { fetchPark } from '../actions/park'
 
 function ParkDetails () {
   const { id } = useParams()
   const [view, setView] = useState('View Description')
   const [park, setPark] = useState([])
   const [button, setButton] = useState(false)
+  const dispatch = useDispatch()
 
-  const { name, address, description, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking, approved } = park
+  const { name, address, description, url, image, playGround, toilets, picnicSite, sportsField, tramp, dogWalking } = park
   const rates = useSelector(globalState => globalState.comments)
   const isAdmin = useSelector(globalState => globalState.user.isAdmin)
+  const approved = useSelector(globalState => globalState.park.approved)
+
 
   useEffect(() => {
+    fetchPark(dispatch, id)
     getPark(id)
       .then((park) => {
         setPark(park)
@@ -45,7 +50,7 @@ function ParkDetails () {
 
   const parkRate = rates.reduce((accumulator, currentValue) => accumulator + currentValue.rating, 0) / rates.length
 
-  if (!approved) {
+  if (!approved && !isAdmin) {
     return <AdminRedirect />
   }
 

@@ -5,7 +5,7 @@ function Facilities ({ url, playground, toilets, picnicSite, sportsField, tramp,
     <div>
       <h2 className='mt-4 text-xl mb-2 text-green-700'>Facilities</h2>
       <div className='flex'>
-        {!!playground && <img className='mr-3' src='/icons/playground.png' alt="playground icon" width="35" height="35" />}
+        {!!playground && <img className='mr-3' src='/icons/playGround.png' alt="playground icon" width="35" height="35" />}
         {!!toilets && <img className='mr-3' src='/icons/toilets.png' alt="toilet icon" width="35" height="35" />}
         {!!picnicSite && <img className='mr-3' src='/icons/picnicSite.png' alt="picnic icon" width="35" height="35" />}
         {!!sportsField && <img className='mr-3' src='/icons/sportsField.png' alt="sports icon" width="35" height="35" />}

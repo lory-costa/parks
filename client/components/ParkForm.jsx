@@ -8,7 +8,7 @@ export default function ParkForm (props) {
   const [widget, setWidget] = useState({})
 
   // state for image upload button
-  const [color, setColor] = useState('bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded focus:outline-green-500')
+  const [color, setColor] = useState('bg-gray-700 hover:bg-gray-500 text-white py-2 px-4 rounded focus:outline-green-500')
   const [upload, setUpload] = useState('Upload Photo')
   const [image, setImage] = useState((props.formData && props.formData.image) || '')
   const [invalid, setInvalid] = useState({})
@@ -88,7 +88,7 @@ export default function ParkForm (props) {
   console.log(form)
 
   function changeButtonColor () {
-    setColor('bg-green-500 hover:bg-green-500 text-white py-2 px-4 rounded focus:outline-none')
+    setColor('bg-green-700 text-white py-2 px-4 rounded focus:outline-none')
   }
 
   // Cloudinary functions
@@ -280,7 +280,7 @@ export default function ParkForm (props) {
 
       <div className='flex flex-row justify-between w-1/3 mt-8' >
         <button
-          className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded focus:outline-none'
+          className='bg-green-700 hover:bg-green-500 text-white py-2 px-4 rounded focus:outline-none'
           onClick={handleSubmit}
         >
           {props.action}

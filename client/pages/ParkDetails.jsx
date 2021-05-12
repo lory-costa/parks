@@ -73,7 +73,7 @@ function ParkDetails () {
               </div>
             </div>
             <Facilities playground={playGround} toilets={toilets} picnicSite={picnicSite} sportsField={sportsField} tramp={tramp} dogWalking={dogWalking} url={url} />
-            {isAdmin && <Link to={`/edit-park/${id}`}><button className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mt-4 focus:outline-none'>Edit Park</button></Link>}
+            {isAdmin && <Link to={`/edit-park/${id}`}><button className='bg-green-700 hover:bg-green-500 text-white py-2 px-4 rounded mt-4 focus:outline-none'>Edit Park</button></Link>}
           </div>
           <div className='mb-4 lg:mb-0 lg:w-1/2'>
             <img src={image} className='rounded-lg' alt="park image" width="100%" height="600" />

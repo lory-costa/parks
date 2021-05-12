@@ -277,7 +277,7 @@ export default function ParkForm (props) {
         </div>
       </form>
 
-      <div className='flex flex-col md:flex-row justify-between lg:w-1/3 mt-8' >
+      <div className='flex flex-col md:flex-row justify-between lg:w-1/3 mt-8 mb-8' >
         <button
           className='bg-green-700 hover:bg-green-500 text-white py-2 px-4 rounded focus:outline-none'
           onClick={handleSubmit}

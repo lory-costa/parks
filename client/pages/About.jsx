@@ -93,6 +93,16 @@ function About () {
             <p className='text-gray-500 mb-2'>Some description...</p>
             <img src="/images/pictures/qa.jpg" alt="group picture" className='object-cover w-full rounded-lg'/>
           </div>
+          <div className='mb-6'>
+            <p className='text-xl mb-1'>Day8</p>
+            <p className='text-gray-500 mb-2'>Some description...</p>
+            <img src="/images/pictures/day8.jpg" alt="group picture" className='object-cover w-full rounded-lg'/>
+          </div>
+          <div className='mb-6'>
+            <p className='text-xl mb-1'>Dance</p>
+            <p className='text-gray-500 mb-2'>Some description...</p>
+            <img src="/images/pictures/dance.gif" alt="group picture" className='object-cover w-full rounded-lg'/>
+          </div>
         </div>
       </div>
       <Footer />

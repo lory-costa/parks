@@ -39,7 +39,7 @@ export default function AddPark (props) {
   return (
     <div>
       <Header />
-      <div className='flex flex-col mt-20 mx-14'>
+      <div className='flex flex-col mt-20 mb-12 mx-14'>
         <h1 className='text-green-700 text-3xl'>Add a Park</h1>
         <ParkForm
           action='Add Park'

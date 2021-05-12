@@ -14,31 +14,31 @@ function About () {
             <img src="/images/pictures/sina.jpg" alt="group picture" className='rounded-lg object-cover h-48 w-48 mb-2'/>
             <p className='text-xl text-green-700' >Sina</p>
             <p className='text-gray-500'>Backend Lead</p>
-            <a href="">LinkedIn</a>
+            <a target='_blank' href="https://www.linkedin.com/in/sina-kakhki-he-him-4a3702102/"><img src="/images/pictures/linkedin.png" width='25' alt="linkedin icon"/></a>
           </div>
           <div className='flex flex-col items-center' >
             <img src="/images/pictures/sarah.jpg" alt="group picture" className='rounded-lg object-cover h-48 w-48 mb-2'/>
             <p className='text-xl text-green-700' >Sarah</p>
-            <p className='text-gray-500'>Frontend Dev</p>
-            <a href="">LinkedIn</a>
+            <p className='text-gray-500'>Full Stack Dev</p>
+            <a target='_blank' href="https://www.linkedin.com/in/sarah-s-204bb158/"><img src="/images/pictures/linkedin.png" width='25' alt="linkedin icon"/></a>
           </div>
           <div className='flex flex-col items-center' >
             <img src="/images/pictures/johann.jpg" alt="group picture" className='rounded-lg object-cover h-48 w-48 mb-2'/>
             <p className='text-xl text-green-700' >Johann</p>
             <p className='text-gray-500'>Dev Lead</p>
-            <a href="">LinkedIn</a>
+            <a target='_blank' href="https://www.linkedin.com/in/johann-besas-670159162/"><img src="/images/pictures/linkedin.png" width='25' alt="linkedin icon"/></a>
           </div>
           <div className='flex flex-col items-center' >
             <img src="/images/pictures/jonathan.jpg" alt="group picture" className='rounded-lg object-cover h-48 w-48 mb-2'/>
             <p className='text-xl text-green-700' >Jonathan</p>
-            <p className='text-gray-500'>Backend Dev</p>
-            <a href="">LinkedIn</a>
+            <p className='text-gray-500'>Backend Dev/Designer</p>
+            <a target='_blank' href="https://www.linkedin.com/in/lory-costa-ab581134/"><img src="/images/pictures/linkedin.png" width='25' alt="linkedin icon"/></a>
           </div>
           <div className='flex flex-col items-center' >
             <img src="/images/pictures/lory.jpg" alt="group picture" className='rounded-lg object-cover h-48 w-48 mb-2'/>
             <p className='text-xl text-green-700' >Lory</p>
             <p className='text-gray-500'>Frontend Lead</p>
-            <a href="">LinkedIn</a>
+            <a target='_blank' href="https://www.linkedin.com/in/lory-costa-ab581134/"><img src="/images/pictures/linkedin.png" width='25' alt="linkedin icon"/></a>
           </div>
         </div>
         <h3 className='text-3xl text-center text-green-700 mb-4'>The Project</h3>

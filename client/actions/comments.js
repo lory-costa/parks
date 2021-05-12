@@ -1,4 +1,4 @@
-import { getComments, postComment } from '../apis/comments'
+import { getComments, postComment, deleteComment } from '../apis/comments'
 
 export const SET_COMMENTS = 'SET_COMMENTS'
 
@@ -9,22 +9,26 @@ export function setComments (comments) {
   }
 }
 
-export function fetchComments (parkId) {
-  return (dispatch) => {
-    return getComments(parkId)
-      .then((result) => {
-        dispatch(setComments(result))
-        return null
-      })
-  }
+export function fetchComments (dispatch, parkId) {
+  return getComments(parkId)
+    .then((result) => {
+      dispatch(setComments(result))
+      return null
+    })
 }
 
-export function addComment (comment, parkId, userName, rating) {
-  return (dispatch) => {
-    return postComment(comment, parkId, userName, rating)
-      .then(() => {
-        dispatch(fetchComments(parkId))
-        return null
-      })
-  }
+export function addComment (dispatch, comment, parkId, userName, rating) {
+  return postComment(comment, parkId, userName, rating)
+    .then(() => {
+      fetchComments(dispatch, parkId)
+      return null
+    })
+}
+
+export function deleteParkComment (dispatch, id, parkId) {
+  return deleteComment(id)
+    .then(() => {
+      fetchComments(dispatch, parkId)
+      return null
+    })
 }

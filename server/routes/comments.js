@@ -44,9 +44,9 @@ router.patch('/', (req, res) => {
     })
 })
 
-router.delete('/', (req, res) => {
-  const { id } = req.body
-  db.deleteComment({ id })
+router.delete('/:id', (req, res) => {
+  const id = Number(req.params.id)
+  db.deleteComment(id)
     .then(() => {
       res.sendStatus(200)
       return null

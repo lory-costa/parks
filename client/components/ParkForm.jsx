@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { validate, rules } from './ValidationForm'
 import ParkFormFacilityItem from './ParkFormFacilityItem'
 
 export default function ParkForm (props) {
   const isAdmin = useSelector((globalState) => globalState.user.isAdmin)
+  const [widget, setWidget] = useState({})
 
+  // state for image upload button
+  const [color, setColor] = useState('bg-gray-700 hover:bg-gray-500 text-white py-2 px-4 rounded focus:outline-green-500')
+  const [upload, setUpload] = useState('Upload Photo')
+  const [image, setImage] = useState((props.formData && props.formData.image) || '')
   const [invalid, setInvalid] = useState({})
   const [form, setForm] = useState(
     props.formData || {
@@ -15,8 +20,7 @@ export default function ParkForm (props) {
       lon: 174.77547498145518,
       url: '',
       description: '',
-      image: '',
-      playground: 0,
+      playGround: 0,
       toilets: 0,
       picnicSite: 0,
       sportsField: 0,
@@ -58,8 +62,10 @@ export default function ParkForm (props) {
     e.preventDefault()
 
     if (results.isValid) {
-      props.submitPark(form)
+      const park = { ...form, image }
+      props.submitPark(park)
     } else {
+      console.log('something went wrong')
       setInvalid(results.details)
     }
   }
@@ -71,8 +77,7 @@ export default function ParkForm (props) {
     lon,
     url,
     description,
-    image,
-    playground,
+    playGround,
     toilets,
     picnicSite,
     sportsField,
@@ -80,6 +85,43 @@ export default function ParkForm (props) {
     dogWalking,
     approved
   } = form
+  console.log(form)
+
+  function changeButtonColor () {
+    setColor('bg-green-700 text-white py-2 px-4 rounded focus:outline-none')
+  }
+
+  // Cloudinary functions
+  // check upload was successful then pull the sescure_url off the response
+  // NOTE: image is secure_url
+  const checkUploadResult = (resultEvent) => {
+    if (resultEvent.event === 'success') {
+      changeButtonColor()
+      setUpload('Image uploaded')
+      setImage(resultEvent.info.secure_url)
+      console.log(resultEvent.info.secure_url)
+    }
+  }
+  // pop up widget shows for image upload
+  function showWidget (event, widget) {
+    event.preventDefault()
+    widget.open()
+  }
+  // Accessing cloudinary account in widget pop-up
+  useEffect(() => {
+    setWidget(window.cloudinary.createUploadWidget({
+      cloudName: 'dvsikj1gh',
+      uploadPreset: 'guboz3wj'
+    },
+    (error, result) => {
+      if (error) {
+        // TODO: Let the user know something is wrong
+        console.log('Upload error:', error)
+        return
+      }
+      checkUploadResult(result)
+    }))
+  }, [])
 
   return (
     <>
@@ -101,7 +143,7 @@ export default function ParkForm (props) {
             />
             {invalid.name && <div className='text-red-500'>{invalid.name}</div>}
           </div>
-          
+
           <div className='mt-4'>
             <label htmlFor='address' className='text-lg mt-4'>
               Address
@@ -117,7 +159,7 @@ export default function ParkForm (props) {
             />
             {invalid.address && <div className='text-red-500'>{invalid.address}</div>}
           </div>
-         
+
           <div className='mt-4'>
             <label htmlFor='lat' className='text-lg mt-4'>
               Latitude
@@ -133,7 +175,7 @@ export default function ParkForm (props) {
             />
             {invalid.lat && <div className='text-red-500'>{invalid.lat}</div>}
           </div>
-         
+
           <div className='mt-4'>
             <label htmlFor='lon' className='text-lg mt-4'>
               Longitude
@@ -149,7 +191,7 @@ export default function ParkForm (props) {
             />
             {invalid.lon && <div className='text-red-500'>{invalid.lon}</div>}
           </div>
-          
+
           <div className='mt-4'>
             <label htmlFor='url' className='text-lg mt-4'>
               Website (url)
@@ -167,22 +209,7 @@ export default function ParkForm (props) {
             />
             {invalid.url && <div className='text-red-500'>{invalid.url}</div>}
           </div>
-          
-          <div className='mt-4'>
-            <label htmlFor='image' className='text-lg mt-4'>
-              Image
-            </label>
-            <input
-              id='image'
-              name='image'
-              className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              placeholder='jpg,png,svg'
-              type='text'
-              value={image}
-              onChange={handleChange}
-            />
-          </div>
-          
+
           <div className='mt-4'>
             <label htmlFor='description' className='text-lg mt-4'>
               Description
@@ -199,13 +226,23 @@ export default function ParkForm (props) {
             />
             {invalid.description && <div className='text-red-500' >{invalid.description}</div>}
           </div>
+
+          <div className='mt-4'>
+            <label htmlFor='image' className='text-lg'>
+            Image
+            </label>
+            <div id='photo-form-container'>
+              <button className={color} onClick={(event) => { showWidget(event, widget) }}>{upload}</button>
+            </div>
+          </div>
+
         </div>
 
         <div className='mt-4'>
           <ParkFormFacilityItem
             facilityName={'Playground'}
-            facilityValue={'playground'}
-            checkValue={playground}
+            facilityValue={'playGround'}
+            checkValue={playGround}
             onChangeFunc={handleInputChange}
           />
           <ParkFormFacilityItem
@@ -242,17 +279,17 @@ export default function ParkForm (props) {
       </form>
 
       <div className='flex flex-row justify-between w-1/3 mt-8' >
-          <button
-            className='bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded focus:outline-none'
-            onClick={handleSubmit}
-          >
-            {props.action}
-          </button>
-          {isAdmin && (
+        <button
+          className='bg-green-700 hover:bg-green-500 text-white py-2 px-4 rounded focus:outline-none'
+          onClick={handleSubmit}
+        >
+          {props.action}
+        </button>
+        {isAdmin && (
           <div className='flex flex-row justify-between items-center' >
             <div>
-            {approved ? <img src='/icons/activeMarker.gif' alt="Active Park" width='20' />
-              : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='20' />}
+              {approved ? <img src='/icons/activeMarker.gif' alt="Active Park" width='20' />
+                : <img src='/icons/dormantMarker.png' alt="Dormant Park" width='20' />}
             </div>
             <div className='mx-4'>
               <input
@@ -265,7 +302,7 @@ export default function ParkForm (props) {
             </div>
             <div>
               <label htmlFor='approved' className='text-lg text-green-700'>
-                  Approve Park
+                Approve Park
               </label>
             </div>
           </div>

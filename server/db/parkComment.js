@@ -8,20 +8,22 @@ module.exports = {
 }
 
 function addComment (newComment, db = connection) {
-  const { parkId, userName, comment, rating } = newComment
+  const { id, parkId, userName, comment, rating } = newComment
   return db('parkComment')
     .insert({
+      id: id,
       park_id: parkId,
       user_name: userName,
       comment,
       rating: rating
     })
+    .then(() => getCommentsByParkId(parkId, db))
 }
 
 function deleteComment (submission, db = connection) {
-  const { id } = submission
+  const id = submission
   return db('parkComment')
-    .where({ id: id })
+    .where('id', id)
     .delete()
 }
 
@@ -29,13 +31,17 @@ function getCommentsByParkId (id, db = connection) {
   return db('parkComment')
     .select('id', 'park_id as parkId', 'user_name as userName', 'comment', 'rating')
     .where('park_id', id)
+    .then((result) => {
+      return result
+    })
 }
 
 function updateComment (updatedComment, db = connection) {
-  const { comment, parkId, id } = updatedComment
+  const { comment, id } = updatedComment
   return db('parkComment')
     .where('id', id)
     .update({
       comment
     })
+    .then(() => getCommentsByParkId(id, db))
 }

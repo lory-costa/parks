@@ -16,7 +16,7 @@ function Comments (props) {
   const { isAuthenticated } = useAuth0()
 
   useEffect(() => {
-    dispatch(fetchComments(parkId))
+    fetchComments(dispatch, parkId)
   }, [])
 
   const handleChange = (e) => {
@@ -25,7 +25,7 @@ function Comments (props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(addComment(newComment, parkId, user.name, newRating))
+    addComment(dispatch, newComment, parkId, user.name, newRating)
     setNewComment('')
   }
 
@@ -36,7 +36,7 @@ function Comments (props) {
   return (
     <div className='mx-14'>
       <h3 className='text-xl mb-4 text-green-700'>Comments</h3>
-      {isAuthenticated && <div className='bg-gray-100 mb-4 p-4 rounded' >
+      {!(comments.filter(comment => comment.userName === user.name)).length && isAuthenticated && <div className='bg-gray-100 mb-4 p-4 rounded' >
         <ReactStars
           count={5}
           onChange={handleRatingChange}
@@ -48,11 +48,11 @@ function Comments (props) {
           <input className='border rounded py-2 px-4 w-full' type="text" placeholder="Add a comment" value={newComment} onChange={handleChange} />
           <button className='border rounded py-2 px-4 mt-2 ml-0 lg:ml-2 lg:mt-0 bg-white focus:outline-none' onClick={handleSubmit}>Submit</button>
         </div>
-      </div>
-      }
+      </div> }
       <ul>
-        {comments.map(comment => (
-          <CommentItem key={comment.id} userComment={comment} />
+        {comments.map(comment => (<>
+          <CommentItem key={comment.id} userComment={comment} parkId={parkId}/>
+        </>
         ))}
       </ul>
     </div>

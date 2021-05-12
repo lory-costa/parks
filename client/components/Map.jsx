@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAuth0 } from '@auth0/auth0-react'
 import { fetchMap } from '../actions/map'
 import { fetchFavParks } from '../actions/favParks'
 import { fetchToVisit } from '../actions/toVisit'
@@ -36,6 +35,7 @@ export default function Map () {
     return fBool === filter.length
   }
 
+  // eslint-disable-next-line no-undef
   const greenIcon = new L.Icon({
     iconUrl:
       'https://raw.githubusercontent.com/kahikatea-2021/parks/frontend/server/public/icons/mapMarker.png?token=ASUCVDFJPTDDETP2PWK63Q3AUHJS2',

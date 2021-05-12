@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ParkFormFacilityItem({
+export default function ParkFormFacilityItem ({
   facilityName,
   facilityValue,
   checkValue,
@@ -23,5 +23,5 @@ export default function ParkFormFacilityItem({
       />
       <label htmlFor={facilityValue}>{facilityName}</label>
     </div>
-  );
+  )
 }

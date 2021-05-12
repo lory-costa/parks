@@ -14,8 +14,8 @@ export default function Nav () {
       <div>
         {!isAuthenticated ? <LoginButton /> : < LogoutButton />}
       </div>
-      {!!isAdmin && <Link to = '/admin'><button className='focus:outline-none bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded ml-4'>Admin</button></Link>}
-      {!!isAuthenticated && <Link to = '/profile'><button className='focus:outline-none bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded ml-4'>Profile</button></Link> }
+      {!!isAdmin && <Link to = '/admin'><button className='focus:outline-none bg-green-700 hover:bg-green-500 text-white py-2 px-4 rounded ml-4'>Admin</button></Link>}
+      {!!isAuthenticated && <Link to = '/profile'><button className='focus:outline-none bg-green-700 hover:bg-green-500 text-white py-2 px-4 rounded ml-4'>Profile</button></Link> }
     </div>
   )
 }

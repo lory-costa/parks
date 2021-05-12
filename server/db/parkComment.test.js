@@ -31,8 +31,8 @@ describe('getCommentsByParkId', () => {
         expect(parkComments[0].id).toBe(1)
         expect(parkComments[0].parkId).toBe(1)
         expect(parkComments[0].userName).toMatch('Anna')
-        expect(parkComments[0].comment).toMatch('Omg')
-        expect(parkComments[0].rating).toBe(3)
+        expect(parkComments[0].comment).toMatch('Nice Park')
+        expect(parkComments[0].rating).toBe(4)
         return null
       })
   })
@@ -66,7 +66,7 @@ describe('deleteComment', () => {
     return db.deleteComment(test, testDb)
       .then(() => getTestComment())
       .then((info) => {
-        expect(info).toHaveLength(7)
+        expect(info).toHaveLength(8)
         return null
       })
   })

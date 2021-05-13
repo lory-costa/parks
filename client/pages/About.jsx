@@ -32,7 +32,7 @@ function About () {
             <img src="/images/pictures/jonathan.jpg" alt="group picture" className='rounded-lg object-cover h-48 w-48 mb-2'/>
             <p className='text-xl text-green-700' >Jonathan</p>
             <p className='text-gray-500 mb-2'>Backend Dev/Designer</p>
-            <a target='_blank' href="https://www.linkedin.com/in/lory-costa-ab581134/"><img src="/images/pictures/linkedin.png" width='25' alt="linkedin icon"/></a>
+            <a target='_blank' href="https://www.linkedin.com/in/jonathan-zhou-829a46211"><img src="/images/pictures/linkedin.png" width='25' alt="linkedin icon"/></a>
           </div>
           <div className='flex flex-col items-center' >
             <img src="/images/pictures/lory.jpg" alt="group picture" className='rounded-lg object-cover h-48 w-48 mb-2'/>

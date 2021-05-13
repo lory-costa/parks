@@ -6,10 +6,10 @@ import Nav from './Nav'
 
 function Header () {
   return (
-    <div className='flex justify-between mt-8 mx-4 lg:mx-14 items-center' >
+    <div className='flex flex-row justify-between mt-8 mx-4 lg:mx-14 items-center' >
       <div>
         <Link to="/main">
-          <img className='flex flex-col bg-cover h-10' src='/images/logos/ProjectLogoGreen.png'/>
+          <img className='w-68 bg-cover h-10' src='/images/logos/ProjectLogoGreen.png'/>
         </Link>
       </div>
       <Nav />

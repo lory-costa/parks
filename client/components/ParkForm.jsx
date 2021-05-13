@@ -85,7 +85,6 @@ export default function ParkForm (props) {
     dogWalking,
     approved
   } = form
-  console.log(form)
 
   function changeButtonColor () {
     setColor('bg-green-700 text-white py-2 px-4 rounded focus:outline-none')
@@ -116,7 +115,6 @@ export default function ParkForm (props) {
     (error, result) => {
       if (error) {
         // TODO: Let the user know something is wrong
-        console.log('Upload error:', error)
         return
       }
       checkUploadResult(result)
@@ -126,18 +124,19 @@ export default function ParkForm (props) {
   return (
     <>
       <form className='flex flex-col md:flex-row'>
-        <div className='w-1/3 mr-16'>
+        <div className='sm:w-full lg:w-1/3 lg:mr-16'>
           <div className='mt-4'>
             <label htmlFor='name' className='text-lg mt-4'>
-              Park Name
+              Park Name*
             </label>
             <input
+              autoFocus
               data-validation='isRequired'
               id='name'
               name='name'
               className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
               type='text'
-              placeholder='Park Awesome'
+              placeholder='Albert Park'
               value={name}
               onChange={handleChange}
             />
@@ -146,13 +145,13 @@ export default function ParkForm (props) {
 
           <div className='mt-4'>
             <label htmlFor='address' className='text-lg mt-4'>
-              Address
+              Address*
             </label>
             <input
               id='address'
               name='address'
               className='bg-gray-200 border-2 rounded w-full py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-green-500'
-              placeholder='12 Morgan Street'
+              placeholder='12 Morgan Street, Newmarket'
               type='text'
               value={address}
               onChange={handleChange}
@@ -194,7 +193,7 @@ export default function ParkForm (props) {
 
           <div className='mt-4'>
             <label htmlFor='url' className='text-lg mt-4'>
-              Website (url)
+              Website (url)*
             </label>
             <input
               id='url'
@@ -212,7 +211,7 @@ export default function ParkForm (props) {
 
           <div className='mt-4'>
             <label htmlFor='description' className='text-lg mt-4'>
-              Description
+              Description*
             </label>
             <textarea
               id='description'
@@ -278,7 +277,7 @@ export default function ParkForm (props) {
         </div>
       </form>
 
-      <div className='flex flex-row justify-between w-1/3 mt-8' >
+      <div className='flex flex-col md:flex-row justify-between lg:w-1/3 mt-8 mb-8' >
         <button
           className='bg-green-700 hover:bg-green-500 text-white py-2 px-4 rounded focus:outline-none'
           onClick={handleSubmit}

@@ -13,7 +13,7 @@ export default function FilterItem ({ facilityIcon, facilityValue }) {
   }
 
   return <div className='px-2'>
-    <label>{facilityIcon}</label>
+    <label htmlFor={facilityValue}>{facilityIcon}</label>
     <input
       id={facilityValue}
       name={facilityValue}

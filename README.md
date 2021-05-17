@@ -33,12 +33,6 @@ You can find the server running on [http://localhost:3000](http://localhost:3000
     - From an admin page, the admin should see a list of user suggestions and select to accept or decline the new page
 
 
-## User interface (proposal)
-
-![Homepage](docs/home.png)
-![MapPage](docs/mapPage.png)
-![ParkDetails](docs/parkDetails.png)
-
 ## User interface (final)
 
 ![Landingpage](docs/landingPage.png)

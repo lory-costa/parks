@@ -56,7 +56,7 @@ Add Park Page|About Page
 
 ## Authors
 **Sarah Smith**
-**Sina Kakhki**
+**Sina Kakhki** - [@sina-kakhki](https://github.com/sina-kakhki)
 **Jonathan Zhou**
 **Johann Besas**
 **Lory Costa**

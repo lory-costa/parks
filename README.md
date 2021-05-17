@@ -4,7 +4,7 @@
 
 ### From the command line
 
-```
+```bash
 npm install # to install dependencies
 npm run knex migrate:latest # to reset database
 npm run knex seed:run # to get seed data
@@ -47,3 +47,4 @@ Add Park Page|About Page
 ------------------------------------|-------------------------------
 ![AboutPage](docs/addPark.png)|![AddParkPage](docs/aboutPage.png)
 
+## Authors

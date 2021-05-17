@@ -14,18 +14,18 @@ export default function ParkForm (props) {
   const [invalid, setInvalid] = useState({})
   const [form, setForm] = useState(
     props.formData || {
-      name: '',
-      address: '',
-      lat: -36.858961086253935,
-      lon: 174.77547498145518,
-      url: '',
-      description: '',
+      name: 'Albert Park',
+      address: '33-43 Princes Street',
+      lat: -36.85069409130585,
+      lon: 174.76748040205254,
+      url: 'https://www.aucklandcouncil.govt.nz/parks-recreation/Pages/park-details.aspx?Location=169',
+      description: 'Albert Park is one of Auckland’s most important parks. Its central location in the heart of the CBD, together with its long history and distinctive character, have earned it a special place in the hearts of Aucklanders and made it an important destination for visitors.',
       playGround: 0,
-      toilets: 0,
-      picnicSite: 0,
-      sportsField: 0,
-      tramp: 0,
-      dogWalking: 0,
+      toilets: 1,
+      picnicSite: 1,
+      sportsField: 1,
+      tramp: 1,
+      dogWalking: 1,
       approved: 0
     }
   )

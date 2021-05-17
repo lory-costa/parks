@@ -59,7 +59,7 @@ Add Park Page|About Page
 
 
 ## Authors
-**Sarah Smith**
+- Sarah Smith
 
 - Sina Kakhki - [@sina-kakhki](https://github.com/sina-kakhki)
 

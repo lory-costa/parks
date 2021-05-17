@@ -2,6 +2,7 @@
 
 > Explore and find your new favorite parks
 
+
 ### From the command line
 
 ```bash
@@ -13,6 +14,7 @@ npm run dev # to start the dev server
 ```
 
 You can find the server running on [http://localhost:3000](http://localhost:3000).
+
 
 ## User stories (from highest priority)
 1. As a member, I want to view a map of parks
@@ -59,10 +61,10 @@ Add Park Page|About Page
 ## Authors
 **Sarah Smith**
 
-**Sina Kakhki** - [@sina-kakhki](https://github.com/sina-kakhki)
+- Sina Kakhki - [@sina-kakhki](https://github.com/sina-kakhki)
 
-**Jonathan Zhou** - [@jonathan-zhou](https://github.com/jonathan-zhou)
+- Jonathan Zhou - [@jonathan-zhou](https://github.com/jonathan-zhou)
 
-**Johann Besas** - [@johannbesas](https://github.com/johannbesas)
+- Johann Besas - [@johannbesas](https://github.com/johannbesas)
 
-**Lory Costa** - [@lory-costa](https://github.com/lory-costa)
+- Lory Costa - [@lory-costa](https://github.com/lory-costa)

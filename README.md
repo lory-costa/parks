@@ -35,13 +35,9 @@ You can find the server running on [http://localhost:3000](http://localhost:3000
 
 ## User interface
 
-![Landingpage](docs/landingPage.png)
-
-![MainPage](docs/mainPage.png)
-
-![ParkDetails](docs/parkDetailsPage.png)
-
-![AdminPage](docs/adminPage.png)
-
+![Landingpage](docs/landingPage.png)|![MainPage](docs/mainPage.png)
+------------------------------------|------------------------------
+![ParkDetails](docs/parkDetailsPage.png)|![AdminPage](docs/adminPage.png)
+------------------------------------|-------------------------------
 ![AboutPage](docs/aboutPage.png)
 

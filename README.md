@@ -47,4 +47,16 @@ Add Park Page|About Page
 ------------------------------------|-------------------------------
 ![AboutPage](docs/addPark.png)|![AddParkPage](docs/aboutPage.png)
 
+
+## Tech Stack
+**Client:** React, Redux, TailwindCSS
+**Server:** Node, Express
+**Auth:** Auth0
+
+
 ## Authors
+**Sarah Smith**
+**Sina Kakhki**
+**Jonathan Zhou**
+**Johann Besas**
+**Lory Costa**

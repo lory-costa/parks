@@ -16,6 +16,7 @@ npm run dev # to start the dev server
 You can find the server running on [http://localhost:3000](http://localhost:3000).
 
 
+
 ## User Stories (from highest priority)
 1. As a member, I want to view a map of parks
     - Main page displays a map with clickable parks which will lead to park details page
@@ -35,6 +36,7 @@ You can find the server running on [http://localhost:3000](http://localhost:3000
     - From an admin page, the admin should see a list of user suggestions and select to accept or decline the new page
 
 
+
 ## User Interface
 
 Landing Page|Main Page
@@ -50,12 +52,14 @@ Add Park Page|About Page
 ![AboutPage](docs/addPark.png)|![AddParkPage](docs/aboutPage.png)
 
 
+
 ## Tech Stack
 **Client:** React, Redux, TailwindCSS
 
 **Server:** Node, Express
 
 **Auth:** Auth0
+
 
 
 ## Authors

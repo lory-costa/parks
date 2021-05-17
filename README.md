@@ -7,8 +7,8 @@
 ```
 npm install # to install dependencies
 npm run knex migrate:latest # to reset database
-npm run knex seed:run # to run seed data
-npm run tailbuild # to have css working
+npm run knex seed:run # to get seed data
+npm run tailbuild # to build tailwind
 npm run dev # to start the dev server
 ```
 
@@ -33,14 +33,15 @@ You can find the server running on [http://localhost:3000](http://localhost:3000
     - From an admin page, the admin should see a list of user suggestions and select to accept or decline the new page
 
 
-## User interface (final)
+## User interface
 
 ![Landingpage](docs/landingPage.png)
+
 ![MainPage](docs/mainPage.png)
+
 ![ParkDetails](docs/parkDetailsPage.png)
+
 ![AdminPage](docs/adminPage.png)
+
 ![AboutPage](docs/aboutPage.png)
 
-## CSS
-Tailwind.css has been added to the project.
-Please refer to the documenation: https://tailwindcss.com/docs

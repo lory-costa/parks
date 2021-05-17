@@ -50,13 +50,19 @@ Add Park Page|About Page
 
 ## Tech Stack
 **Client:** React, Redux, TailwindCSS
+
 **Server:** Node, Express
+
 **Auth:** Auth0
 
 
 ## Authors
 **Sarah Smith**
+
 **Sina Kakhki** - [@sina-kakhki](https://github.com/sina-kakhki)
-**Jonathan Zhou**
-**Johann Besas**
-**Lory Costa**
+
+**Jonathan Zhou** - [@jonathan-zhou](https://github.com/jonathan-zhou)
+
+**Johann Besas** - [@johannbesas](https://github.com/johannbesas)
+
+**Lory Costa** - [@lory-costa](https://github.com/lory-costa)

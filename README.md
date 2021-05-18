@@ -63,7 +63,7 @@ Add Park Page|About Page
 
 
 ## Authors
-- Sarah Smith
+- Sarah Smith - [@sarah-smith-nz](https://github.com/sarah-smith-nz)
 
 - Sina Kakhki - [@sina-kakhki](https://github.com/sina-kakhki)
 
